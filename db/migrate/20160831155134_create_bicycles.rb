@@ -8,41 +8,41 @@ class CreateBicycles < ActiveRecord::Migration[5.0]
       t.string :c3
       t.string :c4
       t.string :c5
-      t.string :c6
+      t.integer :c6
       t.string :c7
-      t.string :c8
-      t.string :c9
-      t.string :c10
-      t.string :c11
-      t.string :c12
-      t.string :c13
+      t.boolean :c8
+      t.boolean :c9
+      t.boolean :c10
+      t.integer :c11
+      t.integer :c12
+      t.integer :c13
       t.string :c14
-      t.string :c15
-      t.string :c16
+      t.decimal :c15
+      t.decimal :c16
       t.string :c17
       t.string :c18
-      t.string :c19
+      t.boolean :c19
       t.string :c20
-      t.string :c21
-      t.string :c22
-      t.string :c23
-      t.string :c24
-      t.string :c25
-      t.string :c26
-      t.string :c27
-      t.string :c28
-      t.string :c29
-      t.string :c30
-      t.string :c31
-      t.string :c32
+      t.integer :c21
+      t.boolean :c22
+      t.boolean :c23
+      t.boolean :c24
+      t.boolean :c25
+      t.boolean :c26
+      t.integer :c27
+      t.boolean :c28
+      t.boolean :c29
+      t.boolean :c30
+      t.boolean :c31
+      t.boolean :c32
       t.string :c33
       t.string :c34
-      t.string :c35
-      t.string :c36
-      t.string :c37
-      t.string :c38
-      t.string :c39
-      t.string :c40
+      t.boolean :c35
+      t.boolean :c36
+      t.boolean :c37
+      t.boolean :c38
+      t.integer :c39
+      t.integer :c40
       t.string :c41
       t.string :c42
       t.string :c43
@@ -51,42 +51,43 @@ class CreateBicycles < ActiveRecord::Migration[5.0]
       t.string :c46
       t.string :c47
       t.string :c48
-      t.string :c49
-      t.string :c50
-      t.string :c51
-      t.string :c52
-      t.string :c53
-      t.string :c54
+      t.integer :c49
+      t.integer :c50
+      t.boolean :c51
+      t.integer :c52
+      t.integer :c53
+      t.integer :c54
       t.string :c55
       t.string :c56
       t.string :c57
       t.string :c58
       t.string :c59
       t.string :c60
-      t.string :c1
-      t.string :c2
-      t.string :c3
-      t.string :c4
-      t.string :c5
-      t.string :c6
-      t.string :c7
-      t.string :c8
-      t.string :c9
-      t.string :c10
-      t.string :c1
-      t.string :c2
-      t.string :c3
-      t.string :c4
-      t.string :c5
-      t.string :c6
-      t.string :c7
-      t.string :c8
-      t.string :c9
-      t.string :c10
-      t.string :c1
-      t.string :c1
-      t.string :c1
-      t.string :c1
+      t.boolean :c61
+      t.boolean :c62
+      t.boolean :c63
+      t.string :c64
+      t.string :c65
+      t.string :c66
+      t.boolean :c67
+      t.boolean :c68
+      t.string :c69
+      t.string :c70
+      t.string :c71
+      t.boolean :c72
+      t.boolean :c73
+      t.boolean :c74
+      t.boolean :c75
+      t.boolean :c76
+      t.boolean :c77
+      t.boolean :c78
+      t.integer :c79
+      t.string :c80
+      t.decimal :c81
+      t.decimal :c82
+      t.decimal :c83
+      t.boolean :c84
+      t.boolean :c85
 
       t.timestamps
     end
