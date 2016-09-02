@@ -88,6 +88,10 @@ class CreateBicycles < ActiveRecord::Migration[5.0]
       t.decimal :c83
       t.boolean :c84
       t.boolean :c85
+      t.boolean :c86
+      t.string :c87
+      t.boolean :c88
+      t.boolean :c89
 
       t.timestamps
     end
