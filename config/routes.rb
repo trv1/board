@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :adverts
   resources :users
 
   get 'login' => "sessions#new", as: :login

@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Vehicle:
+  = @advert.vehicle
+p
+  strong User:
+  = @advert.user
+p
+  strong Location:
+  = @advert.location
+
+= link_to 'Edit', edit_advert_path(@advert)
+'|
+= link_to 'Back', adverts_path

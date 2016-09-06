@@ -11,6 +11,7 @@ class CreateLocations < ActiveRecord::Migration[5.0]
       t.string :timezone
       t.boolean :is_edited
       t.string :code
+      t.integer :parent, index: true
 
       t.timestamps
     end
