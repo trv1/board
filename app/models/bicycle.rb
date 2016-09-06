@@ -1,5 +1,5 @@
 class Bicycle < ApplicationRecord
-  include VehicleValidates
+  include BicycleValidates
 
   belongs_to :brand
   has_many :adverts, as: :vehicle

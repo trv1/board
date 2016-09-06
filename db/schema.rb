@@ -53,77 +53,77 @@ ActiveRecord::Schema.define(version: 20160905190339) do
   create_table "bicycles", force: :cascade do |t|
     t.integer  "price"
     t.integer  "brand_id"
-    t.string   "c1"
-    t.string   "c2"
-    t.string   "c3"
-    t.string   "c4"
-    t.string   "c5"
-    t.integer  "c6"
-    t.string   "c7"
+    t.integer  "c1",         limit: 2
+    t.integer  "c2",         limit: 2
+    t.integer  "c3",         limit: 2
+    t.integer  "c4",         limit: 2
+    t.integer  "c5",         limit: 2
+    t.integer  "c6",         limit: 2
+    t.integer  "c7",         limit: 2
     t.boolean  "c8"
     t.boolean  "c9"
     t.boolean  "c10"
-    t.integer  "c11"
-    t.integer  "c12"
-    t.integer  "c13"
-    t.string   "c14"
+    t.integer  "c11",        limit: 2
+    t.integer  "c12",        limit: 2
+    t.integer  "c13",        limit: 2
+    t.integer  "c14",        limit: 2
     t.decimal  "c15"
     t.decimal  "c16"
-    t.string   "c17"
-    t.string   "c18"
+    t.integer  "c17",        limit: 2
+    t.integer  "c18",        limit: 2
     t.boolean  "c19"
-    t.string   "c20"
-    t.integer  "c21"
+    t.integer  "c20",        limit: 2
+    t.integer  "c21",        limit: 2
     t.boolean  "c22"
     t.boolean  "c23"
     t.boolean  "c24"
     t.boolean  "c25"
     t.boolean  "c26"
-    t.integer  "c27"
+    t.integer  "c27",        limit: 2
     t.boolean  "c28"
     t.boolean  "c29"
     t.boolean  "c30"
     t.boolean  "c31"
     t.boolean  "c32"
-    t.string   "c33"
-    t.string   "c34"
+    t.integer  "c33",        limit: 2
+    t.integer  "c34",        limit: 2
     t.boolean  "c35"
     t.boolean  "c36"
     t.boolean  "c37"
     t.boolean  "c38"
-    t.integer  "c39"
-    t.integer  "c40"
-    t.string   "c41"
-    t.string   "c42"
-    t.string   "c43"
-    t.string   "c44"
-    t.string   "c45"
-    t.string   "c46"
-    t.string   "c47"
-    t.string   "c48"
-    t.integer  "c49"
-    t.integer  "c50"
+    t.integer  "c39",        limit: 2
+    t.integer  "c40",        limit: 2
+    t.integer  "c41",        limit: 2
+    t.integer  "c42",        limit: 2
+    t.integer  "c43",        limit: 2
+    t.integer  "c44",        limit: 2
+    t.integer  "c45",        limit: 2
+    t.integer  "c46",        limit: 2
+    t.integer  "c47",        limit: 2
+    t.integer  "c48",        limit: 2
+    t.integer  "c49",        limit: 2
+    t.integer  "c50",        limit: 2
     t.boolean  "c51"
-    t.integer  "c52"
-    t.integer  "c53"
-    t.integer  "c54"
-    t.string   "c55"
-    t.string   "c56"
-    t.string   "c57"
-    t.string   "c58"
-    t.string   "c59"
-    t.string   "c60"
+    t.integer  "c52",        limit: 2
+    t.integer  "c53",        limit: 2
+    t.integer  "c54",        limit: 2
+    t.integer  "c55",        limit: 2
+    t.integer  "c56",        limit: 2
+    t.integer  "c57",        limit: 2
+    t.integer  "c58",        limit: 2
+    t.integer  "c59",        limit: 2
+    t.integer  "c60",        limit: 2
     t.boolean  "c61"
     t.boolean  "c62"
     t.boolean  "c63"
-    t.string   "c64"
-    t.string   "c65"
-    t.string   "c66"
+    t.integer  "c64",        limit: 2
+    t.integer  "c65",        limit: 2
+    t.integer  "c66",        limit: 2
     t.boolean  "c67"
     t.boolean  "c68"
-    t.string   "c69"
-    t.string   "c70"
-    t.string   "c71"
+    t.integer  "c69",        limit: 2
+    t.integer  "c70",        limit: 2
+    t.integer  "c71",        limit: 2
     t.boolean  "c72"
     t.boolean  "c73"
     t.boolean  "c74"
@@ -131,19 +131,19 @@ ActiveRecord::Schema.define(version: 20160905190339) do
     t.boolean  "c76"
     t.boolean  "c77"
     t.boolean  "c78"
-    t.integer  "c79"
-    t.string   "c80"
+    t.integer  "c79",        limit: 2
+    t.integer  "c80",        limit: 2
     t.decimal  "c81"
     t.decimal  "c82"
     t.decimal  "c83"
     t.boolean  "c84"
     t.boolean  "c85"
     t.boolean  "c86"
-    t.string   "c87"
+    t.integer  "c87",        limit: 2
     t.boolean  "c88"
     t.boolean  "c89"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.index ["brand_id"], name: "index_bicycles_on_brand_id", using: :btree
   end
 
@@ -306,65 +306,65 @@ ActiveRecord::Schema.define(version: 20160905190339) do
   create_table "velomobiles", force: :cascade do |t|
     t.integer  "price"
     t.integer  "brand_id"
-    t.integer  "c1"
-    t.integer  "c2"
-    t.integer  "c3"
-    t.string   "c4"
-    t.integer  "c5"
-    t.integer  "c6"
-    t.integer  "c7"
+    t.integer  "c1",         limit: 2
+    t.integer  "c2",         limit: 2
+    t.integer  "c3",         limit: 2
+    t.integer  "c4",         limit: 2
+    t.integer  "c5",         limit: 2
+    t.integer  "c6",         limit: 2
+    t.integer  "c7",         limit: 2
     t.decimal  "c8"
-    t.string   "c9"
-    t.string   "c10"
+    t.integer  "c9",         limit: 2
+    t.integer  "c10",        limit: 2
     t.boolean  "c11"
     t.boolean  "c12"
-    t.integer  "c13"
-    t.string   "c14"
-    t.string   "c15"
-    t.string   "c16"
-    t.string   "c17"
-    t.string   "c18"
-    t.string   "c19"
-    t.string   "c20"
-    t.string   "c21"
-    t.integer  "c22"
-    t.integer  "c23"
+    t.integer  "c13",        limit: 2
+    t.integer  "c14",        limit: 2
+    t.integer  "c15",        limit: 2
+    t.integer  "c16",        limit: 2
+    t.integer  "c17",        limit: 2
+    t.integer  "c18",        limit: 2
+    t.integer  "c19",        limit: 2
+    t.integer  "c20",        limit: 2
+    t.integer  "c21",        limit: 2
+    t.integer  "c22",        limit: 2
+    t.integer  "c23",        limit: 2
     t.boolean  "c24"
-    t.integer  "c25"
-    t.integer  "c26"
-    t.integer  "c27"
-    t.string   "c28"
-    t.string   "c29"
-    t.string   "c30"
-    t.string   "c31"
-    t.string   "c32"
-    t.string   "c33"
+    t.integer  "c25",        limit: 2
+    t.integer  "c26",        limit: 2
+    t.integer  "c27",        limit: 2
+    t.integer  "c28",        limit: 2
+    t.integer  "c29",        limit: 2
+    t.integer  "c30",        limit: 2
+    t.integer  "c31",        limit: 2
+    t.integer  "c32",        limit: 2
+    t.integer  "c33",        limit: 2
     t.boolean  "c34"
     t.boolean  "c35"
-    t.string   "c36"
-    t.integer  "c37"
-    t.integer  "c38"
+    t.integer  "c36",        limit: 2
+    t.integer  "c37",        limit: 2
+    t.integer  "c38",        limit: 2
     t.boolean  "c39"
     t.boolean  "c40"
-    t.string   "c41"
+    t.integer  "c41",        limit: 2
     t.boolean  "c42"
     t.boolean  "c43"
     t.boolean  "c44"
-    t.integer  "c49"
-    t.integer  "c45"
-    t.integer  "c46"
-    t.integer  "c47"
-    t.string   "c48"
+    t.integer  "c49",        limit: 2
+    t.integer  "c45",        limit: 2
+    t.integer  "c46",        limit: 2
+    t.integer  "c47",        limit: 2
+    t.integer  "c48",        limit: 2
     t.decimal  "c50"
     t.decimal  "c51"
     t.boolean  "c52"
-    t.string   "c53"
+    t.integer  "c53",        limit: 2
     t.boolean  "c54"
     t.boolean  "c55"
     t.decimal  "c56"
     t.boolean  "c57"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.index ["brand_id"], name: "index_velomobiles_on_brand_id", using: :btree
   end
 
