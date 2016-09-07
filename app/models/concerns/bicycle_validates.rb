@@ -29,28 +29,88 @@ module BicycleValidates
       'ru' => %w(алюминиевый\ сплав карбон\ (углепластик) карбон/алюминий магниевый\ сплав пластик сталь титановый\ сплав хроммолибденовый\ сплав),
       'en' => %w(aluminium\ alloy carbon carbon/aluminum magnesium\ alloy plastic steel titanium\ alloy chromium-molybdenum\ alloy),
   ]
-  C17 = %w(Hard\ tail Rigid\ (жесткий) двухподвесный)
-  C18 = %w(начальный прогулочный профессиональный спортивный)
-  C20 = %w(воздушная воздушно-масляная жесткая пружинная пружинно-масляная пружинно-эластомерная)
-  C33 = %w(алюминиевый\ сплав алюминий/карбон алюминий/скандий карбон\ (углепластик) скандий скандий/карбон сталь)
-  C34 = %w(кевлар металл)
+  C17 = [
+      'ru' => %w(Hard\ tail Rigid\ (жесткий) двухподвесный),
+      'en' => %w(Hard\ tail Rigid\ (hard) dual-suspension),
+  ]
+  C18 = [
+      'ru' => %w(начальный прогулочный профессиональный спортивный),
+      'en' => %w(elementary walking professional sports),
+  ]
+  C20 = [
+      'ru' => %w(воздушная воздушно-масляная жесткая пружинная пружинно-масляная пружинно-эластомерная),
+      'en' => %w(air air-oil hard spring spring-oil spring-elastomeric),
+  ]
+  C33 = [
+      'ru' => %w(алюминиевый\ сплав алюминий/карбон алюминий/скандий карбон\ (углепластик) скандий скандий/карбон сталь),
+      'en' => %w(aluminium\ alloy aluminum/carbon aluminum/scandium carbon scandium scandium/carbon steel),
+  ]
+  C34 = [
+      'ru' => %w(кевлар металл),
+      'en' => %w(Kevlar metal)
+  ]
   # 41,42,43,44,46,56,58
-  LEVELS = %w(начальный полупрофессиональный прогулочный профессиональный спортивный)
-  C45 = %w(Bar\ End Dual\ Control Dual\ Drive вращающаяся\ ручка однорычажные триггерные\ двухрычажные триггерные\ однорычажные)
-  C47 = %w(интегрированнная неинтегрированнная)
-  C48 = %w(Howitzer ISIS Octalink Power\ Spline квадрат)
-  C55 = %w(классическая платформы с\ контактами с\ тулклипсами)
+  LEVELS = [
+      'ru' => %w(начальный полупрофессиональный прогулочный профессиональный спортивный),
+      'en' => %w(elementary half-professional walking professional sports),
+  ]
+  C45 = [
+      'ru' => %w(Bar\ End Dual\ Control Dual\ Drive вращающаяся\ ручка однорычажные триггерные\ двухрычажные триггерные\ однорычажные),
+      'en' => %w(Bar\ End Dual\ Control Dual\ Drive rotating\ handle single\ lever trigger\ two\ lever trigger\ single\ lever),
+  ]
+  C47 = [
+      'ru' => %w(интегрированнная неинтегрированнная),
+      'en' => %w(integrated non-integrated),
+  ]
+  C48 = [
+      'ru' => %w(Howitzer ISIS Octalink Power\ Spline квадрат),
+      'en' => %w(Howitzer ISIS Octalink Power\ Spline square),
+  ]
+  C55 = [
+      'ru' => %w(классическая платформы с\ контактами с\ тулклипсами),
+      'en' => %w(classical platform\ with\ contacts with\ tool\ clips),
+  ]
   # 57,59
-  BREAKS = %w(V-Brake дисковый\ гидравлический дисковый\ механико-гидравлический дисковый\ механический кантиливер клещевой ножной ободной\ гидравлический роллерный отсутствует)
-  C60 = %w(вальный ременной цепной)
-  C64 = %w(резьбовая безрезьбовая)
-  C65 = %w(1\ 1/2\" 1\ 1/4\" 1\ 1/8\" 1\ 1/8\"\ -\ 1\ 1/2\" 1\")
-  C66 = %w(интегрированная полуинтегрированная неинтегрированная)
-  C69 = %w(изогнутый прямой шоссейный)
-  C70 = %w(ванадиевый\ сплав марганцевый\ сплав нихромовый\ сплав сталь титановый\ сплав углепластик хром-кремниевый\ сплав хроммолибденовый\ сплав)
-  C71 = %w(искусственная\ кожа кожа кожа\ +\ кевлар пластик синтетическая\ ткань)
-  C80 = %w(LFP Li-ion LiMn LiPo SLA)
-  C87 = %w(передние задние передние\ и\ задние)
+  BREAKS = [
+      'ru' => %w(V-Brake дисковый\ гидравлический дисковый\ механико-гидравлический дисковый\ механический кантиливер клещевой ножной ободной\ гидравлический роллерный отсутствует),
+      'en' => %w(V-Brake disc\ hydraulic disc\ mechanical-hydraulic disc\ mechanical cantilever caliper pedals rim\ hydraulic roller without\ brake),
+  ]
+  C60 = [
+      'ru' => %w(вальный ременной цепной),
+      'en' => %w(shaft belt chain),
+  ]
+  C64 = [
+      'ru' => %w(резьбовая безрезьбовая),
+      'en' => %w(threaded threadless),
+  ]
+  C65 = [
+      'ru' => %w(1\ 1/2\" 1\ 1/4\" 1\ 1/8\" 1\ 1/8\"\ -\ 1\ 1/2\" 1\"),
+      'en' => %w(1\ 1/2\" 1\ 1/4\" 1\ 1/8\" 1\ 1/8\"\ -\ 1\ 1/2\" 1\"),
+  ]
+  C66 = [
+      'ru' => %w(интегрированная полуинтегрированная неинтегрированная),
+      'en' => %w(integrated half-integrated non-integrated),
+  ]
+  C69 = [
+      'ru' => %w(изогнутый прямой шоссейный),
+      'en' => %w(curved straight highway),
+  ]
+  C70 = [
+      'ru' => %w(ванадиевый\ сплав марганцевый\ сплав нихромовый\ сплав сталь титановый\ сплав углепластик хром-кремниевый\ сплав хроммолибденовый\ сплав),
+      'en' => %w(vanadium\ alloy manganese\ alloy nichrome\ alloy steel titanium\ alloy carbon chrome-silicon\ alloy chrome-molybdenum\ alloy),
+  ]
+  C71 = [
+      'ru' => %w(искусственная\ кожа кожа кожа\ +\ кевлар пластик синтетическая\ ткань),
+      'en' => %w(leatherette leather leather\ +\ Kevlar plastic synthetic\ fabric),
+  ]
+  C80 = [
+      'ru' => %w(LFP Li-ion LiMn LiPo SLA),
+      'en' => %w(LFP Li-ion LiMn LiPo SLA),
+  ]
+  C87 = [
+      'ru' => %w(передние задние передние\ и\ задние),
+      'en' => %w(front rear front\ +\ rear),
+  ]
 
   included do
     validates :c1, inclusion: {in: 0...C1['ru'].size}
