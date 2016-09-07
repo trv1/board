@@ -3,25 +3,25 @@ module VelomobileValidates
   include BicycleValidates
   
   included do
-    validates :c2, inclusion: {in: BicycleValidates::C7}
-    validates :c4, inclusion: {in: BicycleValidates::C14}
-    validates :c9, inclusion: {in: BicycleValidates::C33}
-    validates :c10, inclusion: {in: BicycleValidates::C34}
-    validates :c14, inclusion: {in: BicycleValidates::LEVELS}
-    validates :c15, inclusion: {in: BicycleValidates::LEVELS}
-    validates :c16, inclusion: {in: BicycleValidates::LEVELS}
-    validates :c17, inclusion: {in: BicycleValidates::LEVELS}
-    validates :c19, inclusion: {in: BicycleValidates::LEVELS}
-    validates :c29, inclusion: {in: BicycleValidates::LEVELS}
-    validates :c31, inclusion: {in: BicycleValidates::LEVELS}
-    validates :c18, inclusion: {in: BicycleValidates::C45}
-    validates :c20, inclusion: {in: BicycleValidates::C47}
-    validates :c21, inclusion: {in: BicycleValidates::C48}
-    validates :c28, inclusion: {in: BicycleValidates::C55}
-    validates :c30, inclusion: {in: BicycleValidates::BREAKS}
-    validates :c32, inclusion: {in: BicycleValidates::BREAKS}
-    validates :c36, inclusion: {in: BicycleValidates::C71}
-    validates :c49, inclusion: {in: BicycleValidates::C80}
-    validates :c53, inclusion: {in: BicycleValidates::C87}
+    validates :c2, inclusion: {in: 0...BicycleValidates::C7['ru'].size}
+    validates :c4, inclusion: {in: 0...BicycleValidates::C14['ru'].size}
+    validates :c9, inclusion: {in: 0...BicycleValidates::C33['ru'].size}
+    validates :c10, inclusion: {in: 0...BicycleValidates::C34['ru'].size}
+    validates :c14, inclusion: {in: 0...BicycleValidates::LEVELS['ru'].size}
+    validates :c15, inclusion: {in: 0...BicycleValidates::LEVELS['ru'].size}
+    validates :c16, inclusion: {in: 0...BicycleValidates::LEVELS['ru'].size}
+    validates :c17, inclusion: {in: 0...BicycleValidates::LEVELS['ru'].size}
+    validates :c19, inclusion: {in: 0...BicycleValidates::LEVELS['ru'].size}
+    validates :c29, inclusion: {in: 0...BicycleValidates::LEVELS['ru'].size}
+    validates :c31, inclusion: {in: 0...BicycleValidates::LEVELS['ru'].size}
+    validates :c18, inclusion: {in: 0...BicycleValidates::C45['ru'].size}
+    validates :c20, inclusion: {in: 0...BicycleValidates::C47['ru'].size}
+    validates :c21, inclusion: {in: 0...BicycleValidates::C48['ru'].size}
+    validates :c28, inclusion: {in: 0...BicycleValidates::C55['ru'].size}
+    validates :c30, inclusion: {in: 0...BicycleValidates::BREAKS['ru'].size}
+    validates :c32, inclusion: {in: 0...BicycleValidates::BREAKS['ru'].size}
+    validates :c36, inclusion: {in: 0...BicycleValidates::C71['ru'].size}
+    validates :c49, inclusion: {in: 0...BicycleValidates::C80['ru'].size}
+    validates :c53, inclusion: {in: 0...BicycleValidates::C87['ru'].size}
   end
 end
