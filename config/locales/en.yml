@@ -8,7 +8,7 @@ en:
         c4: Age of the child
         c5: Gender
         c6: Diameter of wheels, "
-        c7: Count of wheels
+        c7: Quantity of wheels
         c8: Folding
         c9: Tandem
         c10: Electric bike
@@ -40,7 +40,7 @@ en:
         c36: Possibility of fastening of side wheels
         c37: Side wheels in a set
         c38: Planetary hub
-        c39: Gears count
+        c39: Gears quantity
         c40: Maximum speed of electric bike, km/h
         c41: Level of cassette
         c42: Level of a rear derailleur
@@ -52,100 +52,100 @@ en:
         c48: Type of a landing part of a shaft of the crankset
         c49: Quantity of chainrings in the cassette
         c50: Quantity of chainrings in the crankset
-        c51: Успокоитель
-        c52: Число зубьев на первой звезде
-        c53: Число зубьев на второй звезде
-        c54: Число зубьев на третьей звезде
-        c55: Конструкция педалей
-        c56: Уровень переднего тормоза
-        c57: Передний тормоз
-        c58: Уровень заднего тормоза
-        c59: Задний тормоз
-        c60: Тип привода
-        c61: Возможность крепления дискового тормоза (рама)
-        c62: Возможность крепления дискового тормоза (вилка)
-        c63: Возможность крепления дискового тормоза (втулки)
-        c64: Рулевая колонка
-        c65: Размер рулевой колонки
-        c66: Конструкция рулевой колонки
-        c67: Регулируемый вынос руля
-        c68: Регулируемый подъем руля
-        c69: Конструкция руля
-        c70: Материал рамы седла
-        c71: Материал седла
-        c72: Гелевые вставки
-        c73: Сквозные прорези
-        c74: Амортизационный подседельный штырь
-        c75: Седло с пружинами
-        c76: Багажник
-        c77: Крылья
-        c78: Насос
-        c79: Мощность двигателя, Вт
-        c80: Тип аккумулятора
-        c81: Емкость аккумулятора
-        c82: Напряжение аккумулятора, В
-        c83: Вес велосипеда, кг
-        c84: Звонок
-        c85: Защитная накладка на руле
-        c86: Электрооборудование
-        c87: Габариты
-        c88: Поворотники
-        c89: Велокомпьютер
+        c51: Protective roller of a chain
+        c52: Tooth quantity on first sprocket
+        c53: Tooth quantity on second sprocket
+        c54: Tooth quantity on third sprocket
+        c55: Pedals design
+        c56: Level of front brake
+        c57: Front brake
+        c58: Level of rear brake
+        c59: Rear brake
+        c60: Drive type
+        c61: Possibility of fastening of disc brake (frame)
+        c62: Possibility of fastening of disc brake (fork)
+        c63: Possibility of fastening of disc brake (hubs)
+        c64: Steering tube
+        c65: Size of steering tube
+        c66: Steering tube design
+        c67: Adjustable stem
+        c68: Adjustable lifting handlebar
+        c69: Handlebar design
+        c70: Material of saddle frame
+        c71: Material of saddle
+        c72: Gel inserts
+        c73: Saddle slots
+        c74: Saddle with amortization
+        c75: Saddle with springs
+        c76: Trunk
+        c77: Wings
+        c78: Pump
+        c79: Power of electric engine, Wt
+        c80: Battery type
+        c81: Battery capacity
+        c82: Battery voltage, V
+        c83: Weight of bike, kg
+        c84: Bell
+        c85: Safety padding on handlebar
+        c86: Electric equipment
+        c87: Lights
+        c88: Turn signals
+        c89: Cyclocomputer
       velomobile:
-        c1: Диаметр колес, "
-        c2: Количество колес
-        c3: Модельный год
-        c4: Материал рамы
-        c5: Длина
-        c6: Ширина
-        c7: Высота
-        c8: Радиус разворота
-        c9: Материал обода
-        c10: Материал бортировочного шнура
-        c11: Двойной обод
-        c12: Планетарная втулка
-        c13: Количество скоростей
-        c14: Уровень кассеты
-        c15: Уровень заднего переключателя
-        c16: Уровень переднего переключателя
-        c17: Уровень манеток
-        c18: Конструкция манеток
-        c19: Уровень каретки
-        c20: Конструкция каретки
-        c21: Тип посадочной части вала каретки
-        c22: Количество звезд в кассете
-        c23: Количество звезд системы
-        c24: Успокоитель
-        c25: Число зубьев на первой звезде
-        c26: Число зубьев на второй звезде
-        c27: Число зубьев на третьей звезде
-        c28: Конструкция педалей
-        c29: Уровень переднего тормоза
-        c30: Передний тормоз
-        c31: Уровень заднего тормоза
-        c32: Задний тормоз
-        c33: Тип привода
-        c34: Регулируемый вынос руля
-        c35: Регулируемый подъем руля
-        c36: Материал седла
-        c37: Угол седла мин.
-        c38: Угол седла макс.
-        c39: Регулируемый угол седла
-        c40: Подлокотники
-        c41: Зеркала
-        c42: Багажник
-        c43: Насос
-        c44: Электровелосипед
-        c45: Пробег на одном заряде, км
-        c46: Максимальная скорость электрического велосипеда, км/ч
-        c47: Время зарядки, ч
-        c48: Мощность двигателя, Вт
-        c49: Тип аккумулятора
-        c50: Емкость аккумулятора
-        c51: Напряжение аккумулятора, В
-        c52: Электрооборудование
-        c53: Габариты
-        c54: Поворотники
-        c55: Велокомпьютер
-        c56: Вес велосипеда, кг
-        c57: Звонок
+        c1: Diameter of wheels, "
+        c2: Quantity of wheels
+        c3: Model year
+        c4: Frame material
+        c5: Length
+        c6: Width
+        c7: Height
+        c8: Turning circle
+        c9: Material of rim
+        c10: Tire cord material
+        c11: Double rim
+        c12: Planetary hub
+        c13: Gears quantity
+        c14: Level of cassette
+        c15: Level of a rear derailleur
+        c16: Level of a front derailleur
+        c17: Level of the shifters
+        c18: Shifters design
+        c19: Level of the crankset
+        c20: Crankset design
+        c21: Type of a landing part of a shaft of the crankset
+        c22: Quantity of chainrings in the cassette
+        c23: Quantity of chainrings in the crankset
+        c24: Protective roller of a chain
+        c25: Tooth quantity on first sprocket
+        c26: Tooth quantity on second sprocket
+        c27: Tooth quantity on third sprocket
+        c28: Pedals design
+        c29: Level of front brake
+        c30: Front brake
+        c31: Level of rear brake
+        c32: Rear brake
+        c33: Drive type
+        c34: Adjustable stem
+        c35: Adjustable lifting handlebar
+        c36: Material of saddle
+        c37: Angle of saddle min.
+        c38: Angle of saddle max.
+        c39: Adjustable angle of saddle
+        c40: Armrests
+        c41: Mirrors
+        c42: Trunk
+        c43: Pump
+        c44: Electric bike
+        c45: Mileage on one charge, km
+        c46: Maximum speed of electric bike, km/h
+        c47: Charging time, h
+        c48: Power of electric engine, Wt
+        c49: Battery type
+        c50: Battery capacity
+        c51: Battery voltage, V
+        c52: Electric equipment
+        c53: Lights
+        c54: Turn signals
+        c55: Cyclocomputer
+        c56: Weight of bike, kg
+        c57: Bell

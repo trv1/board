@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e98c4b50-6895-439c-8b52-e8e876cbe1ab" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/en.yml" afterPath="$PROJECT_DIR$/config/locales/en.yml" />
     </list>
     <ignored path="board.iws" />
@@ -80,7 +79,7 @@
       <file leaf-file-name="ru.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2376">
+            <state relative-caret-position="183">
               <caret line="132" column="36" selection-start-line="132" selection-start-column="36" selection-end-line="132" selection-end-column="36" />
               <folding />
             </state>
@@ -90,8 +89,8 @@
       <file leaf-file-name="en.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+            <state relative-caret-position="561">
+              <caret line="150" column="17" selection-start-line="150" selection-start-column="17" selection-end-line="150" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -558,12 +557,12 @@
       <workItem from="1473047745057" duration="5504000" />
       <workItem from="1473133916484" duration="13329000" />
       <workItem from="1473220496347" duration="6181000" />
-      <workItem from="1473307052880" duration="3740000" />
+      <workItem from="1473307052880" duration="7202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82521000" />
+    <option name="totallyTimeSpent" value="85983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -937,7 +936,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
+        <state relative-caret-position="183">
           <caret line="132" column="36" selection-start-line="132" selection-start-column="36" selection-end-line="132" selection-end-column="36" />
           <folding />
         </state>
@@ -945,8 +944,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+        <state relative-caret-position="561">
+          <caret line="150" column="17" selection-start-line="150" selection-start-column="17" selection-end-line="150" selection-end-column="17" />
           <folding />
         </state>
       </provider>
