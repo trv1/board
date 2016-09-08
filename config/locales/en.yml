@@ -22,36 +22,36 @@ en:
         c18: Level of a soft work
         c19: Two-crown fork
         c20: Fork design
-        c21: Travel of fork, mm
+        c21: Travel of a fork, mm
         c22: Adjustment of length of the travel of a fork
         c23: Adjustment of rigidity of a spring of a fork
-        c24: Блокировка хода вилки
-        c25: Регулировка скорости сжатия вилки
-        c26: Регулировка скорости обратного хода вилки
-        c27: Ход задней подвески, мм
-        c28: Регулировка длины хода заднего амортизатора
-        c29: Регулировка жесткости пружины заднего амортизатора
-        c30: Регулировка скорости сжатия заднего амортизатора
-        c31: Регулировка скорости обратного хода заднего амортизатора
-        c32: Блокировка хода заднего амортизатора
-        c33: Материал обода
-        c34: Материал бортировочного шнура
-        c35: Двойной обод
-        c36: Возможность крепления боковых колес
-        c37: Боковые колеса в комплекте
-        c38: Планетарная втулка
-        c39: Количество скоростей
-        c40: Максимальная скорость электрического велосипеда, км/ч
-        c41: Уровень кассеты
-        c42: Уровень заднего переключателя
-        c43: Уровень переднего переключателя
-        c44: Уровень манеток
-        c45: Конструкция манеток
-        c46: Уровень каретки
-        c47: Конструкция каретки
-        c48: Тип посадочной части вала каретки
-        c49: Количество звезд в кассете
-        c50: Количество звезд системы
+        c24: Blocking of the travel of a fork
+        c25: Adjustment of speed of compression of a fork
+        c26: Adjustment of speed of reverse travel of a fork
+        c27: Travel of a rear suspension, mm
+        c28: Adjustment of length of the travel of a rear shock absorber
+        c29: Adjustment of rigidity of a spring of a rear shock absorber
+        c30: Adjustment of speed of compression of a rear shock absorber
+        c31: Adjustment of speed of reverse travel of a rear shock absorber
+        c32: Blocking of the travel of a rear shock absorber
+        c33: Material of rim
+        c34: Tire cord material
+        c35: Double rim
+        c36: Possibility of fastening of side wheels
+        c37: Side wheels in a set
+        c38: Planetary hub
+        c39: Gears count
+        c40: Maximum speed of electric bike, km/h
+        c41: Level of cassette
+        c42: Level of a rear derailleur
+        c43: Level of a front derailleur
+        c44: Level of the shifters
+        c45: Shifters design
+        c46: Level of the crankset
+        c47: Crankset design
+        c48: Type of a landing part of a shaft of the crankset
+        c49: Quantity of chainrings in the cassette
+        c50: Quantity of chainrings in the crankset
         c51: Успокоитель
         c52: Число зубьев на первой звезде
         c53: Число зубьев на второй звезде
