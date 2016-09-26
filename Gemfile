@@ -25,6 +25,7 @@ gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'font-awesome-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
