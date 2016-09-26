@@ -149,3 +149,6 @@ en:
         c55: Cyclocomputer
         c56: Weight of bike, kg
         c57: Bell
+      user:
+        phone: Mobile phone
+        password: Password
