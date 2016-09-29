@@ -362,3 +362,5 @@ def create_brands
                                        {name: 'Vrijwiel', is_popular: true, is_velomobile: true},
                                    ])
 end
+
+create_brands
