@@ -10,9 +10,7 @@ nav.navbar.navbar-default
             = link_to new_user_path do
               .fa.fa-book
               | Регистрация
-        -elsif !@current_user.blank? && @current_user.role==0
 
-        -else !@current_user.blank? && @current_user.role!=0
       ul.nav.navbar-nav.navbar-right
         -if @current_user.blank?
           li
@@ -21,7 +19,7 @@ nav.navbar.navbar-default
               | Войти
         -else
           li
-            span.navbar-text=@current_user.login
+            span.navbar-text=@current_user.name
           li
             = link_to logout_path, data:{method: :patch} do
               | Выйти

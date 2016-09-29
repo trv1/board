@@ -16,14 +16,13 @@ p
 p
   strong
     | Email:
-  = @user.email 
+  = @user.email
 
 p
   strong
-    | Password digest:
-  = @user.password_digest 
-
+    | Locale:
+  = @user.locale
 
 = link_to 'Edit', edit_user_path(@user)
-  | |
+| |
 = link_to 'Back', users_path 

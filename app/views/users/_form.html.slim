@@ -1,16 +1,14 @@
 = form_for(user) do |f|
-  if user.errors.any?
+  - if user.errors.any?
     #error_explanation
       h2
         = pluralize(user.errors.count, "error")
         | prohibited this user from being saved:
 
       ul
-      user.errors.full_messages.each do |message|
+      - user.errors.full_messages.each do |message|
         li
           = message
-      end
-  end
 
   .field
     = f.label :name
@@ -24,9 +22,17 @@
     = f.label :email
     = f.text_field :email
 
-  .field
-    = f.label :password_digest
-    = f.text_field :password_digest
+  .form-group
+    = f.label :locale
+    = f.select :locale, options_for_select([%w(Русский ru), %w(English en)])
+
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: "form-control"
+
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, class: "form-control"
 
   .actions
     = f.submit

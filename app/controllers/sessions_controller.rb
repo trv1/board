@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user=User.where(login: params[:login]).first
+    @user=User.where(phone: params[:phone]).first
     if @user && @user.authenticate(params[:password])
       session[:user_id]=@user.id
       redirect_to root_path, notice: "Авторизация прошла успешно"
