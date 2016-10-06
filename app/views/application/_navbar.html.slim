@@ -10,6 +10,14 @@ nav.navbar.navbar-default
             = link_to new_user_path do
               .fa.fa-book
               | Регистрация
+              | #{I18n.locale}
+              | #{I18n.default_locale}
+        - else
+          li
+            = link_to root_path do
+              | Главная
+              | #{I18n.locale}
+              | #{I18n.default_locale}
 
       ul.nav.navbar-nav.navbar-right
         -if @current_user.blank?

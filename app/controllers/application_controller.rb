@@ -13,12 +13,22 @@ class ApplicationController < ActionController::Base
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
 
+  # After login redirect to user profile
+  def after_sign_in_path_for(resource)
+    current_user_path
+  end
+
+  # After logout redirect to current page
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
+
   private
 
   def set_current_user
     if session[:user_id].present?
       @current_user=User.find(session[:user_id])
-      I18n.locale = @current_user.try(:locale) ? @current_user.try(:locale) : I18n.locale
+      I18n.locale = @current_user.try(:locale) ? @current_user.locale : I18n.locale
     end
   end
 end
