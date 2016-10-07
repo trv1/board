@@ -21,6 +21,9 @@ gem 'russian'
 # for files & pictures
 gem 'paperclip'
 
+# for captcha
+gem 'rucaptcha'
+
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'kaminari'

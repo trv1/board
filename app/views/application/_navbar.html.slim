@@ -9,18 +9,18 @@ nav.navbar.navbar-default
           li
             = link_to new_user_path do
               .fa.fa-book
-              = t "link.registration"
+              = t 'link.registration'
 
       ul.nav.navbar-nav.navbar-right
         -if @current_user.blank?
           li
             = link_to login_path do
               .fa.fa-sign-in
-              | Войти
+              = t 'link.sign_in'
         -else
           li
             span.navbar-text=@current_user.name
           li
             = link_to logout_path, data:{method: :patch} do
-              | Выйти
+              = t 'link.sign_out'
               .fa.fa-sign-out

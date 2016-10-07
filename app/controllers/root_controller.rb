@@ -11,6 +11,6 @@ class RootController < ApplicationController
     #     redirect_to root_index_url, subdomain: @current_user.locale
     #   end
     # end
-    # See sess_id and try request to login API and get user 
+    # See sess_id and try request to login API and get user
   end
 end
