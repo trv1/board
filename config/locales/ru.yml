@@ -1,4 +1,8 @@
 ru:
+  link:
+    registration: Регистрация
+    sign_in: Войти
+    sign_out: Выйти
   activerecord:
     attributes:
       bicycle:
@@ -150,5 +154,9 @@ ru:
         c56: Вес велосипеда, кг
         c57: Звонок
       user:
+        name: Ваше имя
         phone: Телефон
+        email: E-mail
+        locale: Язык
         password: Пароль
+        password_confirmation: Подтверждение пароля

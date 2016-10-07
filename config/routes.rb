@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   locale = /ru|en/
 
-  root 'root#root', constraints: { subdomain: '' }
+  root 'root#root'
 
   get 'login' => "sessions#new", as: :login, constraints: { subdomain: locale }
 
