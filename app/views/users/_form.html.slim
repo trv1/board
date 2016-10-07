@@ -28,11 +28,15 @@
 
   .form-group
     = f.label :password
-    = f.password_field :password, class: "form-control"
+    = f.password_field :password, class: 'form-control'
 
   .form-group
     = f.label :password_confirmation
-    = f.password_field :password_confirmation, class: "form-control"
+    = f.password_field :password_confirmation, class: 'form-control'
+
+  .form-group
+    = rucaptcha_input_tag(class: 'form-control', placeholder: 'Input Captcha')
+    = rucaptcha_image_tag(alt: 'Captcha')
 
   .actions
     = f.submit

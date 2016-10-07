@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   locale = /ru|en/
 
+  mount RuCaptcha::Engine => '/rucaptcha'
+
   root 'root#root'
 
   get 'login' => "sessions#new", as: :login, constraints: { subdomain: locale }

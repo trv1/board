@@ -1,4 +1,6 @@
 ru:
+  rucaptcha:
+    invalid: Неверный код с картинки
   link:
     registration: Регистрация
     sign_in: Войти
