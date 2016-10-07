@@ -21,10 +21,6 @@ gem 'russian'
 # for files & pictures
 gem 'paperclip'
 
-# for authorization
-gem 'devise'
-gem 'omniauth'
-
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'kaminari'

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'persons/profile'
-
   locale = /ru|en/
 
   root 'root#root', constraints: { subdomain: '' }
@@ -14,7 +11,7 @@ Rails.application.routes.draw do
 
   constraints subdomain: locale do
     get '/' => 'root#index', as: :root_index
-    # resources :users
+    resources :users
     resources :adverts
   end
 
