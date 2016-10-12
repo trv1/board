@@ -1,8 +1,7 @@
 doctype html
 html
   head
-    title
-      | Board
+    title = yield :title
     meta content="text/html"
     meta http-equiv="Content-Type"
     meta charset="UTF-8"
@@ -12,5 +11,6 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
 
   body
-    = render 'navbar'
+    - if ![login_path].include?(request.path)
+      = render 'navbar'
     = yield

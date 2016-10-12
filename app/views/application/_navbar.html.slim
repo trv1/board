@@ -5,11 +5,15 @@ nav.navbar.navbar-default
         .fa.fa-bars
     #menu.collapse.navbar-collapse
       ul.nav.navbar-nav
-        -if @current_user.blank?
+        - if @current_user.blank?
           li
             = link_to new_user_path do
               .fa.fa-book
               = t 'link.registration'
+        - else
+          li
+            = link_to root_index_path do
+              | Главная
 
       ul.nav.navbar-nav.navbar-right
         -if @current_user.blank?

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   mount RuCaptcha::Engine => '/rucaptcha'
 
-  root 'root#root'
+  root 'root#root', constraints: { subdomain: '' }
 
   get 'login' => "sessions#new", as: :login, constraints: { subdomain: locale }
 
