@@ -14,11 +14,22 @@
  *= require_self
  */
 
+body {
+    font-family: "Gotham Regular", Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+    font-family: "Gotham Regular";
+    src: url('GothaProReg.otf') format('opentype');
+}
+
 .btn-custom {
     border-radius: 25px;
-    font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: "Gotham Regular", Helvetica, Arial, sans-serif;
     font-size: 20px;
     padding: 6px 25px;
+    font-weight: 700;
 }
 
 .row {
