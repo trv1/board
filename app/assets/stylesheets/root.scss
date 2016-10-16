@@ -1,3 +1,28 @@
 // Place all the styles related to the Root controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  margin: 0 !important;
+}
+
+.root-background {
+  margin: 0;
+  background-image: url('root_2_cut_vien_90.jpg');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+ul.lang {
+  margin-top: 100%;
+  list-style: none;
+  margin-left: 5%;
+}
+
+li.lang {
+  margin-bottom: 10%;
+}

@@ -11,6 +11,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
 
   body
-    - if ![login_path].include?(request.path)
-      = render 'navbar'
+    - if root_url != request.url
+      - if ![login_path].include?(request.path)
+        = render 'navbar'
     = yield

@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.btn-custom {
+    border-radius: 25px;
+    font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding: 6px 25px;
+}
+
+.row {
+    margin: 0;
+}

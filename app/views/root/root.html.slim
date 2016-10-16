@@ -1,7 +1,11 @@
-.row
-  .col-xs-6
-    = link_to root_index_url(subdomain: 'ru')
-      | Русский
-  .col-xs-6
-    = link_to root_index_url(subdomain: 'en')
-      | English
+/= stylesheet_link_tag 'root_root/root_root'
+.row.root-background
+  /= image_tag 'root_2_cut_vien_90.jpg'
+  .col-xs-2
+    ul.lang
+      li.lang
+        = link_to root_index_url(subdomain: 'ru'), class: 'btn btn-default btn-custom'
+          | Русский
+      li
+        = link_to root_index_url(subdomain: 'en'), class: 'btn btn-default btn-custom'
+          | English
