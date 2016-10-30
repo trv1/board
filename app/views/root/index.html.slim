@@ -1,5 +1,11 @@
-.row
+.row.sale-background
+  .col-xs-12.col-xs-offset-3
+    fieldset.panel.panel-default
+      .panel-body
+        | В разделе Объявления Вы можете найти подходящий себе велосипед или разместить свое объявление.
   .col-xs-6
-    | .col-xs-6
+    = link_to adverts_path, class: 'btn btn-default btn-custom'
+      | Купить
   .col-xs-6
-    | .col-xs-6 Q
+    = link_to new_advert_path, class: 'btn btn-default btn-custom'
+      | Продать
