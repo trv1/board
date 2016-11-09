@@ -10,21 +10,21 @@
         li
           = message
 
-  .field
+  .form-group
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, class: 'form-control'
 
-  .field
+  .form-group
     = f.label :phone
-    = f.text_field :phone
+    = f.text_field :phone, class: 'form-control'
 
-  .field
+  .form-group
     = f.label :email
-    = f.text_field :email
+    = f.text_field :email, class: 'form-control'
 
   .form-group
     = f.label :locale
-    = f.select :locale, options_for_select([%w(Русский ru), %w(English en)])
+    = f.select :locale, options_for_select([%w(Русский ru), %w(English en)]), {}, { class: 'form-control', style: 'font-size: 16px;' }
 
   .form-group
     = f.label :password
@@ -35,9 +35,9 @@
     = f.password_field :password_confirmation, class: 'form-control'
 
   .form-group
-    = rucaptcha_input_tag(class: 'form-control', placeholder: 'Input Captcha')
+    = f.label :captcha
+    = rucaptcha_input_tag(class: 'form-control', placeholder: '')
     = rucaptcha_image_tag(alt: 'Captcha')
 
   .actions
     = f.submit
-end

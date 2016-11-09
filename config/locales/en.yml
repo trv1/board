@@ -150,5 +150,10 @@ en:
         c56: Weight of bike, kg
         c57: Bell
       user:
+        name: Your name
         phone: Mobile phone
+        email: E-mail
+        locale: Language
         password: Password
+        password_confirmation: Password confirmation
+        captcha: Enter code from picture

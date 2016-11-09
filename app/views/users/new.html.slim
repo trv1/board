@@ -1,6 +1,12 @@
-h1
-  | New User
+.row
+  .col-xs-4.col-xs-offset-4
+    fieldset.panel.panel-default
+      .panel-body
+        .row
+          .col-xs-8.col-xs-offset-2
+            h1
+              | New User
 
-= render 'form', user: @user
+            = render 'form', user: @user
 
-= link_to 'Back', users_path
+            = link_to 'Back', users_path
