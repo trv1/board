@@ -1,11 +1,11 @@
 .row.sale-background
-  .col-xs-12.col-xs-offset-3
+  .col-xs-6.col-xs-offset-3.ad-desc
     fieldset.panel.panel-default
       .panel-body
-        | В разделе Объявления Вы можете найти подходящий себе велосипед или разместить свое объявление.
-  .col-xs-6
-    = link_to adverts_path, class: 'btn btn-default btn-custom'
-      | Купить
-  .col-xs-6
-    = link_to new_advert_path, class: 'btn btn-default btn-custom'
-      | Продать
+        = t 'page.root.index.ad_desc'
+  .col-xs-12.ad-buttons
+    .btn-group role="group" aria-label="..."
+      = link_to adverts_path, class: 'btn btn-default btn-custom', style: 'background: rgba(255,255,255,0.9);'
+        = t 'page.root.index.buttons.buy'
+      = link_to new_advert_path, class: 'btn btn-default btn-custom', style: 'background: rgba(255,255,255,0.9);'
+        = t 'page.root.index.buttons.sell'

@@ -33,20 +33,21 @@ li.lang {
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100%;
-  height: 100%;
+  height: 62%;
   width: 100%;
   position: absolute;
-  & > .col-xs-6 {
+  & > .ad-buttons {
     text-align: center;
-    margin-top: 10%;
-  }
-  & > .col-xs-12 {
     margin-top: 6%;
+  }
+  & > .ad-desc {
+    margin-top: 6%;
+    text-align: center;
     & .panel {
-      width: 50%;
-    }
-    & .panel-body {
-      font-size: 16px;
+      background: rgba(255,255,255,0.8);
+      font-weight: 700;
+      font-size: 2em;
+      line-height: 1.4;
     }
   }
 }
