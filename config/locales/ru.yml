@@ -5,6 +5,7 @@ ru:
     registration: Регистрация
     sign_in: Войти
     sign_out: Выйти
+    back: Назад
   activerecord:
     attributes:
       bicycle:
@@ -170,3 +171,8 @@ ru:
         buttons:
           buy: Купить
           sell: Продать
+    user:
+      new:
+        title: Регистрация
+        button:
+          registration: Зарегистрироваться

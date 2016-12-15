@@ -164,3 +164,8 @@ en:
         buttons:
           buy: Buy
           sell: Sell
+    user:
+      new:
+        title: Registration
+        button:
+          registration: Sign up
