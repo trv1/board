@@ -1,18 +1,22 @@
 = content_for :title, 'Авторизация'
-.row
-  .col-xs-4.col-xs-offset-4
-    fieldset.panel.panel-default
-      .panel-body
-        .page-header
-          .fa.fa-lock.fa-2x
-            | Авторизация
+.container
+  .row
+    .col-xs-12.col-sm-12.col-sm-offset-0.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+      = link_to root_index_path do
+        .fa.fa-bicycle style='color: #4fa902; font-size: 70px; margin: 0 20px;'
+        span style='color: #4fa902; font-size: 60px; font-weight: 700;'
+          | bicycle.com
+      fieldset.panel.panel-default style='margin-top: 10px;'
+        .panel-body
+          .page-header style='font-size: 30px; margin: 20px 0;'
+            | Вход на сайт
 
-        =form_tag login_path do
-          .form-group
-            =label_tag :phone, User.human_attribute_name(:phone)
-            =text_field_tag :phone, nil, class: 'form-control', required: true
-          .form-group
-            =label_tag :password, User.human_attribute_name(:password)
-            =password_field_tag :password, nil, class: 'form-control', required: true
-          .actions
-            =submit_tag "Войти", class: 'btn btn-primary'
+          =form_tag login_path do
+            .form-group
+              =label_tag :phone, User.human_attribute_name(:phone)
+              =text_field_tag :phone, nil, class: 'form-control', required: true
+            .form-group
+              =label_tag :password, User.human_attribute_name(:password)
+              =password_field_tag :password, nil, class: 'form-control', required: true
+            .actions
+              =submit_tag "Войти", class: 'btn btn-primary'

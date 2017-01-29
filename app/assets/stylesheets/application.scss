@@ -1,0 +1,43 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-select.min";
+@import "font-awesome";
+@import "./*";
+
+body {
+  font-family: "Gotham Regular", Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+  font-family: "Gotham Regular";
+  src: url('GothaProLig.otf') format('opentype');
+}
+
+.btn-custom {
+  border-radius: 25px;
+  /*font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: "Gotham Regular", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  padding: 6px 25px;
+  font-weight: 700;
+}
+
+.row {
+  margin: 0;
+}
+
+.navbar a {
+  cursor: pointer;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.field_with_errors {
+  padding: 0;
+  display: block;
+  border: 1px solid red;
+  border-radius: 4px;
+}

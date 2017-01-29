@@ -1,18 +1,10 @@
-= form_for(user) do |f|
-  - if user.errors.any?
-    #error_explanation
-      h2
-        = pluralize(user.errors.count, "error")
-        | prohibited this user from being saved:
-
-      ul
-      - user.errors.full_messages.each do |message|
-        li
-          = message
+= form_for(user, html: {novalidate: true}) do |f|
+  - if @user.errors.any?
+    = error_messages_for(@user)
 
   .form-group
     = f.label :name
-    = f.text_field :name, class: 'form-control'
+    = f.text_field :name, class: 'form-control', required: true
 
   .form-group
     = f.label :phone
@@ -24,7 +16,7 @@
 
   .form-group
     = f.label :locale
-    = f.select :locale, options_for_select([%w(Русский ru), %w(English en)]), {}, { class: 'form-control', style: 'font-size: 16px;' }
+    = f.select :locale, options_for_select([%w(Русский ru), %w(English en)]), {}, { class: 'selectpicker form-control', style: 'font-size: 16px;' }
 
   .form-group
     = f.label :password
@@ -36,8 +28,8 @@
 
   .form-group
     = f.label :captcha
-    = rucaptcha_input_tag(class: 'form-control', placeholder: '')
-    = rucaptcha_image_tag(alt: 'Captcha')
+    = rucaptcha_input_tag(class: 'form-control', style: 'width: 50%; display: inline-block;')
+    = rucaptcha_image_tag(alt: 'Captcha', style: 'display: inline-block; width: 40%; margin-left: 5%; height: 34px;')
 
   .actions
     = f.submit t('page.user.new.button.registration'), class: 'btn btn-default'

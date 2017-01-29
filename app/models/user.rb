@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_many :adverts
 
   validates :name, presence: true
+  validates :phone, presence: true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007050949) do
+ActiveRecord::Schema.define(version: 20160925113057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20161007050949) do
     t.index ["vehicle_type", "vehicle_id"], name: "index_adverts_on_vehicle_type_and_vehicle_id", using: :btree
   end
 
-  create_table "alternatenames", primary_key: "alternatenameid", id: :integer, force: :cascade do |t|
+  create_table "alternatename", primary_key: "alternatenameid", id: :integer, force: :cascade do |t|
     t.integer "geonameid"
     t.string  "isolanguage",     limit: 7
     t.string  "alternatename",   limit: 300
@@ -372,7 +372,8 @@ ActiveRecord::Schema.define(version: 20161007050949) do
   end
 
   add_foreign_key "adverts", "locations"
-  add_foreign_key "alternatenames", "geoname", column: "geonameid", primary_key: "geonameid", name: "fk_geonameid"
+  add_foreign_key "adverts", "users"
+  add_foreign_key "alternatename", "geoname", column: "geonameid", primary_key: "geonameid", name: "fk_geonameid"
   add_foreign_key "bicycles", "brands"
   add_foreign_key "countryinfo", "geoname", column: "geonameid", primary_key: "geonameid", name: "fk_geonameid"
   add_foreign_key "photos", "adverts"
