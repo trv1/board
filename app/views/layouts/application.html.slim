@@ -12,6 +12,8 @@ html
 
   body
     - if root_url != request.url
-      - if ![login_path].include?(request.path)
+      - unless [new_user_session_path].include?(request.path)
         = render 'navbar'
+    - unless [new_user_session_path].include?(request.path)
+      = render 'application/flash_messages'
     = yield

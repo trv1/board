@@ -11,12 +11,19 @@
           .page-header style='font-size: 30px; margin: 20px 0;'
             | Вход на сайт
 
-          =form_tag login_path do
+          = form_tag user_session_path, method: :post do
+            - flash.each do |key, val|
+              .alert.alert-danger = val
             .form-group
-              =label_tag :phone, User.human_attribute_name(:phone)
-              =text_field_tag :phone, nil, class: 'form-control', required: true
+              =label_tag :email, User.human_attribute_name(:email)
+              =text_field_tag 'user[email]', nil, class: 'form-control', required: true
             .form-group
               =label_tag :password, User.human_attribute_name(:password)
-              =password_field_tag :password, nil, class: 'form-control', required: true
+              =password_field_tag 'user[password]', nil, class: 'form-control', required: true
+            .form-group
+              = check_box_tag 'user[remember_me]', 1
+              input name='user[remember_me]' type='hidden' value='0'
+              = label_tag do
+                | &nbsp;Запомнить меня
             .actions
-              =submit_tag "Войти", class: 'btn btn-primary'
+              =submit_tag 'Войти', class: 'btn btn-primary'

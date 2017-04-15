@@ -1,2 +1,3 @@
--flash.each do |key,val|
-  .alert class: "alert-#{key}" =val
+.container
+  - flash.each do |key,val|
+    .alert class="alert-#{key}" = val

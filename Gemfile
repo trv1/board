@@ -31,6 +31,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'font-awesome-rails'
 gem 'bootstrap-select-rails'
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

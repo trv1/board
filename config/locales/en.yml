@@ -169,3 +169,6 @@ en:
         title: Registration
         button:
           registration: Sign up
+  actions:
+    user:
+      create: Welcome! You have signed up successfully.

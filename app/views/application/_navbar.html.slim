@@ -5,10 +5,9 @@ nav.navbar.navbar-default
         .fa.fa-bars
     #menu.collapse.navbar-collapse
       ul.nav.navbar-nav
-        - if @current_user.blank?
+        - if current_user.blank?
           li
-            = link_to new_user_path do
-              .fa.fa-book
+            = link_to new_user_registration_path do
               = t 'link.registration'
         - else
           li
@@ -16,15 +15,13 @@ nav.navbar.navbar-default
               | Главная
 
       ul.nav.navbar-nav.navbar-right
-        -if @current_user.blank?
+        -if current_user.blank?
           li
-            = link_to login_path do
-              .fa.fa-sign-in
+            = link_to new_user_session_path do
               = t 'link.sign_in'
         -else
           li
-            span.navbar-text=@current_user.name
+            span.navbar-text=current_user.name
           li
-            = link_to logout_path, data:{method: :patch} do
+            = link_to destroy_user_session_path, data:{method: :patch} do
               = t 'link.sign_out'
-              .fa.fa-sign-out

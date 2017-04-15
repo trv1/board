@@ -1,21 +1,9 @@
-class SessionsController < ApplicationController
+class SessionsController < Devise::SessionsController
   def new
-
+    super
   end
 
   def create
-    @user=User.where(phone: params[:phone]).first
-    if @user && @user.authenticate(params[:password])
-      session[:user_id]=@user.id
-      redirect_to root_path, notice: "Авторизация прошла успешно"
-    else
-      flash[:danger]="Неверный логин или пароль"
-      render :new
-    end
-  end
-
-  def destroy
-    session.delete(:user_id)
-    redirect_to root_path, notice: "Выход выполнен"
+    super
   end
 end

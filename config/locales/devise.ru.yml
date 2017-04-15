@@ -1,0 +1,10 @@
+ru:
+  devise:
+    failure:
+      user:
+        not_found_in_database: Пользователь не найден
+        invalid: Неверный логин или пароль
+        unconfirmed: Данный аккаунт не подтвержден. Проверьте Вашу почту.
+    sessions:
+      user:
+        signed_in: Добро пожаловать! Вы успешно вошли на сайт.
