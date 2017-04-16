@@ -17,6 +17,8 @@ Rails.application.routes.draw do
                path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'sign_up' },
                controllers: {registrations: 'registrations', sessions: 'sessions'}
     resources :adverts
+    get 'bicycle/new' => 'adverts#classic', as: :bicycle_new
+    get 'velomobile/new' => 'adverts#velomobile', as: :velomobile_new
   end
 
   get '*path' => redirect('/')

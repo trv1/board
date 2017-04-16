@@ -1,0 +1,19 @@
+.modal.fade#type_of_vehicle role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4.modal-title Выберите тип велосипеда
+      .modal-body
+        .row
+          .col-xs-6
+            .block
+              .title Классический велосипед
+              = link_to bicycle_new_path do
+                = image_tag asset_path('type_is_bicycle.jpg'), class: 'img-responsive'
+          .col-xs-6
+            .block
+              .title Веломобиль
+              = link_to velomobile_new_path do
+                = image_tag asset_path('type_is_velomobile.jpg'), class: 'img-responsive'

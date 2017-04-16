@@ -1,6 +1,16 @@
 class AdvertsController < ApplicationController
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
 
+  def classic
+    @bicycle = Bicycle.new
+    @advert = Advert.new(vehicle: @bicycle)
+  end
+
+  def velomobile
+    @velomobile = Velomobile.new
+    @advert = Advert.new(vehicle: @velomobile)
+  end
+
   # GET /adverts
   # GET /adverts.json
   def index
@@ -69,6 +79,6 @@ class AdvertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advert_params
-      params.require(:advert).permit(:vehicle_id, :user_id, :location_id)
+      params.require(:advert).permit(:vehicle_id, :user_id, :location_id, :brand_id, :model, :year, :state, :color, :mileage, :country_id, :place, :name, :phone, :email, :is_exchange, :time, :description, :price)
     end
 end
