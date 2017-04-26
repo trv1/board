@@ -4,17 +4,11 @@ $(document).on('turbolinks:load', function(){
         if (down) {
             $(this).removeClass('down');
             down = false;
-            // $('.in-block').show();
-            $('.in-block').fadeIn(500, function() {
-                $(this).show();
-            });
+            $('.in-block').show(500);
         } else {
             $(this).addClass('down');
             down = true;
-            // $('.in-block').hide();
-            $('.in-block').fadeOut(500, function() {
-                $(this).hide();
-            });
+            $('.in-block').hide(500);
         }
     });
 });
