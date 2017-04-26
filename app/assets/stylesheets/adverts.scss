@@ -1,3 +1,19 @@
 // Place all the styles related to the Adverts controller here.
 // They will automatically be included in application1.csss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.block {
+  font-size: 18px;
+  border: 1px solid #eee;
+  padding: 10px 5px;
+}
+
+.rotate-icon{
+  transform: rotate(0deg);
+  transition: transform 0.5s linear;
+}
+
+.rotate-icon.down{
+  transform: rotate(180deg);
+  transition: transform 0.5s linear;
+}
