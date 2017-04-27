@@ -3,13 +3,28 @@
     .col-xs-12
       .block
         .row
-          .col-xs-11
+          .col-xs-11.med-font style='font-size: 20px;'
             | Марка
           .col-xs-1 style='text-align: right;'
             .fa.fa-angle-up.rotate-icon
-        .row.in-block
-          .col-xs-12
-            select class="selectpicker" data-live-search="true"
-              option data-tokens="ketchup mustard" Hot Dog, Fries and a Soda
-              option data-tokens="mustard" Burger, Shake and a Smile
-              option data-tokens="frosting" Sugar, Spice and all things nice
+        .in-block
+          .row style='margin-top: 10px;' data-type='brands'
+            .col-xs-12
+              select class="selectpicker" data-live-search="true" data-size='10' title='Выберите марку' name='brand'
+                - @brands.sort_by{|b| b.name}.each do |brand|
+                  option value="#{brand.id}"
+                    = brand.name
+          .row.popular-brands style='margin-top: 10px;'
+            .col-xs-12
+              - @popular_brands.sort_by{|b| b.name}.each do |popular_brand|
+                .col-xs-2.brand-name.btn-brand data-id="#{popular_brand.id}"
+                  = popular_brand.name
+              .col-xs-2.brand-all.btn-brand
+                |Все марки
+          .row.all-brands style='margin-top: 10px; display: none;'
+            .col-xs-12
+              - @brands.sort_by{|b| b.name}.each do |brand|
+                .col-xs-2.brand-name.btn-brand data-id="#{brand.id}"
+                  = brand.name
+              .col-xs-2.brand-popular.btn-brand
+                |Популярные марки

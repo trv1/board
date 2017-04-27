@@ -11,9 +11,40 @@
 .rotate-icon{
   transform: rotate(0deg);
   transition: transform 0.5s linear;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .rotate-icon.down{
   transform: rotate(180deg);
   transition: transform 0.5s linear;
+}
+
+.brand-name {
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.brand-all, .brand-popular {
+  //color: #337ab7;
+  color: #0363cd;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn-brand {
+  margin-top: 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  &:hover {
+    overflow: inherit;
+  }
+}
+
+.med-font {
+  font-family: "Gotham Medium", Helvetica, Arial, sans-serif;
 }

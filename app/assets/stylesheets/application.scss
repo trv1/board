@@ -13,6 +13,11 @@ body {
   src: url('GothaProLig.otf') format('opentype');
 }
 
+@font-face {
+  font-family: "Gotham Medium";
+  src: url('GothaProMed.otf') format('opentype');
+}
+
 .btn-custom {
   border-radius: 25px;
   /*font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;*/

@@ -4,6 +4,8 @@ class AdvertsController < ApplicationController
   def classic
     @bicycle = Bicycle.new
     @advert = Advert.new(vehicle: @bicycle)
+    @brands = Brand.where(is_velomobile: false)
+    @popular_brands = Brand.where(is_popular: true, is_velomobile: false)
   end
 
   def velomobile
