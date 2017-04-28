@@ -32,6 +32,8 @@ gem 'kaminari-bootstrap'
 gem 'font-awesome-rails'
 gem 'bootstrap-select-rails'
 gem 'devise'
+gem 'simple_form'
+gem 'dropzonejs-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require dropzone
 //= require_tree .
 //= require bootstrap-select.min
 
@@ -22,5 +23,5 @@ $(document).on('turbolinks:load', function(){
 });
 
 $(document).on('turbolinks:before-cache', function(){
-    $('.selectpicker').selectpicker('destroy').addClass('selectpicker')
+    $('.selectpicker').selectpicker('destroy').addClass('selectpicker');
 });

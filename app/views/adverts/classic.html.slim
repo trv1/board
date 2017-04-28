@@ -2,29 +2,48 @@
   .row
     .col-xs-12
       .block
-        .row
-          .col-xs-11.med-font style='font-size: 20px;'
-            | Марка
-          .col-xs-1 style='text-align: right;'
-            .fa.fa-angle-up.rotate-icon
-        .in-block
+        .row style=''
+          .col-xs-12.med-font style='margin-bottom: 10px;'
+            | Фотографии
+          .col-xs-12
+            = form_tag advert_upload_picture_path, class: 'dropzone', id: 'upload-dropzone', multipart: true do
+              .fallback
+                = file_field_tag :pictures
+      = simple_form_for @advert, html: {id: 'new_adverts'} do |f|
+        .block
+          = hidden_field_tag :pictures, ''
+          /= form_tag '/adverts', multipart: true, method: :post, class: 'simple_form new_advert', id: ''
+          .row
+            .col-xs-11.med-font style='font-size: 20px;'
+              | Марка и модель
+            .col-xs-1 style='text-align: right;'
+              .fa.fa-angle-up.rotate-icon
+            .col-xs-12 style='font-size: 14px; margin: 6px 0;'
+              |Если Вы не нашли нужную марку в списке, Вы можете ее написать в поле "Модель"
           .row style='margin-top: 10px;' data-type='brands'
-            .col-xs-12
-              select class="selectpicker" data-live-search="true" data-size='10' title='Выберите марку' name='brand'
+            .col-xs-3
+              select class="selectpicker" data-live-search="true" data-size='10' title='Выберите марку' name='advert[brand_id]' id='advert_brand_id'
                 - @brands.sort_by{|b| b.name}.each do |brand|
                   option value="#{brand.id}"
                     = brand.name
-          .row.popular-brands style='margin-top: 10px;'
-            .col-xs-12
-              - @popular_brands.sort_by{|b| b.name}.each do |popular_brand|
-                .col-xs-2.brand-name.btn-brand data-id="#{popular_brand.id}"
-                  = popular_brand.name
-              .col-xs-2.brand-all.btn-brand
-                |Все марки
-          .row.all-brands style='margin-top: 10px; display: none;'
-            .col-xs-12
-              - @brands.sort_by{|b| b.name}.each do |brand|
-                .col-xs-2.brand-name.btn-brand data-id="#{brand.id}"
-                  = brand.name
-              .col-xs-2.brand-popular.btn-brand
-                |Популярные марки
+            .col-xs-5
+              = f.text_field :model, class: 'form-control', placeholder: 'Модель'
+          .in-block
+            .row.popular-brands style='margin-top: 10px;'
+              .col-xs-12
+                - @popular_brands.sort_by{|b| b.name}.each do |popular_brand|
+                  .col-xs-2.brand-name.btn-brand data-id="#{popular_brand.id}"
+                    = popular_brand.name
+                .col-xs-2.brand-all.btn-brand
+                  |Все марки
+            .row.all-brands style='margin-top: 10px; display: none;'
+              .col-xs-12
+                - @brands.sort_by{|b| b.name}.each do |brand|
+                  .col-xs-2.brand-name.btn-brand data-id="#{brand.id}"
+                    = brand.name
+                .col-xs-2.brand-popular.btn-brand
+                  |Популярные марки
+        .block
+          .row
+            .col-xs-12.med-font
+              |Цвет

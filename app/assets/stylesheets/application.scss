@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "bootstrap-select.min";
 @import "font-awesome";
+@import "dropzone/dropzone";
 @import "./*";
 
 body {
@@ -45,4 +46,17 @@ a:hover, a:focus {
   display: block;
   border: 1px solid red;
   border-radius: 4px;
+}
+
+.dropzone .dz-preview .dz-success-mark, .dropzone .dz-preview .dz-error-mark {
+  top: 45% !important;
+}
+
+.dropzone .dz-preview .dz-error-message {
+  top: 140px !important;
+}
+
+#upload-dropzone {
+  position: relative;
+  border: 1px dashed #ccc;
 }

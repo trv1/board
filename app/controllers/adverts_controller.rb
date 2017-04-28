@@ -73,6 +73,26 @@ class AdvertsController < ApplicationController
     end
   end
 
+  def upload_picture
+    picture = Photo.create(image: params[:file])
+    render json: { id: picture.id }
+  end
+
+  def remove_picture
+    begin
+      picture = Photo.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      picture = nil
+    end
+
+    if picture
+      picture.delete
+      render json: { result: 'ok' }
+    else
+      render json: { result: 'fail' }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_advert
