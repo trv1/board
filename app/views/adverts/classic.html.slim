@@ -46,4 +46,27 @@
         .block
           .row
             .col-xs-12.med-font
+              |Год
+            .col-xs-12 style='margin-top: 10px;'
+              select class="selectpicker" data-live-search="true" data-size='10' title='Выберите год' name='advert[year]' id='advert_year'
+                - (1970..(Time.now.year)).to_a.reverse.each do |year|
+                  option value="#{year}"
+                    = year
+          .row style='margin-top: 10px;'
+            .col-xs-12.med-font
+              |Состояние
+            .col-xs-12 style='margin-top: 10px;'
+              select class="selectpicker" title='Выберите состояние' name='advert[state]' id='advert_state'
+                - @states[("#{I18n.locale}").to_sym].each_with_index do |state, i|
+                  option value="#{i}"
+                    = state
+          .row style='margin-top: 10px;'
+            .col-xs-12.med-font
+              |Пробег
+            .col-xs-12 style='margin-top: 10px;'
+              = f.text_field :mileage, class: 'form-control', style: 'max-width: 220px;'
+          .row style='margin-top: 10px;'
+            .col-xs-12.med-font
               |Цвет
+            .col-xs-12 style='margin-top: 10px;'
+              /- @colors[:code].each_with_index do |color, i|
