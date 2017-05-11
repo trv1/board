@@ -69,4 +69,8 @@
             .col-xs-12.med-font
               |Цвет
             .col-xs-12 style='margin-top: 10px;'
-              /- @colors[:code].each_with_index do |color, i|
+              = f.hidden_field :color
+              - @colors[:code].each_with_index do |code, i|
+                .color-wrapper
+                  .color style="background-color: ##{code}" data-toggle="tooltip" data-placement="top" title="#{@colors[:name][("#{I18n.locale}").to_sym][i]}" data-id="#{i}"
+                    .fa.fa-check style='font-size: 28px; color: #ddd; margin: 3px; border-radius: 18px; display: none; position: absolute;'

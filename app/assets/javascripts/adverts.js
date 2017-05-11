@@ -72,4 +72,14 @@ $(document).on('turbolinks:load', function(){
     $('input[type="submit"]').on('click', function() {
         $("#new_adverts").submit();
     });
+
+    $('.color').tooltip();
+
+    $('.color').on('click', function() {
+        $('#advert_color').val($(this).attr('data-id'));
+        $('.color').find('.fa.fa-check').hide();
+        $(this).find('.fa.fa-check').show();
+        $('.color').removeClass('selected-color');
+        $(this).addClass('selected-color');
+    });
 });
