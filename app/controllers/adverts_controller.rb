@@ -8,6 +8,7 @@ class AdvertsController < ApplicationController
     @popular_brands = Brand.where(is_popular: true, is_velomobile: false)
     @states = Advert::STATES
     @colors = Advert::COLORS
+    @countries = Country.where(isolanguage: I18n.locale).sort_by{|obj| obj.name}
   end
 
   def velomobile

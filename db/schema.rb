@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416142834) do
+ActiveRecord::Schema.define(version: 20170512051943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -196,6 +196,15 @@ ActiveRecord::Schema.define(version: 20170416142834) do
   create_table "continentcodes", primary_key: "geonameid", id: :integer, force: :cascade do |t|
     t.string "code", limit: 2
     t.string "name", limit: 20
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.integer  "geoname_id"
+    t.string   "name"
+    t.string   "code"
+    t.string   "isolanguage"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "countryinfo", primary_key: "iso_alpha2", id: :string, limit: 2, force: :cascade do |t|

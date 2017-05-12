@@ -64,7 +64,9 @@
             .col-xs-12.med-font
               |Пробег
             .col-xs-12 style='margin-top: 10px;'
-              = f.text_field :mileage, class: 'form-control', style: 'max-width: 220px;'
+              = f.text_field :mileage, class: 'form-control', style: 'max-width: 220px; display: inline-block;'
+              span
+                |&nbsp;км
           .row style='margin-top: 10px;'
             .col-xs-12.med-font
               |Цвет
@@ -74,3 +76,12 @@
                 .color-wrapper
                   .color style="background-color: ##{code}" data-toggle="tooltip" data-placement="top" title="#{@colors[:name][("#{I18n.locale}").to_sym][i]}" data-id="#{i}"
                     .fa.fa-check style='font-size: 28px; color: #ddd; margin: 3px; border-radius: 18px; display: none; position: absolute;'
+        .block
+          .row
+            .col-xs-12.med-font
+              | Местонахождение
+            .col-xs-12 style='margin-top: 10px;'
+              select class="selectpicker" title='Выберите страну' data-live-search="true" data-size='10' name='advert[country_id]' id='advert_country_id'
+                - @countries.each do |country|
+                  option value="#{country.id}"
+                    = country.name
