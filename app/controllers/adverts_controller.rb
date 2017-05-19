@@ -96,6 +96,14 @@ class AdvertsController < ApplicationController
     end
   end
 
+  def load_cities
+    country = params[:country]
+    @multi_lang_cities = City.where(country: country.upcase)
+    if I18n.locale == 'ru'
+
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_advert

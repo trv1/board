@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512051943) do
+ActiveRecord::Schema.define(version: 20170519055045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -314,6 +314,15 @@ ActiveRecord::Schema.define(version: 20170512051943) do
     t.integer "accuracy",    limit: 2
   end
 
+  create_table "ru_localities", force: :cascade do |t|
+    t.integer  "geoname_id"
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_ru_localities_on_parent_id", using: :btree
+  end
+
   create_table "timezones", id: false, force: :cascade do |t|
     t.string  "country",    limit: 2
     t.string  "timezoneid", limit: 200
@@ -423,5 +432,6 @@ ActiveRecord::Schema.define(version: 20170512051943) do
   add_foreign_key "bicycles", "brands"
   add_foreign_key "countryinfo", "geoname", column: "geonameid", primary_key: "geonameid", name: "fk_geonameid"
   add_foreign_key "photos", "adverts"
+  add_foreign_key "ru_localities", "ru_localities", column: "parent_id"
   add_foreign_key "velomobiles", "brands"
 end
