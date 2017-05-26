@@ -1,16 +1,20 @@
 desc "Заполнение таблицы ru_localities"
 namespace :ru_localities do
   task :create => :environment do
-    #select * from alternatename where geonameid IN (select geoname_id from locations where country = 'RU' and code = 'region_lvl_1') and isolanguage = 'ru';
-    # en_countries = Location.where(code: 'country')
-    # ru_countries = Alternatename.where('isolanguage ilike ? and geonameid IN (?)', 'ru', en_countries.pluck(:geoname_id))
-    #
-    # en_countries.each do |country|
-    #   Country.create(geoname_id: country.geoname_id, name: country.name, code: country.country, isolanguage: 'en')
-    # end
-    #
-    # ru_countries.each do |country|
-    #   Country.create(geoname_id: country.geonameid, name: country.alternatename, code: Location.where(geoname_id: country.geonameid).first.country, isolanguage: 'ru')
-    # end
+    geoname_lvl_1_ids = Location.where(country: 'RU', code: 'region_lvl_1').pluck(:geoname_id)
+    ru_lvl_1 = Alternatename.where(geonameid: geoname_lvl_1_ids, isolanguage: 'ru')
+
+    ru_lvl_1.each do |lvl_1|
+      # RuLocality.create(geoname_id: lvl_1.geonameid, name: lvl_1.alternatename)
+    end
+
+    geoname_local_ids = Location.where(country: 'RU', code: 'locality').pluck(:geoname_id)
+    ru_local = Alternatename.where(geonameid: geoname_local_ids, isolanguage: 'ru')
+
+    ru_local.each do |local|
+      next unless Location.where(geoname_id: local.geonameid).first.parent
+      parent = RuLocality.where(geoname_id: Location.where(geoname_id: local.geonameid).first.parent.geoname_id).first
+      RuLocality.create(geoname_id: local.geonameid, name: local.alternatename, parent_id: parent.id)
+    end
   end
 end
