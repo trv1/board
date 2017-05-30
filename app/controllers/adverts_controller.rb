@@ -97,11 +97,22 @@ class AdvertsController < ApplicationController
   end
 
   def load_cities
-    country = params[:country]
-    @multi_lang_cities = City.where(country: country.upcase)
-    if I18n.locale == 'ru'
-
+    country_code = Country.find(params[:country_id]).code.downcase
+    cities = []
+    regions = []
+    class_name = "#{country_code}Locality".classify.constantize
+    if class_name == RuLocality
+      query = class_name.joins(:parent).where('ru_localities.name ilike ?', "%#{params[:q]}%")
+      cities = query.select('ru_localities.*')
+      regions = query.select('parents_ru_localities.*')
     end
+
+    data = []
+    cities.each_with_index do |city, i|
+      data << city['name'] + ', ' + regions[i]['name']
+    end
+
+    render json: { cities: data }
   end
 
   private

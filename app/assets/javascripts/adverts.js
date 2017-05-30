@@ -82,4 +82,54 @@ $(document).on('turbolinks:load', function(){
         $('.color').removeClass('selected-color');
         $(this).addClass('selected-color');
     });
+
+    $(".js-data-example-ajax").select2({
+        ajax: {
+            url: '/load_cities',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: params.term, // search term
+                    country_id: $('#advert_country_id').val()
+                };
+            },
+            processResults: function (data, params) {
+                // parse the results into the format expected by Select2
+                // since we are using custom formatting functions we do not need to
+                // alter the remote JSON data, except to indicate that infinite
+                // scrolling can be used
+                params.page = params.page || 1;
+
+                return {
+                    results: data.cities
+                    // pagination: {
+                    //     more: (params.page * 30) < data.total_count
+                    // }
+                };
+            },
+            cache: true
+        },
+        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        minimumInputLength: 1,
+        allowClear: true,
+        language: 'ru',
+        placeholder: 'Введите город',
+        templateResult: function (data) {
+            console.log(data);
+            if (data.text) {
+                console.log(data);
+                return data.text;
+            }
+
+            return '<span>' + data + '</span>';
+        },
+        templateSelection: function (data, container) {
+            console.log(data);
+            if (data.id === '') {
+                return '';
+            } else {
+                return ' ' + data;
+            }
+        }
+    });
 });

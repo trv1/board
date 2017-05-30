@@ -15,6 +15,8 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require dropzone
+//= require select2
+//= require select2_locale_ru
 //= require_tree .
 //= require bootstrap-select.min
 

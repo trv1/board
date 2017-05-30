@@ -34,6 +34,7 @@ gem 'bootstrap-select-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'dropzonejs-rails'
+gem 'select2-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

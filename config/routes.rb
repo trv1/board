@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'velomobile/new' => 'adverts#velomobile', as: :velomobile_new
     post 'upload_picture' => 'adverts#upload_picture', as: :advert_upload_picture
     post 'remove_picture' => 'adverts#remove_picture', as: :advert_remove_picture
+    get 'load_cities' => 'adverts#load_cities', as: :load_cities
   end
 
   get '*path' => redirect('/')

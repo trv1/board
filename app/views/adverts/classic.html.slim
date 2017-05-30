@@ -86,7 +86,4 @@
                   option value="#{country.id}"
                     = country.name
             .col-xs-12 style='margin-top: 10px;'
-              select class="selectpicker" title='Выберите город' data-live-search="true" data-size='10' name='advert[location_id]' id='advert_location_id'
-                - @countries.each do |country|
-                  option value="#{country.id}"
-                    = country.name
+              select class="js-data-example-ajax form-control" name='advert[location_id]' id='advert_location_id' style='display: none;'
