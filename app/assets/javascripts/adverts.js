@@ -148,8 +148,11 @@ $(document).on('turbolinks:load', function(){
         }
     });
 
-    $('#advert_country_id').on('changed.bs.select', function () {
-        console.log('GOPA');
-        $('.select2-selection__clear').trigger('click');
+    $(".js-data-example-ajax").on('select2:select', function () {
+        setTimeout(function () {
+            $('#advert_country_id').on('changed.bs.select', function () {
+                $('.select2-selection__clear').trigger('mousedown');
+            });
+        }, 100);
     });
 });

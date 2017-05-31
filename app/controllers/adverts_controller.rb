@@ -100,16 +100,22 @@ class AdvertsController < ApplicationController
     country_code = Country.find(params[:country_id]).code.downcase
     cities = []
     regions = []
+    records = []
     class_name = "#{country_code}Locality".classify.constantize
     if class_name == RuLocality
-      query = class_name.joins(:parent).where('ru_localities.name ilike ?', "%#{params[:q]}%")
-      cities = query.select('ru_localities.*')
-      regions = query.select('parents_ru_localities.*')
+      # query = class_name.joins(:parent).where('ru_localities.name ilike ?', "%#{params[:q]}%")
+      # cities = query.select('ru_localities.*')
+      # regions = query.select('parents_ru_localities.*')
+      #===========
+      records = class_name.joins(:parent, 'inner join locations l on ru_localities.geoname_id = l.geoname_id').where('ru_localities.name ilike ?', "%#{params[:q]}%").select('ru_localities.id, ru_localities.name as city_name, parents_ru_localities.name as region_name').order('l.population desc')
     end
 
     data = []
-    cities.each_with_index do |city, i|
-      data << {id: city['id'], name: (city['name'] + ', ' + regions[i]['name'])}
+    # cities.each_with_index do |city, i|
+    #   data << {id: city['id'], name: (city['name'] + ', ' + regions[i]['name'])}
+    # end
+    records.each do |record|
+      data << {id: record.id, name: (record.attributes['city_name'] + ', ' + record.attributes['region_name'])}
     end
 
     render json: { cities: data }
