@@ -121,15 +121,35 @@ $(document).on('turbolinks:load', function(){
                 return data.text;
             }
 
-            return '<span>' + data + '</span>';
+            return '<span>' + data.name + '</span>';
         },
         templateSelection: function (data, container) {
             console.log(data);
             if (data.id === '') {
                 return '';
             } else {
-                return ' ' + data;
+                return ' ' + data.name;
             }
         }
+    });
+
+    $('.select2-selection__placeholder').html('Введите город');
+    $('.select2-selection__placeholder').css('color', '#aaa');
+
+    $(".js-data-example-ajax").on('select2:open', function (evt) {
+        $('.select2-selection__placeholder').html('Введите город');
+        $('.select2-selection__placeholder').css('color', '#aaa');
+
+        if ($('#advert_country_id').val() == '') {
+            setTimeout(function () {
+                $('.select2-results__message').html('Выберите страну');
+                $('.select2-results__message').css('color', 'red');
+            }, 150);
+        }
+    });
+
+    $('#advert_country_id').on('changed.bs.select', function () {
+        console.log('GOPA');
+        $('.select2-selection__clear').trigger('click');
     });
 });

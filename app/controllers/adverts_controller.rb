@@ -109,7 +109,7 @@ class AdvertsController < ApplicationController
 
     data = []
     cities.each_with_index do |city, i|
-      data << city['name'] + ', ' + regions[i]['name']
+      data << {id: city['id'], name: (city['name'] + ', ' + regions[i]['name'])}
     end
 
     render json: { cities: data }

@@ -4,6 +4,8 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
     .select2-results__option {
       padding: 6px;
       user-select: none;
@@ -29,6 +31,10 @@
   background-color: #fff;
   border: 1px solid #aaa;
   border-radius: 4px;
+  margin-bottom: 0;
+  font-weight: normal;
+  vertical-align: middle;
+  font-size: 14px;
 }
 
 .select2-search__field {

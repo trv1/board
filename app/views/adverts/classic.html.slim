@@ -76,7 +76,7 @@
                 .color-wrapper
                   .color style="background-color: ##{code}" data-toggle="tooltip" data-placement="top" title="#{@colors[:name][("#{I18n.locale}").to_sym][i]}" data-id="#{i}"
                     .fa.fa-check style='font-size: 28px; color: #ddd; margin: 3px; border-radius: 18px; display: none; position: absolute;'
-        .block
+        .block style='margin-bottom: 400px;'
           .row
             .col-xs-12.med-font
               | Местонахождение
@@ -86,4 +86,5 @@
                   option value="#{country.id}"
                     = country.name
             .col-xs-12 style='margin-top: 10px;'
-              select class="js-data-example-ajax form-control" name='advert[location_id]' id='advert_location_id' style='display: none;'
+              select class="js-data-example-ajax form-control" style='display: none;'
+              = f.hidden_field :location_id, style: 'display: none;'

@@ -13,12 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-select.min
 //= require turbolinks
 //= require dropzone
 //= require select2
 //= require select2_locale_ru
 //= require_tree .
-//= require bootstrap-select.min
 
 $(document).on('turbolinks:load', function(){
     $('.selectpicker').selectpicker();
