@@ -12,6 +12,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
 
   body
+    .language data-i18n="#{I18n.locale}"
+
     - if root_url != request.url
       - unless [new_user_session_path].include?(request.path)
         = render 'navbar'

@@ -112,19 +112,16 @@ $(document).on('turbolinks:load', function(){
         escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
         minimumInputLength: 1,
         allowClear: true,
-        language: 'ru',
+        language: locale(),
         placeholder: 'Введите город',
         templateResult: function (data) {
-            console.log(data);
             if (data.text) {
-                console.log(data);
                 return data.text;
             }
 
             return '<span>' + data.name + '</span>';
         },
         templateSelection: function (data, container) {
-            console.log(data);
             if (data.id === '') {
                 return '';
             } else {
@@ -148,10 +145,14 @@ $(document).on('turbolinks:load', function(){
         }
     });
 
-    $(".js-data-example-ajax").on('select2:select', function () {
+    $(".js-data-example-ajax").on('select2:select', function (evt) {
         setTimeout(function () {
+            $(this).data('location', evt.params.data.name.split(',')[0]);
+            $('#advert_location_id').val(evt.params.data.id);
             $('#advert_country_id').on('changed.bs.select', function () {
                 $('.select2-selection__clear').trigger('mousedown');
+                $(this).data('location', '');
+                $('#advert_location_id').val('');
             });
         }, 100);
     });

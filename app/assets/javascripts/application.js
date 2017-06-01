@@ -20,6 +20,10 @@
 //= require select2_locale_ru
 //= require_tree .
 
+function locale() {
+    return $('.language').data('i18n');
+}
+
 $(document).on('turbolinks:load', function(){
     $('.selectpicker').selectpicker();
 });
