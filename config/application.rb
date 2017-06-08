@@ -15,5 +15,7 @@ module Board
     config.time_zone = 'Moscow'
 
     config.i18n.default_locale = :ru
+
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', '{*/}')]
   end
 end

@@ -97,17 +97,18 @@ class AdvertsController < ApplicationController
   end
 
   def load_cities
+    existed_countries = %w(RU UA)
     country_code = Country.find(params[:country_id]).code
     cities = []
     regions = []
     records = []
-    if country_code == 'RU'
+    if existed_countries.include? country_code
       class_name = "#{country_code.downcase}Locality".classify.constantize
       # query = class_name.joins(:parent).where('ru_localities.name ilike ?', "%#{params[:q]}%")
       # cities = query.select('ru_localities.*')
       # regions = query.select('parents_ru_localities.*')
       #===========
-      records = class_name.joins(:parent, 'inner join locations l on ru_localities.geoname_id = l.geoname_id').where('ru_localities.name ilike ?', "%#{params[:q]}%").select('ru_localities.id, ru_localities.name as city_name, parents_ru_localities.name as region_name').order('l.population desc')
+      records = class_name.joins(:parent, "inner join locations l on #{country_code}_localities.geoname_id = l.geoname_id").where("#{country_code}_localities.name ilike ?", "%#{params[:q]}%").select("#{country_code}_localities.id, #{country_code}_localities.name as city_name, parents_#{country_code}_localities.name as region_name").order('l.population desc')
     else
       records = Location.joins(:parent).where(country: country_code.upcase, code: 'locality').where('locations.name ilike ?', "%#{params[:q]}%").select('locations.id, locations.name as city_name, parents_locations.name as region_name').order('locations.population desc')
     end

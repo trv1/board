@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519055045) do
+ActiveRecord::Schema.define(version: 20170608102013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,6 +172,15 @@ ActiveRecord::Schema.define(version: 20170519055045) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "by_localities", force: :cascade do |t|
+    t.integer  "geoname_id"
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_by_localities_on_parent_id", using: :btree
+  end
+
   create_table "cities", primary_key: "geonameid", id: :integer, force: :cascade do |t|
     t.string  "name",           limit: 200
     t.string  "asciiname",      limit: 200
@@ -331,6 +340,15 @@ ActiveRecord::Schema.define(version: 20170519055045) do
     t.decimal "raw_offset",             precision: 3, scale: 1
   end
 
+  create_table "ua_localities", force: :cascade do |t|
+    t.integer  "geoname_id"
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_ua_localities_on_parent_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 50,              null: false
     t.string   "phone"
@@ -430,8 +448,10 @@ ActiveRecord::Schema.define(version: 20170519055045) do
   add_foreign_key "adverts", "users"
   add_foreign_key "alternatename", "geoname", column: "geonameid", primary_key: "geonameid", name: "fk_geonameid"
   add_foreign_key "bicycles", "brands"
+  add_foreign_key "by_localities", "by_localities", column: "parent_id"
   add_foreign_key "countryinfo", "geoname", column: "geonameid", primary_key: "geonameid", name: "fk_geonameid"
   add_foreign_key "photos", "adverts"
   add_foreign_key "ru_localities", "ru_localities", column: "parent_id"
+  add_foreign_key "ua_localities", "ua_localities", column: "parent_id"
   add_foreign_key "velomobiles", "brands"
 end
