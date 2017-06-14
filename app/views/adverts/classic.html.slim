@@ -76,7 +76,7 @@
                 .color-wrapper
                   .color style="background-color: ##{code}" data-toggle="tooltip" data-placement="top" title="#{@colors[:name][("#{I18n.locale}").to_sym][i]}" data-id="#{i}"
                     .fa.fa-check style='font-size: 28px; color: #ddd; margin: 3px; border-radius: 18px; display: none; position: absolute;'
-        .block style='margin-bottom: 400px;'
+        .block
           .row
             .col-xs-12.med-font
               | Местонахождение
@@ -88,3 +88,38 @@
             .col-xs-12 style='margin-top: 10px;'
               select class="js-data-example-ajax form-control" style='display: none;' data-location=''
               = f.hidden_field :location_id, style: 'display: none;'
+            .col-xs-12
+              = f.text_field :place, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Место осмотра'
+        .block
+          .row
+            .col-xs-12.med-font
+              | Контакты
+            .col-xs-12 style='margin-top: 10px;'
+              = f.text_field :name, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Как к Вам обращаться?'
+            .col-xs-12 style='margin-top: 10px;'
+              = f.text_field :email, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Email'
+            .col-xs-12 style='margin-top: 10px;'
+              = f.text_field :phone, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Телефон'
+            .col-xs-12 style='margin-top: 10px; font-size: 14px;'
+              span Звонить с&nbsp;
+              input.form-control type='text' id='time_start' style='max-width: 100px; display: inline-block;'
+              span &nbsp;по&nbsp;
+              input.form-control type='text' id='time_end' style='max-width: 100px; display: inline-block;'
+        .block
+          .row
+            .col-xs-12.med-font
+              | Цена
+            .col-xs-12 style='margin-top: 10px;'
+              = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
+            .col-xs-12 style='margin-top: 10px; font-size: 14px;'
+              = f.check_box :is_exchange
+              span
+                | &nbsp;Возможен обмен
+            .col-xs-12 style='margin-top: 10px; font-size: 14px;'
+              = f.check_box :is_domestic_delivery
+              span
+                | &nbsp;Возможна доставка по стране
+            .col-xs-12 style='margin-top: 10px; font-size: 14px;'
+              = f.check_box :is_delivery_abroad
+              span
+                | &nbsp;Возможна доставка заграницу

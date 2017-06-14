@@ -8,7 +8,11 @@ class AdvertsController < ApplicationController
     @popular_brands = Brand.where(is_popular: true, is_velomobile: false)
     @states = Advert::STATES
     @colors = Advert::COLORS
-    @countries = Country.where(isolanguage: I18n.locale).sort_by{|obj| obj.name}
+    if I18n.locale == :ru
+      @countries = Country.where(isolanguage: I18n.locale, code: %w(RU UA BY KZ)).sort_by{|obj| obj.name}
+    else
+      @countries = Country.where(isolanguage: I18n.locale).sort_by{|obj| obj.name}
+    end
   end
 
   def velomobile
@@ -132,6 +136,27 @@ class AdvertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advert_params
-      params.require(:advert).permit(:vehicle_id, :user_id, :location_id, :brand_id, :model, :year, :state, :color, :mileage, :country_id, :place, :name, :phone, :email, :is_exchange, :time, :description, :price)
+      params.require(:advert).permit(
+          :vehicle_id,
+          :user_id,
+          :location_id,
+          :brand_id,
+          :model,
+          :year,
+          :state,
+          :color,
+          :mileage,
+          :country_id,
+          :place,
+          :name,
+          :phone,
+          :email,
+          :is_exchange,
+          :time,
+          :description,
+          :price,
+          :is_domestic_delivery,
+          :is_delivery_abroad
+      )
     end
 end

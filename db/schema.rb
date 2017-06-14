@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608110016) do
+ActiveRecord::Schema.define(version: 20170614054726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20170608110016) do
     t.integer  "vehicle_id"
     t.integer  "user_id"
     t.integer  "location_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "model"
     t.integer  "year"
     t.string   "state"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20170608110016) do
     t.string   "description"
     t.integer  "price"
     t.integer  "brand_id"
+    t.boolean  "is_domestic_delivery"
+    t.boolean  "is_delivery_abroad"
     t.index ["brand_id"], name: "index_adverts_on_brand_id", using: :btree
     t.index ["location_id"], name: "index_adverts_on_location_id", using: :btree
     t.index ["user_id"], name: "index_adverts_on_user_id", using: :btree
