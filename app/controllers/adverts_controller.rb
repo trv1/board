@@ -156,7 +156,8 @@ class AdvertsController < ApplicationController
           :description,
           :price,
           :is_domestic_delivery,
-          :is_delivery_abroad
+          :is_delivery_abroad,
+          :is_around_the_clock
       )
     end
 end

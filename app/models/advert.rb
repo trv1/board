@@ -16,4 +16,9 @@ class Advert < ApplicationRecord
         en: %w(Beige White Blue Yellow Green Golden Brown Red Orange Pink Silver Gray Dark\ Blue Purple Black)
       }
   }
+
+  TIMES = {
+      hours: (0..23).to_a.map{|h| h < 10 ? '0'+h.to_s : h.to_s },
+      minutes: %w(00 15 30 45)
+  }
 end

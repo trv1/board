@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap-select.min
 //= require turbolinks
+//= require jquery.inputmask.bundle.js
 //= require dropzone
 //= require select2
 //= require select2_locale_ru

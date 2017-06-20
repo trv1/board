@@ -156,4 +156,18 @@ $(document).on('turbolinks:load', function(){
             });
         }, 100);
     });
+
+    $('#advert_phone').inputmask({
+        mask: [{ "mask": "+#"}],
+        greedy: false,
+        definitions: { '#': { validator: "[0-9]", cardinality: 13}}
+    });
+
+    $('#advert_is_around_the_clock').on('change', function () {
+        if ($(this).prop('checked')) {
+            $('#time').hide(500);
+        } else {
+            $('#time').show(500);
+        }
+    });
 });

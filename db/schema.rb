@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614054726) do
+ActiveRecord::Schema.define(version: 20170620083702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170614054726) do
     t.integer  "brand_id"
     t.boolean  "is_domestic_delivery"
     t.boolean  "is_delivery_abroad"
+    t.boolean  "is_around_the_clock"
     t.index ["brand_id"], name: "index_adverts_on_brand_id", using: :btree
     t.index ["location_id"], name: "index_adverts_on_location_id", using: :btree
     t.index ["user_id"], name: "index_adverts_on_user_id", using: :btree

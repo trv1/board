@@ -101,10 +101,31 @@
             .col-xs-12 style='margin-top: 10px;'
               = f.text_field :phone, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Телефон'
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
+              = f.check_box :is_around_the_clock, {checked: 'checked'}
+              span
+                | &nbsp;Круглосуточно
+            #time.col-xs-12 style='margin-top: 10px; font-size: 14px; display: none;'
               span Звонить с&nbsp;
-              input.form-control type='text' id='time_start' style='max-width: 100px; display: inline-block;'
+              /input.form-control type='text' id='time_start' style='max-width: 65px; display: inline-block;'
+              select class="selectpicker" data-size='10' name='time_start' id='time_start_hour' data-width='100px'
+                - Advert::TIMES[:hours].each do |hour|
+                  option value="#{hour}"
+                    = hour
+              |&nbsp;:&nbsp;
+              select class="selectpicker" name='time_start' id='time_start_minute' data-width='100px'
+                - Advert::TIMES[:minutes].each do |minute|
+                  option value="#{minute}"
+                    = minute
               span &nbsp;по&nbsp;
-              input.form-control type='text' id='time_end' style='max-width: 100px; display: inline-block;'
+              select class="selectpicker" data-size='10' name='time_start' id='time_end_hour' data-width='100px'
+                - Advert::TIMES[:hours].each do |hour|
+                  option value="#{hour}"
+                    = hour
+              |&nbsp;:&nbsp;
+              select class="selectpicker" name='time_start' id='time_end_minute' data-width='100px'
+                - Advert::TIMES[:minutes].each do |minute|
+                  option value="#{minute}"
+                    = minute
         .block
           .row
             .col-xs-12.med-font
