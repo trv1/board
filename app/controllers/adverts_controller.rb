@@ -101,7 +101,7 @@ class AdvertsController < ApplicationController
   end
 
   def load_cities
-    existed_countries = %w(RU UA BY KZ)
+    existed_countries = %w(RU UA BY KZ GE)
     country_code = Country.find(params[:country_id]).code
     cities = []
     regions = []
