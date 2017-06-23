@@ -21,5 +21,12 @@ namespace :ru_localities do
     # alternames.each do |altername|
     #   RuLocality.create(geoname_id: altername.geonameid, name: altername.alternatename, parent_id: 9778)
     # end
+    ru_locations = Location.where(country: 'RU', code: 'locality')
+    ru_locations.each do |location|
+      next if RuLocality.where(geoname_id: location.geoname_id).size > 0
+      location_parent = Location.where(geoname_id: location.geoname_id).first.parent
+      parent = RuLocality.where(geoname_id: location_parent.geoname_id).first if location_parent
+      RuLocality.create(geoname_id: location.geoname_id, name: location.name, parent_id: (parent ? parent.id : nil))
+    end
   end
 end

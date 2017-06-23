@@ -9,7 +9,7 @@ class AdvertsController < ApplicationController
     @states = Advert::STATES
     @colors = Advert::COLORS
     if I18n.locale == :ru
-      @countries = Country.where(isolanguage: I18n.locale, code: %w(RU UA BY KZ)).sort_by{|obj| obj.name}
+      @countries = Country.where(isolanguage: I18n.locale, code: %w(RU UA BY KZ GE)).sort_by{|obj| obj.name}
     else
       @countries = Country.where(isolanguage: I18n.locale).sort_by{|obj| obj.name}
     end
