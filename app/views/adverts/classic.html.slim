@@ -130,8 +130,16 @@
           .row
             .col-xs-12.med-font
               | Цена
+              span style="font-family:Verdana;font-size:18pt"123 &#8381;
             .col-xs-12 style='margin-top: 10px;'
-              = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
+              .input-group
+                = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
+                .input-group-btn style='float: left;'
+                  /#toDo въебать селект и сделать обычный список с яваскриптом
+                  select class='selectpicker' data-width='70px'
+                    - Currency.all.each do |currency|
+                      option.rub value="#{currency.id}"
+                        = currency.symbol
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
               = f.check_box :is_exchange
               span

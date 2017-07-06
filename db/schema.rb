@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621125312) do
+ActiveRecord::Schema.define(version: 20170703054556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -239,6 +239,14 @@ ActiveRecord::Schema.define(version: 20170621125312) do
     t.string  "neighbours",           limit: 50
     t.string  "equivalent_fips_code", limit: 3
     t.index ["geonameid"], name: "index_countryinfo_geonameid", using: :hash
+  end
+
+  create_table "currencies", force: :cascade do |t|
+    t.string   "code"
+    t.string   "symbol"
+    t.decimal  "ratio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "featurecodes", id: false, force: :cascade do |t|
