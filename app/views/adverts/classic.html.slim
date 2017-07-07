@@ -135,10 +135,12 @@
               .input-group
                 = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
                 .input-group-btn style='float: left;'
-                  /#toDo въебать селект и сделать обычный список с яваскриптом
-                  select class='selectpicker' data-width='70px'
+                  button type="button" class="btn btn-default dropdown-toggle currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    = Currency::DEFAULT_CURRENCY[I18n.locale].symbol
+                    span.caret style='margin-left: 10px'
+                  ul.dropdown-menu style='min-width: 100px;'
                     - Currency.all.each do |currency|
-                      option.rub value="#{currency.id}"
+                      li.currency class="#{Currency::DEFAULT_CURRENCY[I18n.locale] == currency ? 'highlighted-li' : ''}" style='text-align: center; font-size: 20px; padding: 5px 0;'
                         = currency.symbol
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
               = f.check_box :is_exchange
