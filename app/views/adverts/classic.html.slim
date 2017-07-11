@@ -140,7 +140,7 @@
                     span.caret style='margin-left: 10px'
                   ul.dropdown-menu style='min-width: 100px;'
                     - Currency.all.each do |currency|
-                      li.currency class="#{Currency::DEFAULT_CURRENCY[I18n.locale] == currency ? 'highlighted-li' : ''}" style='text-align: center; font-size: 20px; padding: 5px 0;'
+                      li.currency class="#{Currency::DEFAULT_CURRENCY[I18n.locale] == currency ? 'highlighted-li' : ''}" data-content="#{currency.symbol}" data-value="" data-ratio="#{currency.ratio}"
                         = currency.symbol
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
               = f.check_box :is_exchange

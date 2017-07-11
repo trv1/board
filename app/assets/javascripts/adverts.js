@@ -170,4 +170,18 @@ $(document).on('turbolinks:load', function(){
             $('#time').show(500);
         }
     });
+
+    $('li.currency').on('click', function () {
+        $('button.currency').contents()[0].textContent = $(this).data('content');
+        $('li.currency').removeClass('highlighted-li');
+        $(this).addClass('highlighted-li');
+        $('#advert_price').val(parseFloat($('.currency.highlighted-li').data('value')).toFixed(2));
+    });
+
+    $('#advert_price').on('change', function () {
+        var $this = $(this);
+        $.each($('li.currency'), function (k, v) {
+            $(this).data('value', (parseFloat($this.val()) * parseFloat($(v).data('ratio')))/parseFloat($('.currency.highlighted-li').data('ratio')));
+        });
+    });
 });
