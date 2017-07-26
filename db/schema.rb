@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703054556) do
+ActiveRecord::Schema.define(version: 20170726054508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,6 @@ ActiveRecord::Schema.define(version: 20170703054556) do
   end
 
   create_table "bicycles", force: :cascade do |t|
-    t.integer  "price"
-    t.integer  "brand_id"
     t.integer  "c1",         limit: 2
     t.integer  "c2",         limit: 2
     t.integer  "c3",         limit: 2
@@ -164,7 +162,16 @@ ActiveRecord::Schema.define(version: 20170703054556) do
     t.boolean  "c89"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.index ["brand_id"], name: "index_bicycles_on_brand_id", using: :btree
+    t.boolean  "c90"
+    t.boolean  "c91"
+    t.boolean  "c92"
+    t.boolean  "c93"
+    t.boolean  "c94"
+    t.boolean  "c95"
+    t.boolean  "c96"
+    t.boolean  "c97"
+    t.string   "c98"
+    t.boolean  "c99"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -408,8 +415,6 @@ ActiveRecord::Schema.define(version: 20170703054556) do
   end
 
   create_table "velomobiles", force: :cascade do |t|
-    t.integer  "price"
-    t.integer  "brand_id"
     t.integer  "c1",         limit: 2
     t.integer  "c2",         limit: 2
     t.integer  "c3",         limit: 2
@@ -469,14 +474,12 @@ ActiveRecord::Schema.define(version: 20170703054556) do
     t.boolean  "c57"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.index ["brand_id"], name: "index_velomobiles_on_brand_id", using: :btree
   end
 
   add_foreign_key "adverts", "brands"
   add_foreign_key "adverts", "locations"
   add_foreign_key "adverts", "users"
   add_foreign_key "alternatename", "geoname", column: "geonameid", primary_key: "geonameid", name: "fk_geonameid"
-  add_foreign_key "bicycles", "brands"
   add_foreign_key "by_localities", "by_localities", column: "parent_id"
   add_foreign_key "countryinfo", "geoname", column: "geonameid", primary_key: "geonameid", name: "fk_geonameid"
   add_foreign_key "ge_localities", "ge_localities", column: "parent_id"
@@ -484,5 +487,4 @@ ActiveRecord::Schema.define(version: 20170703054556) do
   add_foreign_key "photos", "adverts"
   add_foreign_key "ru_localities", "ru_localities", column: "parent_id"
   add_foreign_key "ua_localities", "ua_localities", column: "parent_id"
-  add_foreign_key "velomobiles", "brands"
 end

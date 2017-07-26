@@ -102,7 +102,7 @@
               = f.text_field :phone, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Телефон'
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
               = f.check_box :is_around_the_clock, {checked: 'checked'}
-              span
+              span.span-checkbox
                 | &nbsp;Круглосуточно
             #time.col-xs-12 style='margin-top: 10px; font-size: 14px; display: none;'
               span Звонить с&nbsp;
@@ -130,7 +130,6 @@
           .row
             .col-xs-12.med-font
               | Цена
-              span style="font-family:Verdana;font-size:18pt"123 &#8381;
             .col-xs-12 style='margin-top: 10px;'
               .input-group
                 = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
@@ -144,13 +143,18 @@
                         = currency.symbol
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
               = f.check_box :is_exchange
-              span
+              span.span-checkbox
                 | &nbsp;Возможен обмен
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
               = f.check_box :is_domestic_delivery
-              span
+              span.span-checkbox
                 | &nbsp;Возможна доставка по стране
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
               = f.check_box :is_delivery_abroad
-              span
+              span.span-checkbox
                 | &nbsp;Возможна доставка заграницу
+        .block
+          .row
+            .col-xs-12.med-font
+              | Комплектация
+            .col-xs-12 style='margin-top: 10px;'
