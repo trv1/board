@@ -88,9 +88,19 @@ en:
         c84: Bell
         c85: Safety padding on handlebar
         c86: Electric equipment
-        c87: Lights
+        c87: Light
         c88: Turn signals
         c89: Cyclocomputer
+        c90: Bicycle bag
+        c91: Phone holder
+        c92: Jar holder
+        c93: Jar
+        c94: Lock
+        c95: Child seat
+        c96: Trunk rack for car
+        c97: Kickstand
+        c98: Mirrors
+        c99: Bicycle cover
       velomobile:
         c1: Diameter of wheels, "
         c2: Quantity of wheels

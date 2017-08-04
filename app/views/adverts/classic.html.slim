@@ -157,4 +157,11 @@
           .row
             .col-xs-12.med-font
               | Комплектация
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-6 style='margin-top: 10px;'
+              .custom-label Багажник
+              select class="selectpicker" name='c76' id='c76' title='Нет'
+                option selected='' value='' Нет
+                - BicycleValidates::C76[I18n.locale].each do |value|
+                  option value="#{value}"
+                    = value
+            .col-xs-6 style='margin-top: 10px;'
