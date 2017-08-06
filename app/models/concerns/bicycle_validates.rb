@@ -116,6 +116,10 @@ module BicycleValidates
       ru: %w(левое правое левое\ и\ правое),
       en: %w(left right left\ and\ right),
   }
+  C100 = {
+      ru: %w(передний задний полный),
+      en: %w(front-wheel rear-wheel all-wheel)
+  }
 
   included do
     validates :c1, inclusion: {in: 0...C1[:ru].size}
@@ -153,6 +157,7 @@ module BicycleValidates
     validates :c76, inclusion: {in: 0...POSITIONS[:ru].size}
     validates :c80, inclusion: {in: 0...C80[:ru].size}
     validates :c87, inclusion: {in: 0...POSITIONS[:ru].size}
+    validates :c100, inclusion: {in: 0...C100[:ru].size}
   end
 
 end

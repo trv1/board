@@ -73,12 +73,33 @@ a:hover, a:focus {
 
 .span-checkbox {
   cursor: pointer;
+  vertical-align: text-bottom;
 }
 
 .custom-label {
   font-size: 14px;
 }
 
-.top10 {
+.mtop10 {
   margin-top: 10px;
+}
+
+.mbottom10 {
+  margin-bottom: 10px;
+}
+
+.font14 {
+  font-size: 14px;
+}
+
+.font16 {
+  font-size: 16px;
+}
+
+.font18 {
+  font-size: 18px;
+}
+
+.maxw220 {
+  max-width: 220px;
 }

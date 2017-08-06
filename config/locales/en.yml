@@ -101,6 +101,7 @@ en:
         c97: Kickstand
         c98: Mirrors
         c99: Bicycle cover
+        c100: Electric bike drive
       velomobile:
         c1: Diameter of wheels, "
         c2: Quantity of wheels

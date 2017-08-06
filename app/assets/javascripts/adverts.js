@@ -171,6 +171,14 @@ $(document).on('turbolinks:load', function(){
         }
     });
 
+    $('#bicycle_c10').on('change', function () {
+        if ($(this).prop('checked')) {
+            $('#electro_fields').show(500);
+        } else {
+            $('#electro_fields').hide(500);
+        }
+    });
+
     $('li.currency').on('click', function () {
         $('button.currency').contents()[0].textContent = $(this).data('content');
         $('li.currency').removeClass('highlighted-li');
