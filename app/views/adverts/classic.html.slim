@@ -20,7 +20,7 @@
               .fa.fa-angle-up.rotate-icon
             .col-xs-12 style='font-size: 14px; margin: 6px 0;'
               |Если Вы не нашли нужную марку в списке, Вы можете ее написать в поле "Модель"
-          .row style='margin-top: 10px;' data-type='brands'
+          .row.top10 data-type='brands'
             .col-xs-3
               select class="selectpicker" data-live-search="true" data-size='10' title='Выберите марку' name='advert[brand_id]' id='advert_brand_id'
                 - @brands.sort_by{|b| b.name}.each do |brand|
@@ -29,7 +29,7 @@
             .col-xs-5
               = f.text_field :model, class: 'form-control', placeholder: 'Модель'
           .in-block
-            .row.popular-brands style='margin-top: 10px;'
+            .row.popular-brands.top10
               .col-xs-12
                 - @popular_brands.sort_by{|b| b.name}.each do |popular_brand|
                   .col-xs-2.brand-name.btn-brand data-id="#{popular_brand.id}"
@@ -47,30 +47,30 @@
           .row
             .col-xs-12.med-font
               |Год
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               select class="selectpicker" data-live-search="true" data-size='10' title='Выберите год' name='advert[year]' id='advert_year'
                 - (1970..(Time.now.year)).to_a.reverse.each do |year|
                   option value="#{year}"
                     = year
-          .row style='margin-top: 10px;'
+          .row.top10
             .col-xs-12.med-font
               |Состояние
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               select class="selectpicker" title='Выберите состояние' name='advert[state]' id='advert_state'
                 - @states[("#{I18n.locale}").to_sym].each_with_index do |state, i|
                   option value="#{i}"
                     = state
-          .row style='margin-top: 10px;'
+          .row.top10
             .col-xs-12.med-font
               |Пробег
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               = f.text_field :mileage, class: 'form-control', style: 'max-width: 220px; display: inline-block;'
               span
                 |&nbsp;км
-          .row style='margin-top: 10px;'
+          .row.top10
             .col-xs-12.med-font
               |Цвет
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               = f.hidden_field :color
               - @colors[:code].each_with_index do |code, i|
                 .color-wrapper
@@ -80,12 +80,12 @@
           .row
             .col-xs-12.med-font
               | Местонахождение
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               select class="selectpicker" title='Выберите страну' data-live-search="true" data-size='10' name='advert[country_id]' id='advert_country_id'
                 - @countries.each do |country|
                   option value="#{country.id}"
                     = country.name
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               select class="js-data-example-ajax form-control" style='display: none;' data-location=''
               = f.hidden_field :location_id, style: 'display: none;'
             .col-xs-12
@@ -94,11 +94,11 @@
           .row
             .col-xs-12.med-font
               | Контакты
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               = f.text_field :name, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Как к Вам обращаться?'
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               = f.text_field :email, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Email'
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               = f.text_field :phone, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Телефон'
             .col-xs-12 style='margin-top: 10px; font-size: 14px;'
               = f.check_box :is_around_the_clock, {checked: 'checked'}
@@ -130,7 +130,7 @@
           .row
             .col-xs-12.med-font
               | Цена
-            .col-xs-12 style='margin-top: 10px;'
+            .col-xs-12.top10
               .input-group
                 = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
                 .input-group-btn style='float: left;'
@@ -157,11 +157,36 @@
           .row
             .col-xs-12.med-font
               | Комплектация
-            .col-xs-6 style='margin-top: 10px;'
+            .col-xs-6.top10
               .custom-label Багажник
-              select class="selectpicker" name='c76' id='c76' title='Нет'
+              select class="selectpicker" name='bicycles[c76]' id='bicycles_c76' title='Нет'
                 option selected='' value='' Нет
-                - BicycleValidates::C76[I18n.locale].each do |value|
+                - BicycleValidates::POSITIONS[I18n.locale].each do |value|
                   option value="#{value}"
                     = value
-            .col-xs-6 style='margin-top: 10px;'
+            .col-xs-6.top10
+        .block
+          .row
+            .col-xs-12.med-font
+              | Основные характеристики
+            .col-xs-6.top10
+              .custom-label = t 'activerecord.attributes.bicycle.c1'
+              select class="selectpicker" name='bicycles[c1]' id='bicycles_c1' title='Не выбран'
+                option selected='' value='' Не выбран
+                - BicycleValidates::C1[I18n.locale].each do |value|
+                  option value="#{value}"
+                    = value
+            .col-xs-6.top10
+              .custom-label = t 'activerecord.attributes.bicycle.c2'
+              select class="selectpicker" name='bicycles[c2]' id='bicycles_c2' title='Не выбран'
+                option selected='' value='' Не выбран
+                - BicycleValidates::C2[I18n.locale].each do |value|
+                  option value="#{value}"
+                    = value
+            .col-xs-6.top10
+              .custom-label = t 'activerecord.attributes.bicycle.c14'
+              select class="selectpicker" name='bicycles[c14]' id='bicycles_c14' title='Не выбран'
+                option selected='' value='' Не выбран
+                - BicycleValidates::C14[I18n.locale].each do |value|
+                  option value="#{value}"
+                    = value

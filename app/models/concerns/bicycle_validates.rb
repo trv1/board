@@ -103,17 +103,14 @@ module BicycleValidates
       ru: %w(искусственная\ кожа кожа кожа\ +\ кевлар пластик синтетическая\ ткань),
       en: %w(leatherette leather leather\ +\ Kevlar plastic synthetic\ fabric),
   }
-  C76 = {
+  # 76,87
+  POSITIONS = {
       ru: %w(передний задний передний\ и\ задний),
       en: %w(front rear front\ and\ rear),
   }
   C80 = {
       ru: %w(LFP Li-ion LiMn LiPo SLA),
       en: %w(LFP Li-ion LiMn LiPo SLA),
-  }
-  C87 = {
-      ru: %w(передний задний передний\ и\ задний),
-      en: %w(front rear front\ and\ rear),
   }
   C98 = {
       ru: %w(левое правое левое\ и\ правое),
@@ -153,9 +150,9 @@ module BicycleValidates
     validates :c69, inclusion: {in: 0...C69[:ru].size}
     validates :c70, inclusion: {in: 0...C70[:ru].size}
     validates :c71, inclusion: {in: 0...C71[:ru].size}
-    validates :c76, inclusion: {in: 0...C76[:ru].size}
+    validates :c76, inclusion: {in: 0...POSITIONS[:ru].size}
     validates :c80, inclusion: {in: 0...C80[:ru].size}
-    validates :c87, inclusion: {in: 0...C87[:ru].size}
+    validates :c87, inclusion: {in: 0...POSITIONS[:ru].size}
   end
 
 end
