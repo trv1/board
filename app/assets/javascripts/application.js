@@ -28,9 +28,9 @@ function locale() {
 $(document).on('turbolinks:load', function(){
     $('.selectpicker').selectpicker();
 
-    $('.span-checkbox').on('click', function () {
-        $(this).parent().find('input[type="checkbox"]').trigger('click');
-    });
+    // $('.span-checkbox').on('click', function () {
+    //     $(this).parent().find('input[type="checkbox"]').trigger('click');
+    // });
 });
 
 $(document).on('turbolinks:before-cache', function(){

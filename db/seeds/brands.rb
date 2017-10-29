@@ -1,5 +1,6 @@
 def create_brands
   bicycle_brands = Brand.create([
+                                    {name: 'Other', is_popular: true, is_velomobile: false},
                                     {name: 'Author', is_popular: true, is_velomobile: false},
                                     {name: 'Challenger', is_popular: true, is_velomobile: false},
                                     {name: 'Cube', is_popular: true, is_velomobile: false},

@@ -17,18 +17,20 @@
             .col-xs-11.med-font.font18
               | Марка и модель
             .col-xs-1 style='text-align: right;'
-              .fa.fa-angle-up.rotate-icon
+              /.fa.fa-angle-up.rotate-icon
             .col-xs-12 style='font-size: 14px; margin: 6px 0;'
               |Если Вы не нашли нужную марку в списке, Вы можете ее написать в поле "Модель"
           .row.mtop10 data-type='brands'
             .col-xs-3
               select class="selectpicker" data-live-search="true" data-size='10' title='Выберите марку' name='advert[brand_id]' id='advert_brand_id'
+                option value="#{@other_brand.id}"
+                  = Brand::OTHER[I18n.locale.to_sym]
                 - @brands.sort_by{|b| b.name}.each do |brand|
                   option value="#{brand.id}"
                     = brand.name
-            .col-xs-5
+            .col-xs-4
               = f.text_field :model, class: 'form-control', placeholder: 'Модель'
-          .in-block
+          /.in-block
             .row.popular-brands.mtop10
               .col-xs-12
                 - @popular_brands.sort_by{|b| b.name}.each do |popular_brand|
@@ -157,14 +159,98 @@
           .row
             .col-xs-12.med-font.font18
               | Комплектация
-            .col-xs-6.mtop10
+            .col-xs-4.mtop10
               .custom-label Багажник
               select class="selectpicker" name='bicycle[c76]' id='bicycle_c76' title='Нет'
                 option selected='' value='' Нет
                 - BicycleValidates::POSITIONS[I18n.locale].each do |value|
                   option value="#{value}"
                     = value
-            .col-xs-6.mtop10
+              .custom-label.mtop10 Зеркала
+              select class="selectpicker" name='bicycle[c98]' id='bicycle_c98' title='Нет'
+                option selected='' value='' Нет
+                - BicycleValidates::C98[I18n.locale].each do |value|
+                  option value="#{value}"
+                    = value
+              .custom-label.mtop10 Фонарь
+              select class="selectpicker" name='bicycle[c87]' id='bicycle_c87' title='Нет'
+                option selected='' value='' Нет
+                - BicycleValidates::POSITIONS[I18n.locale].each do |value|
+                  option value="#{value}"
+                    = value
+            .col-xs-3.mtop10
+              label.custom-control.custom-checkbox
+                = check_box_tag 'bicycle[c77]', '', false, id: 'bicycle_c77', class: 'custom-control-input'
+                span.custom-control-indicator
+                span.span-checkbox.custom-control-description
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c77'
+              p
+                = check_box_tag 'bicycle[c78]', '', false, id: 'bicycle_c78'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c78'
+              p
+                = check_box_tag 'bicycle[c84]', '', false, id: 'bicycle_c84'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c84'
+              p
+                = check_box_tag 'bicycle[c89]', '', false, id: 'bicycle_c89'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c89'
+              p
+                = check_box_tag 'bicycle[c90]', '', false, id: 'bicycle_c90'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c90'
+              p
+                = check_box_tag 'bicycle[c91]', '', false, id: 'bicycle_c91'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c91'
+              p
+                = check_box_tag 'bicycle[c92]', '', false, id: 'bicycle_c92'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c92'
+            .col-xs-3.mtop10
+              p
+                = check_box_tag 'bicycle[c93]', '', false, id: 'bicycle_c93'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c93'
+              p
+                = check_box_tag 'bicycle[c94]', '', false, id: 'bicycle_c94'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c94'
+              p
+                = check_box_tag 'bicycle[c97]', '', false, id: 'bicycle_c97'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c97'
+              p
+                = check_box_tag 'bicycle[c37]', '', false, id: 'bicycle_c37'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c37'
+              p
+                = check_box_tag 'bicycle[c95]', '', false, id: 'bicycle_c95'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c95'
+              p
+                = check_box_tag 'bicycle[c96]', '', false, id: 'bicycle_c96'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c96'
+              p
+                = check_box_tag 'bicycle[c99]', '', false, id: 'bicycle_c99'
+                span.span-checkbox
+                  | &nbsp;
+                  = t 'activerecord.attributes.bicycle.c99'
         .block
           .row
             .col-xs-12.med-font.font18

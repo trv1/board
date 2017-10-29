@@ -5,7 +5,8 @@ class AdvertsController < ApplicationController
     @bicycle = Bicycle.new
     @advert = Advert.new(vehicle: @bicycle)
     @brands = Brand.where(is_velomobile: false)
-    @popular_brands = Brand.where(is_popular: true, is_velomobile: false)
+    @other_brand = Brand.other.first
+    # @popular_brands = Brand.where(is_popular: true, is_velomobile: false)
     @states = Advert::STATES
     @colors = Advert::COLORS
     if I18n.locale == :ru
