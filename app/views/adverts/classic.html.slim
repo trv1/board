@@ -179,10 +179,9 @@
                   option value="#{value}"
                     = value
             .col-xs-3.mtop10
-              label.custom-control.custom-checkbox
-                = check_box_tag 'bicycle[c77]', '', false, id: 'bicycle_c77', class: 'custom-control-input'
-                span.custom-control-indicator
-                span.span-checkbox.custom-control-description
+              p
+                = check_box_tag 'bicycle[c77]', '', false, id: 'bicycle_c77', class: 'custom-checkbox'
+                span.span-checkbox
                   | &nbsp;
                   = t 'activerecord.attributes.bicycle.c77'
               p

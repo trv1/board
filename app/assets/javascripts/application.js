@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+// require popper.min
+// require bootstrap.min
 //= require bootstrap-sprockets
 //= require bootstrap-select.min
 //= require turbolinks
@@ -19,6 +21,7 @@
 //= require dropzone
 //= require select2
 //= require select2_locale_ru
+//= require icheck
 //= require_tree .
 
 function locale() {
@@ -28,9 +31,14 @@ function locale() {
 $(document).on('turbolinks:load', function(){
     $('.selectpicker').selectpicker();
 
-    // $('.span-checkbox').on('click', function () {
-    //     $(this).parent().find('input[type="checkbox"]').trigger('click');
-    // });
+    $('.span-checkbox').on('click', function () {
+        $(this).parent().find('input[type="checkbox"]').trigger('click');
+    });
+
+    $('input.custom-checkbox').iCheck({
+        checkboxClass: 'icheckbox_flat-blue',
+        radioClass: 'iradio_flat-blue'
+    });
 });
 
 $(document).on('turbolinks:before-cache', function(){
