@@ -31,14 +31,16 @@ function locale() {
 $(document).on('turbolinks:load', function(){
     $('.selectpicker').selectpicker();
 
-    $('.span-checkbox').on('click', function () {
-        $(this).parent().find('input[type="checkbox"]').trigger('click');
+    $('.checkbox-desc').on('click', function () {
+        $(this).parent().find('ins').trigger('click');
     });
 
     $('input.custom-checkbox').iCheck({
         checkboxClass: 'icheckbox_flat-blue',
         radioClass: 'iradio_flat-blue'
     });
+
+    $('[data-toggle="popover"]').popover();
 });
 
 $(document).on('turbolinks:before-cache', function(){

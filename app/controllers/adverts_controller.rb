@@ -83,17 +83,16 @@ class AdvertsController < ApplicationController
 
   def upload_picture
     picture = Photo.create(image: params[:file])
+    puts picture.errors.to_json
     render json: { id: picture.id }
   end
 
   def remove_picture
-    begin
-      picture = Photo.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      picture = nil
-    end
+    picture = Photo.find_by_id(params[:id])
 
     if picture
+      picture.image = nil
+      picture.save
       picture.delete
       render json: { result: 'ok' }
     else
@@ -113,9 +112,9 @@ class AdvertsController < ApplicationController
       # cities = query.select('ru_localities.*')
       # regions = query.select('parents_ru_localities.*')
       #===========
-      records = class_name.joins(:parent, "inner join locations l on #{country_code}_localities.geoname_id = l.geoname_id").where("#{country_code}_localities.name ilike ?", "%#{params[:q]}%").select("#{country_code}_localities.id, #{country_code}_localities.name as city_name, parents_#{country_code}_localities.name as region_name").order('l.population desc')
+      records = class_name.joins(:parent, "inner join locations l on #{country_code}_localities.geoname_id = l.geoname_id").where("#{country_code}_localities.name ilike ?", "%#{params[:q]}%").select("#{country_code}_localities.id, #{country_code}_localities.name as city_name, parents_#{country_code}_localities.name as region_name").order('l.population desc').limit(30)
     else
-      records = Location.joins(:parent).where(country: country_code.upcase, code: 'locality').where('locations.name ilike ?', "%#{params[:q]}%").select('locations.id, locations.name as city_name, parents_locations.name as region_name').order('locations.population desc')
+      records = Location.joins(:parent).where(country: country_code.upcase, code: 'locality').where('locations.name ilike ?', "%#{params[:q]}%").select('locations.id, locations.name as city_name, parents_locations.name as region_name').order('locations.population desc').limit(30)
     end
 
     data = []

@@ -10,7 +10,7 @@
 @import "blue.css";
 
 body {
-  font-family: "Gotham Regular", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @font-face {
@@ -23,10 +23,20 @@ body {
   src: url('GothaProMed.otf') format('opentype');
 }
 
+@font-face {
+  font-family: "Helvetica Neue Light";
+  src: url('HelveticaNeueCyr-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Helvetica Neue Medium";
+  src: url('HelveticaNeueCyr-Medium.otf') format('opentype');
+}
+
 .btn-custom {
   border-radius: 25px;
   /*font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-  font-family: "Gotham Regular", Helvetica, Arial, sans-serif;
+  //font-family: "Gotham Regular", Helvetica, Arial, sans-serif;
   font-size: 20px;
   padding: 6px 25px;
   font-weight: 700;
@@ -67,19 +77,32 @@ a:hover, a:focus {
 
 .currency {
   font-family: Verdana;
+  font-size: 16px;
+  padding: 5px 12px;
 }
 
 .highlighted-li {
   background-color: rgba(2,98,205,.26);
 }
 
-.span-checkbox {
+.checkbox-desc {
   cursor: pointer;
-  vertical-align: text-bottom;
+  font-size: 15px;
+  margin-left: 8px;
+  vertical-align: middle;
 }
 
 .custom-label {
-  font-size: 14px;
+  font-size: 15px;
+}
+
+span.hint {
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  &:hover {
+    color: #0363cd;
+  }
 }
 
 .mtop10 {
@@ -91,6 +114,10 @@ a:hover, a:focus {
 }
 
 .font14 {
+  font-size: 14px;
+}
+
+.font15 {
   font-size: 14px;
 }
 

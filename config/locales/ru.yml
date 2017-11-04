@@ -8,6 +8,11 @@ ru:
     back: Назад
   activerecord:
     attributes:
+      advert:
+        is_exchange: Возможен обмен
+        is_domestic_delivery: Возможна доставка по стране
+        is_delivery_abroad: Возможна доставка заграницу
+        is_around_the_clock: Круглосуточно
       bicycle:
         c1: Тип
         c2: Возраст

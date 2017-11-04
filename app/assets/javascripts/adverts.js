@@ -94,10 +94,6 @@ $(document).on('turbolinks:load', function(){
                 };
             },
             processResults: function (data, params) {
-                // parse the results into the format expected by Select2
-                // since we are using custom formatting functions we do not need to
-                // alter the remote JSON data, except to indicate that infinite
-                // scrolling can be used
                 params.page = params.page || 1;
 
                 return {
@@ -112,7 +108,7 @@ $(document).on('turbolinks:load', function(){
         escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
         minimumInputLength: 1,
         allowClear: true,
-        language: locale(),
+        // language: locale(),
         placeholder: 'Введите город',
         templateResult: function (data) {
             if (data.text) {
@@ -126,6 +122,11 @@ $(document).on('turbolinks:load', function(){
                 return '';
             } else {
                 return ' ' + data.name;
+            }
+        },
+        language: {
+            inputTooShort: function () {
+                return "Начните ввод...";
             }
         }
     });
@@ -163,7 +164,7 @@ $(document).on('turbolinks:load', function(){
         definitions: { '#': { validator: "[0-9]", cardinality: 13}}
     });
 
-    $('#advert_is_around_the_clock').on('change', function () {
+    $('#advert_is_around_the_clock').on('ifChanged', function () {
         if ($(this).prop('checked')) {
             $('#time').hide(500);
         } else {
@@ -171,7 +172,7 @@ $(document).on('turbolinks:load', function(){
         }
     });
 
-    $('#bicycle_c10').on('change', function () {
+    $('#bicycle_c10').on('ifChanged', function () {
         if ($(this).prop('checked')) {
             $('#electro_fields').show(500);
         } else {
