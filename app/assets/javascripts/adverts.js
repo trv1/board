@@ -1,5 +1,7 @@
 Dropzone.autoDiscover = false;
 $(document).on('turbolinks:load', function(){
+    var locale = locale();
+
     var down = false;
     $('.rotate-icon').on('click', function() {
         if (down) {
@@ -108,7 +110,6 @@ $(document).on('turbolinks:load', function(){
         escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
         minimumInputLength: 1,
         allowClear: true,
-        // language: locale(),
         placeholder: 'Введите город',
         templateResult: function (data) {
             if (data.text) {
@@ -124,23 +125,35 @@ $(document).on('turbolinks:load', function(){
                 return ' ' + data.name;
             }
         },
-        language: {
+        language: (locale == 'en' ? locale : {
             inputTooShort: function () {
                 return "Начните ввод...";
+            },
+            errorLoading: function () {
+                return 'Невозможно загрузить результаты';
+            },
+            loadingMore: function () {
+                return 'Загрузка данных…';
+            },
+            noResults: function () {
+                return 'Совпадений не найдено';
+            },
+            searching: function () {
+                return 'Поиск…';
             }
-        }
+        })
     });
 
-    $('.select2-selection__placeholder').html('Введите город');
+    $('.select2-selection__placeholder').html(locale == 'en' ? 'Enter city' : 'Введите город');
     $('.select2-selection__placeholder').css('color', '#aaa');
 
     $(".js-data-example-ajax").on('select2:open', function (evt) {
-        $('.select2-selection__placeholder').html('Введите город');
+        $('.select2-selection__placeholder').html(locale == 'en' ? 'Enter city' : 'Введите город');
         $('.select2-selection__placeholder').css('color', '#aaa');
 
         if ($('#advert_country_id').val() == '') {
             setTimeout(function () {
-                $('.select2-results__message').html('Выберите страну');
+                $('.select2-results__message').html(locale == 'en' ? 'Choose country' : 'Выберите страну');
                 $('.select2-results__message').css('color', 'red');
             }, 150);
         }

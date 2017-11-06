@@ -5,7 +5,7 @@
         .row
           .col-xs-12.med-font.font18.mbottom10
             | Фотографии
-            span.hint data-toggle="popover" data-content="#{Advert::HINTS[:pictures][I18n.locale.to_sym]}"
+            span.hint data-toggle="popover" data-trigger="focus" tabindex="0" data-content="#{Advert::HINTS[:pictures][I18n.locale.to_sym]}"
               .fa.fa-question-circle-o
           .col-xs-12
             = form_tag advert_upload_picture_path, class: 'dropzone', id: 'upload-dropzone', multipart: true do
@@ -18,7 +18,7 @@
           .row
             .col-xs-11.med-font.font18
               | Марка и модель
-              span.hint data-toggle="popover" data-content="#{Advert::HINTS[:brand][I18n.locale.to_sym]}"
+              span.hint data-toggle="popover" data-trigger="focus" tabindex="0" data-content="#{Advert::HINTS[:brand][I18n.locale.to_sym]}"
                 .fa.fa-question-circle-o
             .col-xs-1 style='text-align: right;'
               /.fa.fa-angle-up.rotate-icon

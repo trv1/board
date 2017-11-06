@@ -2,8 +2,7 @@ class AdvertsController < ApplicationController
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
 
   def classic
-    @bicycle = Bicycle.new
-    @advert = Advert.new(vehicle: @bicycle)
+    @advert = Advert.new
     @brands = Brand.where(is_velomobile: false)
     @other_brand = Brand.other.first
     # @popular_brands = Brand.where(is_popular: true, is_velomobile: false)
@@ -17,8 +16,7 @@ class AdvertsController < ApplicationController
   end
 
   def velomobile
-    @velomobile = Velomobile.new
-    @advert = Advert.new(vehicle: @velomobile)
+    @advert = Advert.new
   end
 
   # GET /adverts
@@ -44,10 +42,15 @@ class AdvertsController < ApplicationController
   # POST /adverts
   # POST /adverts.json
   def create
+    bicycle_params = params.reject{|e| /\Aadvert|\Apictures/===e}
+    advert_params = params.reject{|e| /\Abicycle|\Apictures/===e}
     @advert = Advert.new(advert_params)
+    @bicycle = Bicycle.new(bicycle_params)
+    @advert.vehicle = @bicycle
 
     respond_to do |format|
-      if @advert.save
+      if @bicycle.save && @advert.save
+        ActiveRecord::Base.establish_connection.connection.execute("update photos set advert_id=#{@advert.id} where id IN (#{params[:pictures]});")
         format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
         format.json { render :show, status: :created, location: @advert }
       else
@@ -137,27 +140,33 @@ class AdvertsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def advert_params
       params.require(:advert).permit(
-          :vehicle_id,
-          :user_id,
-          :location_id,
-          :brand_id,
-          :model,
-          :year,
-          :state,
-          :color,
-          :mileage,
-          :country_id,
-          :place,
-          :name,
-          :phone,
-          :email,
-          :is_exchange,
-          :time,
-          :description,
-          :price,
-          :is_domestic_delivery,
-          :is_delivery_abroad,
-          :is_around_the_clock
+        :vehicle_id,
+        :location_id,
+        :brand_id,
+        :model,
+        :year,
+        :state,
+        :color,
+        :mileage,
+        :country_id,
+        :place,
+        :name,
+        :phone,
+        :email,
+        :is_exchange,
+        :time,
+        :description,
+        :price,
+        :is_domestic_delivery,
+        :is_delivery_abroad,
+        :is_around_the_clock
+      )
+    end
+
+    def bicycle_params
+      params.require(:bicycle).permit(
+        :c76, :c98, :c87, :c77, :c78, :c84, :c89, :c90, :c91, :c92, :c93, :c94, :c95, :c96, :c97, :c99, :c37, :c1, :c2,
+        :c17, :c39, :c57, :c59, :c10, :c79, :c11, :c100, :c12
       )
     end
 end

@@ -2,5 +2,5 @@ class Velomobile < ApplicationRecord
   include VelomobileValidates
 
   belongs_to :brand
-  has_many :adverts, as: :vehicle
+  has_one :adverts, as: :vehicle
 end
