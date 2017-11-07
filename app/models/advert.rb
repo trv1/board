@@ -3,6 +3,8 @@ class Advert < ApplicationRecord
   belongs_to :user
   belongs_to :location
   has_many :photos
+  belongs_to :brand
+  belongs_to :currency
 
   STATES = {
       ru: %w(Отличное Хорошее Среднее Плохое Убитый),
@@ -32,4 +34,13 @@ class Advert < ApplicationRecord
           en: ''
       }
   }
+
+  validates :location_id, presence: true
+  validates :country_id, presence: true
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :email, presence: true
+  validates :price, presence: true
+  validates :brand_id, presence: true
+  validates :model, presence: true
 end

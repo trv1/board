@@ -21,9 +21,9 @@
               =label_tag :password, User.human_attribute_name(:password)
               =password_field_tag 'user[password]', nil, class: 'form-control', required: true
             .form-group
-              = check_box_tag 'user[remember_me]', 1
-              input name='user[remember_me]' type='hidden' value='0'
-              = label_tag do
-                | &nbsp;Запомнить меня
+              = check_box_tag 'user[remember_me]', '', false, id: 'user_remember_me', class: 'custom-checkbox'
+              span.checkbox-desc
+                | Запомнить меня
+
             .actions
               =submit_tag 'Войти', class: 'btn btn-primary'

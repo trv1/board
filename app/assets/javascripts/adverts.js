@@ -1,7 +1,5 @@
 Dropzone.autoDiscover = false;
 $(document).on('turbolinks:load', function(){
-    var locale = locale();
-
     var down = false;
     $('.rotate-icon').on('click', function() {
         if (down) {
@@ -125,7 +123,7 @@ $(document).on('turbolinks:load', function(){
                 return ' ' + data.name;
             }
         },
-        language: (locale == 'en' ? locale : {
+        language: (locale() == 'en' ? locale() : {
             inputTooShort: function () {
                 return "Начните ввод...";
             },
@@ -198,6 +196,7 @@ $(document).on('turbolinks:load', function(){
         $('li.currency').removeClass('highlighted-li');
         $(this).addClass('highlighted-li');
         $('#advert_price').val($('.currency.highlighted-li').data('value') == '' ? '' : parseFloat($('.currency.highlighted-li').data('value')).toFixed(2));
+        $('#currency_id').val($(this).data('id'));
     });
 
     $('#advert_price').on('change', function () {
@@ -205,6 +204,19 @@ $(document).on('turbolinks:load', function(){
         $.each($('li.currency'), function (k, v) {
             if ($this.val() != '') {
                 $(this).data('value', (parseFloat($this.val()) * parseFloat($(v).data('ratio')))/parseFloat($('.currency.highlighted-li').data('ratio')));
+            }
+        });
+    });
+
+    $('#advert_submit').on('click', function () {
+        var $this = $(this);
+        $this.attr('disabled', 'disabled');
+        $.ajax({
+            url: '/adverts',
+            method: 'post',
+            data: $this.closest('form').serialize(),
+            success: function (data, textStatus, xhr) {
+                
             }
         });
     });

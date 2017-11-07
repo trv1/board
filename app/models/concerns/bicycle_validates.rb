@@ -2,123 +2,123 @@ module BicycleValidates
   extend ActiveSupport::Concern
 
   C1 = {
-      ru: %w(BMX горный\ (MTB) горный\ гибрид городской дорожный круизер фэт-байк шоссейный шоссейный\ гибрид),
-      en: %w(BMX mountain\ (MTB) mountain\ hybrid urban road cruiser fat-bike highway highway\ hybrid),
+      ru: %w(BMX Горный\ (MTB) Горный\ гибрид Городской Дорожный Круизер Фэт-байк Шоссейный Шоссейный\ гибрид),
+      en: %w(BMX Mountain\ (MTB) Mountain\ hybrid Urban Road Cruiser Fat-bike Highway Highway\ hybrid),
   }
   C2 = {
-      ru: %w(детский подростковый для\ взрослых),
-      en: %w(children teen adult),
+      ru: %w(Детский Подростковый Для\ взрослых),
+      en: %w(Children Teen Adult),
   }
   C3 = {
-      ru: %w(вседорожный даунхилл дёрт кросс-кантри стрит трековый триал туринг фрирайд циклокросс),
-      en: %w(all\ mountain downhill dirt cross\ country street track trial touring freeride cyclocross),
+      ru: %w(Вседорожный Даунхилл Дёрт Кросс-кантри Стрит Трековый Триал Туринг Фрирайд Циклокросс),
+      en: %w(All\ mountain Downhill Dirt Cross\ country Street Track Trial Touring Freeride Cyclocross),
   }
   C4 = {
-      ru: %w(от\ 2\ до\ 4\ лет\ ростом\ до\ 105\ см от\ 3\ до\ 5\ лет\ ростом\ до\ 115\ см от\ 4\ до\ 6\ лет\ ростом\ до\ 125\ см от\ 6\ до\ 9\ лет\ ростом\ до\ 135\ см от\ 9\ до\ 15\ лет\ ростом\ до\ 135\ см),
+      ru: %w(От\ 2\ до\ 4\ лет\ ростом\ до\ 105\ см От\ 3\ до\ 5\ лет\ ростом\ до\ 115\ см От\ 4\ до\ 6\ лет\ ростом\ до\ 125\ см От\ 6\ до\ 9\ лет\ ростом\ до\ 135\ см От\ 9\ до\ 15\ лет\ ростом\ до\ 135\ см),
       en: %w(2\ -\ 4\ years\ old\ (height\ up\ to\ 105\ cm) 3\ -\ 5\ years\ old\ (height\ up\ to\ 115\ cm) 4\ -\ 6\ years\ old\ (height\ up\ to\ 125\ cm) 6\ -\ 9\ years\ old\ (height\ up\ to\ 135\ cm) 9\ -\ 15\ years\ old\ (height\ up\ to\ 135\ cm)),
   }
   C5 = {
-      ru: %w(женский унисекс),
-      en: %w(female unisex),
+      ru: %w(Женский Унисекс),
+      en: %w(Female Unisex),
   }
   C7 = {
-      ru: %w(двухколесный трехколесный четырехколесный),
-      en: %w(two-wheel three-wheel four-wheel),
+      ru: %w(Двухколесный Трехколесный Четырехколесный),
+      en: %w(Two-wheel Three-wheel Four-wheel),
   }
   C14 = {
-      ru: %w(алюминиевый\ сплав карбон\ (углепластик) карбон/алюминий магниевый\ сплав пластик сталь титановый\ сплав хроммолибденовый\ сплав),
-      en: %w(aluminium\ alloy carbon carbon/aluminum magnesium\ alloy plastic steel titanium\ alloy chromium-molybdenum\ alloy),
+      ru: %w(Алюминиевый\ сплав Карбон\ (углепластик) Карбон/алюминий Магниевый\ сплав Пластик Сталь Титановый\ сплав Хроммолибденовый\ сплав),
+      en: %w(Aluminium\ alloy Carbon Carbon/aluminum Magnesium\ alloy Plastic Steel Titanium\ alloy Chromium-molybdenum\ alloy),
   }
   C17 = {
-      ru: %w(Hard\ tail Rigid\ (жесткий) двухподвесный),
-      en: %w(Hard\ tail Rigid\ (hard) dual-suspension),
+      ru: %w(Hard\ tail Rigid\ (жесткий) Двухподвесный),
+      en: %w(Hard\ tail Rigid\ (hard) Dual-suspension),
   }
   C18 = {
-      ru: %w(начальный прогулочный профессиональный спортивный),
-      en: %w(elementary walking professional sports),
+      ru: %w(Начальный Прогулочный Профессиональный Спортивный),
+      en: %w(Elementary Walking Professional Sports),
   }
   C20 = {
-      ru: %w(воздушная воздушно-масляная жесткая пружинная пружинно-масляная пружинно-эластомерная),
-      en: %w(air air-oil hard spring spring-oil spring-elastomeric),
+      ru: %w(Воздушная Воздушно-масляная Жесткая Пружинная Пружинно-масляная Пружинно-эластомерная),
+      en: %w(Air Air-oil Hard Spring Spring-oil Spring-elastomeric),
   }
   C33 = {
-      ru: %w(алюминиевый\ сплав алюминий/карбон алюминий/скандий карбон\ (углепластик) скандий скандий/карбон сталь),
-      en: %w(aluminium\ alloy aluminum/carbon aluminum/scandium carbon scandium scandium/carbon steel),
+      ru: %w(Алюминиевый\ сплав Алюминий/карбон Алюминий/скандий Карбон\ (углепластик) Скандий Скандий/карбон Сталь),
+      en: %w(Aluminium\ alloy Aluminum/carbon Aluminum/scandium Carbon Scandium Scandium/carbon Steel),
   }
   C34 = {
-      ru: %w(кевлар металл),
-      en: %w(Kevlar metal)
+      ru: %w(Кевлар Металл),
+      en: %w(Kevlar Metal)
   }
   # 41,42,43,44,46,56,58
   LEVELS = {
-      ru: %w(начальный полупрофессиональный прогулочный профессиональный спортивный),
-      en: %w(elementary half-professional walking professional sports),
+      ru: %w(Начальный Полупрофессиональный Прогулочный Профессиональный Спортивный),
+      en: %w(Elementary Half-professional Walking Professional Sports),
   }
   C45 = {
-      ru: %w(Bar\ End Dual\ Control Dual\ Drive вращающаяся\ ручка однорычажные триггерные\ двухрычажные триггерные\ однорычажные),
-      en: %w(Bar\ End Dual\ Control Dual\ Drive rotating\ handle single\ lever trigger\ two\ lever trigger\ single\ lever),
+      ru: %w(Bar\ End Dual\ Control Dual\ Drive Вращающаяся\ ручка Однорычажные Триггерные\ двухрычажные Триггерные\ однорычажные),
+      en: %w(Bar\ End Dual\ Control Dual\ Drive Rotating\ handle Single\ lever Trigger\ two\ lever Trigger\ single\ lever),
   }
   C47 = {
-      ru: %w(интегрированнная неинтегрированнная),
-      en: %w(integrated non-integrated),
+      ru: %w(Интегрированнная Неинтегрированнная),
+      en: %w(Integrated Non-integrated),
   }
   C48 = {
-      ru: %w(Howitzer ISIS Octalink Power\ Spline квадрат),
-      en: %w(Howitzer ISIS Octalink Power\ Spline square),
+      ru: %w(Howitzer ISIS Octalink Power\ Spline Квадрат),
+      en: %w(Howitzer ISIS Octalink Power\ Spline Square),
   }
   C55 = {
-      ru: %w(классическая платформы с\ контактами с\ тулклипсами),
-      en: %w(classical platform\ with\ contacts with\ tool\ clips),
+      ru: %w(Классическая Платформы С\ контактами С\ тулклипсами),
+      en: %w(Classical Platform\ with\ contacts With\ tool\ clips),
   }
   # 57,59
   BREAKS = {
-      ru: %w(V-Brake дисковый\ гидравлический дисковый\ механико-гидравлический дисковый\ механический кантиливер клещевой ножной ободной\ гидравлический роллерный отсутствует),
-      en: %w(V-Brake disc\ hydraulic disc\ mechanical-hydraulic disc\ mechanical cantilever caliper pedals rim\ hydraulic roller without\ brake),
+      ru: %w(V-Brake Дисковый\ гидравлический Дисковый\ механико-гидравлический Дисковый\ механический Кантиливер Клещевой Ножной Ободной\ гидравлический Роллерный Отсутствует),
+      en: %w(V-Brake Disc\ hydraulic Disc\ mechanical-hydraulic Disc\ mechanical Cantilever Caliper Pedals Rim\ hydraulic Roller Without\ brake),
   }
   C60 = {
-      ru: %w(вальный ременной цепной),
-      en: %w(shaft belt chain),
+      ru: %w(Вальный Ременной Цепной),
+      en: %w(Shaft Belt Chain),
   }
   C64 = {
-      ru: %w(резьбовая безрезьбовая),
-      en: %w(threaded threadless),
+      ru: %w(Резьбовая Безрезьбовая),
+      en: %w(Threaded Threadless),
   }
   C65 = {
       ru: %w(1\ 1/2\" 1\ 1/4\" 1\ 1/8\" 1\ 1/8\"\ -\ 1\ 1/2\" 1\"),
       en: %w(1\ 1/2\" 1\ 1/4\" 1\ 1/8\" 1\ 1/8\"\ -\ 1\ 1/2\" 1\"),
   }
   C66 = {
-      ru: %w(интегрированная полуинтегрированная неинтегрированная),
-      en: %w(integrated half-integrated non-integrated),
+      ru: %w(Интегрированная Полуинтегрированная Неинтегрированная),
+      en: %w(Integrated Half-integrated Non-integrated),
   }
   C69 = {
-      ru: %w(изогнутый прямой шоссейный),
-      en: %w(curved straight highway),
+      ru: %w(Изогнутый Прямой Шоссейный),
+      en: %w(Curved Straight Highway),
   }
   C70 = {
-      ru: %w(ванадиевый\ сплав марганцевый\ сплав нихромовый\ сплав сталь титановый\ сплав углепластик хром-кремниевый\ сплав хроммолибденовый\ сплав),
-      en: %w(vanadium\ alloy manganese\ alloy nichrome\ alloy steel titanium\ alloy carbon chrome-silicon\ alloy chrome-molybdenum\ alloy),
+      ru: %w(Ванадиевый\ сплав Марганцевый\ сплав Нихромовый\ сплав Сталь Титановый\ сплав Углепластик Хром-кремниевый\ сплав Хроммолибденовый\ сплав),
+      en: %w(Vanadium\ alloy Manganese\ alloy Nichrome\ alloy Steel Titanium\ alloy Carbon Chrome-silicon\ alloy Chrome-molybdenum\ alloy),
   }
   C71 = {
-      ru: %w(искусственная\ кожа кожа кожа\ +\ кевлар пластик синтетическая\ ткань),
-      en: %w(leatherette leather leather\ +\ Kevlar plastic synthetic\ fabric),
+      ru: %w(Искусственная\ кожа Кожа Кожа\ +\ кевлар Пластик Синтетическая\ ткань),
+      en: %w(Leatherette Leather Leather\ +\ Kevlar Plastic Synthetic\ fabric),
   }
   # 76,87
   POSITIONS = {
-      ru: %w(передний задний передний\ и\ задний),
-      en: %w(front rear front\ and\ rear),
+      ru: %w(Передний Задний Передний\ и\ задний),
+      en: %w(Front Rear Front\ and\ rear),
   }
   C80 = {
       ru: %w(LFP Li-ion LiMn LiPo SLA),
       en: %w(LFP Li-ion LiMn LiPo SLA),
   }
   C98 = {
-      ru: %w(левое правое левое\ и\ правое),
-      en: %w(left right left\ and\ right),
+      ru: %w(Левое Правое Левое\ и\ правое),
+      en: %w(Left Right Left\ and\ right),
   }
   C100 = {
-      ru: %w(передний задний полный),
-      en: %w(front-wheel rear-wheel all-wheel)
+      ru: %w(Передний Задний Полный),
+      en: %w(Front-wheel Rear-wheel All-wheel)
   }
 
   included do

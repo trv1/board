@@ -138,13 +138,14 @@
             .col-xs-12.mtop10
               .input-group
                 = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
+                = hidden_field_tag :currency_id, "#{Currency::DEFAULT_CURRENCY[I18n.locale].id}"
                 .input-group-btn style='float: left;'
                   button type="button" class="btn btn-default dropdown-toggle currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     = Currency::DEFAULT_CURRENCY[I18n.locale].symbol
                     span.caret style='margin-left: 10px'
                   ul.dropdown-menu style='min-width: 100px;'
                     - Currency.all.each do |currency|
-                      li.currency class="#{Currency::DEFAULT_CURRENCY[I18n.locale] == currency ? 'highlighted-li' : ''}" data-content="#{currency.symbol}" data-value="" data-ratio="#{currency.ratio}"
+                      li.currency class="#{Currency::DEFAULT_CURRENCY[I18n.locale] == currency ? 'highlighted-li' : ''}" data-content="#{currency.symbol}" data-value="" data-ratio="#{currency.ratio}" data-id="#{currency.id}"
                         = currency.symbol
             .col-xs-12.mtop10
               = f.check_box :is_exchange, {class: 'custom-checkbox'}
@@ -302,3 +303,10 @@
               .col-xs-6.mtop10
                 .custom-label = t 'activerecord.attributes.bicycle.c12'
                 input.form-control.maxw220 type='text' name='bicycle[c12]' id='bicycle_c12'
+        .row.mtop10 style='display: none;'
+          .col-xs-12
+            .alert.alert-danger
+              ul
+        .row.mtop10
+          .col-xs-3
+            = submit_tag 'Подать объявление', class: 'btn btn-success', id: 'advert_submit'
