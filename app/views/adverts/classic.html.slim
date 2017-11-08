@@ -112,25 +112,25 @@
             #time.col-xs-12.mtop10.font14 style='display: none;'
               span Звонить с&nbsp;
               /input.form-control type='text' id='time_start' style='max-width: 65px; display: inline-block;'
-              select class="selectpicker" data-size='10' name='time_start' id='time_start_hour' data-width='100px'
-                - Advert::TIMES[:hours].each do |hour|
-                  option value="#{hour}"
-                    = hour
-              |&nbsp;:&nbsp;
-              select class="selectpicker" name='time_start' id='time_start_minute' data-width='100px'
-                - Advert::TIMES[:minutes].each do |minute|
-                  option value="#{minute}"
-                    = minute
-              span &nbsp;по&nbsp;
-              select class="selectpicker" data-size='10' name='time_start' id='time_end_hour' data-width='100px'
-                - Advert::TIMES[:hours].each do |hour|
-                  option value="#{hour}"
-                    = hour
-              |&nbsp;:&nbsp;
-              select class="selectpicker" name='time_start' id='time_end_minute' data-width='100px'
-                - Advert::TIMES[:minutes].each do |minute|
-                  option value="#{minute}"
-                    = minute
+              /select class="selectpicker" data-size='10' name='time_start' id='time_start_hour' data-width='100px'
+              /  - Advert::TIMES[:hours].each do |hour|
+              /    option value="#{hour}"
+              /      = hour
+              /|&nbsp;:&nbsp;
+              /select class="selectpicker" name='time_start' id='time_start_minute' data-width='100px'
+              /  - Advert::TIMES[:minutes].each do |minute|
+              /    option value="#{minute}"
+              /      = minute
+              /span &nbsp;по&nbsp;
+              /select class="selectpicker" data-size='10' name='time_start' id='time_end_hour' data-width='100px'
+              /  - Advert::TIMES[:hours].each do |hour|
+              /    option value="#{hour}"
+              /      = hour
+              /|&nbsp;:&nbsp;
+              /select class="selectpicker" name='time_start' id='time_end_minute' data-width='100px'
+              /  - Advert::TIMES[:minutes].each do |minute|
+              /    option value="#{minute}"
+              /      = minute
         .block
           .row
             .col-xs-12.med-font.font18
@@ -138,7 +138,7 @@
             .col-xs-12.mtop10
               .input-group
                 = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
-                = hidden_field_tag :currency_id, "#{Currency::DEFAULT_CURRENCY[I18n.locale].id}"
+                = f.hidden_field :currency_id, value: "#{Currency::DEFAULT_CURRENCY[I18n.locale].id}"
                 .input-group-btn style='float: left;'
                   button type="button" class="btn btn-default dropdown-toggle currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     = Currency::DEFAULT_CURRENCY[I18n.locale].symbol
@@ -309,4 +309,5 @@
               ul
         .row.mtop10
           .col-xs-3
-            = submit_tag 'Подать объявление', class: 'btn btn-success', id: 'advert_submit'
+            button type='button' class='btn btn-success' id='advert_submit'
+              | Подать объявление

@@ -216,8 +216,11 @@ $(document).on('turbolinks:load', function(){
             method: 'post',
             data: $this.closest('form').serialize(),
             success: function (data, textStatus, xhr) {
-                
+                console.log(textStatus);
+                console.log(xhr.status);
+                console.log(data);
             }
         });
+        return false;
     });
 });

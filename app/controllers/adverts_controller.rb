@@ -42,35 +42,38 @@ class AdvertsController < ApplicationController
   # POST /adverts
   # POST /adverts.json
   def create
-    bicycle_params = params.reject{|e| /\Aadvert|\Apictures/===e}
-    advert_params = params.reject{|e| /\Abicycle|\Apictures/===e}
-    @advert = Advert.new(advert_params)
-    @bicycle = Bicycle.new(bicycle_params)
+    bicycle_custom_params = params.reject{|e| /\Aadvert|\Apictures/===e}
+    advert_custom_params = params.reject{|e| /\Abicycle|\Apictures/===e}
+    @advert = Advert.new(advert_params(advert_custom_params))
+    @bicycle = Bicycle.new(bicycle_params(bicycle_custom_params))
     @advert.vehicle = @bicycle
 
-    respond_to do |format|
+    # respond_to do |format|
       if @bicycle.save && @advert.save
         ActiveRecord::Base.establish_connection.connection.execute("update photos set advert_id=#{@advert.id} where id IN (#{params[:pictures]});")
-        format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
-        format.json { render :show, status: :created, location: @advert }
+        # format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
+        # format.json { render :show, status: :created, location: @advert }
+        render json: {status: 'ok'}
       else
-        format.html { render :new }
-        format.json { render json: @advert.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        # format.json { render json: @advert.errors, status: :unprocessable_entity }
+        puts @bicycle.errors.to_json
+        render json: {price: @advert.errors.messages[:price][0]}
       end
-    end
+    # end
   end
 
   # PATCH/PUT /adverts/1
   # PATCH/PUT /adverts/1.json
   def update
     respond_to do |format|
-      if @advert.update(advert_params)
-        format.html { redirect_to @advert, notice: 'Advert was successfully updated.' }
-        format.json { render :show, status: :ok, location: @advert }
-      else
-        format.html { render :edit }
-        format.json { render json: @advert.errors, status: :unprocessable_entity }
-      end
+      # if @advert.update(advert_params)
+      #   format.html { redirect_to @advert, notice: 'Advert was successfully updated.' }
+      #   format.json { render :show, status: :ok, location: @advert }
+      # else
+      #   format.html { render :edit }
+      #   format.json { render json: @advert.errors, status: :unprocessable_entity }
+      # end
     end
   end
 
@@ -138,9 +141,8 @@ class AdvertsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def advert_params
-      params.require(:advert).permit(
-        :vehicle_id,
+    def advert_params(custom_params)
+      custom_params.require(:advert).permit(
         :location_id,
         :brand_id,
         :model,
@@ -154,8 +156,9 @@ class AdvertsController < ApplicationController
         :phone,
         :email,
         :is_exchange,
-        :time,
-        :description,
+        # :time,
+        # :description,
+        :currency_id,
         :price,
         :is_domestic_delivery,
         :is_delivery_abroad,
@@ -163,8 +166,8 @@ class AdvertsController < ApplicationController
       )
     end
 
-    def bicycle_params
-      params.require(:bicycle).permit(
+    def bicycle_params(custom_params)
+      custom_params.require(:bicycle).permit(
         :c76, :c98, :c87, :c77, :c78, :c84, :c89, :c90, :c91, :c92, :c93, :c94, :c95, :c96, :c97, :c99, :c37, :c1, :c2,
         :c17, :c39, :c57, :c59, :c10, :c79, :c11, :c100, :c12
       )
