@@ -196,7 +196,7 @@ $(document).on('turbolinks:load', function(){
         $('li.currency').removeClass('highlighted-li');
         $(this).addClass('highlighted-li');
         $('#advert_price').val($('.currency.highlighted-li').data('value') == '' ? '' : parseFloat($('.currency.highlighted-li').data('value')).toFixed(2));
-        $('#currency_id').val($(this).data('id'));
+        $('#advert_currency_id').val($(this).data('id'));
     });
 
     $('#advert_price').on('change', function () {
@@ -219,6 +219,13 @@ $(document).on('turbolinks:load', function(){
                 console.log(textStatus);
                 console.log(xhr.status);
                 console.log(data);
+                if (data.status == 'unprocessable_entity') {
+                    var messages = data.messages;
+                    messages.forEach(function(v, k, messages) {
+                        $('#' + v[0] + '_field').find('.error-msg').text(v[1][0]);
+                        $('#' + v[0] + '_field').find('input').addClass('field-with-errors');
+                    });
+                }
             }
         });
         return false;

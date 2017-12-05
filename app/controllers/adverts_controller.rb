@@ -47,18 +47,20 @@ class AdvertsController < ApplicationController
     @advert = Advert.new(advert_params(advert_custom_params))
     @bicycle = Bicycle.new(bicycle_params(bicycle_custom_params))
     @advert.vehicle = @bicycle
+    @bicycle.save
+    @advert.save
 
     # respond_to do |format|
-      if @bicycle.save && @advert.save
-        ActiveRecord::Base.establish_connection.connection.execute("update photos set advert_id=#{@advert.id} where id IN (#{params[:pictures]});")
+      if !@bicycle.errors.present? && !@advert.errors.present?
+        ActiveRecord::Base.establish_connection.connection.execute("update photos set advert_id=#{@advert.id} where id IN (#{params[:pictures]});") if params[:pictures].present?
         # format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
         # format.json { render :show, status: :created, location: @advert }
         render json: {status: 'ok'}
       else
         # format.html { render :new }
         # format.json { render json: @advert.errors, status: :unprocessable_entity }
-        puts @bicycle.errors.to_json
-        render json: {price: @advert.errors.messages[:price][0]}
+        # puts @bicycle.errors.to_json
+        render json: {status: :unprocessable_entity}.merge({messages: @advert.errors.messages.map{|k,v| [k,v]}.to_a})
       end
     # end
   end
@@ -109,24 +111,14 @@ class AdvertsController < ApplicationController
   def load_cities
     existed_countries = %w(RU UA BY KZ GE)
     country_code = Country.find(params[:country_id]).code
-    cities = []
-    regions = []
-    records = []
     if existed_countries.include? country_code
       class_name = "#{country_code.downcase}Locality".classify.constantize
-      # query = class_name.joins(:parent).where('ru_localities.name ilike ?', "%#{params[:q]}%")
-      # cities = query.select('ru_localities.*')
-      # regions = query.select('parents_ru_localities.*')
-      #===========
       records = class_name.joins(:parent, "inner join locations l on #{country_code}_localities.geoname_id = l.geoname_id").where("#{country_code}_localities.name ilike ?", "%#{params[:q]}%").select("#{country_code}_localities.id, #{country_code}_localities.name as city_name, parents_#{country_code}_localities.name as region_name").order('l.population desc').limit(30)
     else
       records = Location.joins(:parent).where(country: country_code.upcase, code: 'locality').where('locations.name ilike ?', "%#{params[:q]}%").select('locations.id, locations.name as city_name, parents_locations.name as region_name').order('locations.population desc').limit(30)
     end
 
     data = []
-    # cities.each_with_index do |city, i|
-    #   data << {id: city['id'], name: (city['name'] + ', ' + regions[i]['name'])}
-    # end
     records.each do |record|
       data << {id: record.id, name: (record.attributes['city_name'] + ', ' + record.attributes['region_name'])}
     end

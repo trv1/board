@@ -1,9 +1,9 @@
 class Advert < ApplicationRecord
   belongs_to :vehicle, polymorphic: true
-  belongs_to :user
-  belongs_to :location
+  belongs_to :user, optional: true
+  belongs_to :location, optional: true
   has_many :photos
-  belongs_to :brand
+  belongs_to :brand, optional: true
   belongs_to :currency
 
   STATES = {
@@ -40,7 +40,17 @@ class Advert < ApplicationRecord
   validates :name, presence: true
   validates :phone, presence: true
   validates :email, presence: true
-  validates :price, presence: true
+  validates :price, presence: {message: 'Цена не может быть пустой'}, length: { in: 500..1000000 , message: ->(object, data) {
+    mes = 'Цена должна быть в диапазоне '
+    if object.currency_id == 1
+      mes += 'от 500 до 1 500 000'
+    elsif object.currency_id == 2
+      mes += 'от 10 до 25 000'
+    elsif object.currency_id == 3
+      mes += 'от 10 до 20 000'
+    end
+    mes
+  }}
   validates :brand_id, presence: true
-  validates :model, presence: true
+  validates :model, presence: {message: ->(object, data) {"Hey #{object.name}!, #{data[:value]} is taken already! Try again #{Time.zone.tomorrow}"}}
 end

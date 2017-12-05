@@ -26,14 +26,18 @@
               |Если Вы не нашли нужную марку в списке, Вы можете ее написать в поле "Модель"
           .row.mtop10 data-type='brands'
             .col-xs-3
-              select class="selectpicker" data-live-search="true" data-size='10' title='Выберите марку' name='advert[brand_id]' id='advert_brand_id'
-                option value="#{@other_brand.id}"
-                  = Brand::OTHER[I18n.locale.to_sym]
-                - @brands.sort_by{|b| b.name}.each do |brand|
-                  option value="#{brand.id}"
-                    = brand.name
+              #brand_id_field
+                select class="selectpicker" data-live-search="true" data-size='10' title='Выберите марку' name='advert[brand_id]' id='advert_brand_id'
+                  option value="#{@other_brand.id}"
+                    = Brand::OTHER[I18n.locale.to_sym]
+                  - @brands.sort_by{|b| b.name}.each do |brand|
+                    option value="#{brand.id}"
+                      = brand.name
+                .error-msg
             .col-xs-4
-              = f.text_field :model, class: 'form-control', placeholder: 'Модель'
+              #model_field
+                = f.text_field :model, class: 'form-control', placeholder: 'Модель'
+                .error-msg
           /.in-block
             .row.popular-brands.mtop10
               .col-xs-12
@@ -66,7 +70,7 @@
                 - @states[("#{I18n.locale}").to_sym].each_with_index do |state, i|
                   option value="#{i}"
                     = state
-          .row.mtop10
+          /.row.mtop10
             .col-xs-12.med-font.font18
               |Пробег, км
               span style='font-family: "Helvetica Neue"; margin-left: 8px; font-size: 16px;'(Если известно)
@@ -86,12 +90,16 @@
             .col-xs-12.med-font.font18
               | Местонахождение
             .col-xs-12.mtop10
-              select class="selectpicker" title='Выберите страну' data-live-search="true" data-size='10' name='advert[country_id]' id='advert_country_id'
-                - @countries.each do |country|
-                  option value="#{country.id}"
-                    = country.name
+              #country_id_field
+                select class="selectpicker" title='Выберите страну' data-live-search="true" data-size='10' name='advert[country_id]' id='advert_country_id'
+                  - @countries.each do |country|
+                    option value="#{country.id}"
+                      = country.name
+                .error-msg
             .col-xs-12.mtop10
-              select class="js-data-example-ajax form-control" style='display: none;' data-location=''
+              #location_id_field
+                select class="js-data-example-ajax form-control" style='display: none;' data-location=''
+                .error-msg
               = f.hidden_field :location_id, style: 'display: none;'
             .col-xs-12
               = f.text_field :place, class: 'form-control', style: 'max-width: 360px;', placeholder: 'Введите адрес'
@@ -100,11 +108,17 @@
             .col-xs-12.med-font.font18
               | Контакты
             .col-xs-12.mtop10
-              = f.text_field :name, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Как к Вам обращаться?'
+              #name_field
+                = f.text_field :name, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Как к Вам обращаться?'
+                .error-msg
             .col-xs-12.mtop10
-              = f.text_field :email, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Email'
+              #email_field
+                = f.text_field :email, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Email'
+                .error-msg
             .col-xs-12.mtop10
-              = f.text_field :phone, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Телефон'
+              #phone_field
+                = f.text_field :phone, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Телефон'
+                .error-msg
             .col-xs-12.mtop10
               = f.check_box :is_around_the_clock, {checked: 'checked', class: 'custom-checkbox'}
               span.checkbox-desc
@@ -136,17 +150,19 @@
             .col-xs-12.med-font.font18
               | Цена
             .col-xs-12.mtop10
-              .input-group
-                = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
-                = f.hidden_field :currency_id, value: "#{Currency::DEFAULT_CURRENCY[I18n.locale].id}"
-                .input-group-btn style='float: left;'
-                  button type="button" class="btn btn-default dropdown-toggle currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    = Currency::DEFAULT_CURRENCY[I18n.locale].symbol
-                    span.caret style='margin-left: 10px'
-                  ul.dropdown-menu style='min-width: 100px;'
-                    - Currency.all.each do |currency|
-                      li.currency class="#{Currency::DEFAULT_CURRENCY[I18n.locale] == currency ? 'highlighted-li' : ''}" data-content="#{currency.symbol}" data-value="" data-ratio="#{currency.ratio}" data-id="#{currency.id}"
-                        = currency.symbol
+              #price_field
+                .input-group
+                  = f.text_field :price, class: 'form-control', style: 'max-width: 220px;'
+                  = f.hidden_field :currency_id, value: "#{Currency::DEFAULT_CURRENCY[I18n.locale].id}"
+                  .input-group-btn style='float: left;'
+                    button type="button" class="btn btn-default dropdown-toggle currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      = Currency::DEFAULT_CURRENCY[I18n.locale].symbol
+                      span.caret style='margin-left: 10px'
+                    ul.dropdown-menu style='min-width: 100px;'
+                      - Currency.all.each do |currency|
+                        li.currency class="#{Currency::DEFAULT_CURRENCY[I18n.locale] == currency ? 'highlighted-li' : ''}" data-content="#{currency.symbol}" data-value="" data-ratio="#{currency.ratio}" data-id="#{currency.id}"
+                          = currency.symbol
+                .error-msg
             .col-xs-12.mtop10
               = f.check_box :is_exchange, {class: 'custom-checkbox'}
               span.checkbox-desc
