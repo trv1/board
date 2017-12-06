@@ -211,11 +211,22 @@ $(document).on('turbolinks:load', function(){
     $('#advert_submit').on('click', function () {
         var $this = $(this);
         $this.attr('disabled', 'disabled');
+
+        $.each($('.error-msg'), function(k,v) {
+            var field = $(this).parent();
+            $(this).text('');
+            field.find('input').removeClass('field-with-errors');
+            field.find('button').removeClass('field-with-errors');
+            field.find('.select2-selection').removeClass('field-with-errors');
+        });
+
+
         $.ajax({
             url: '/adverts',
             method: 'post',
             data: $this.closest('form').serialize(),
             success: function (data, textStatus, xhr) {
+                $this.attr('disabled', false);
                 console.log(textStatus);
                 console.log(xhr.status);
                 console.log(data);
@@ -224,6 +235,8 @@ $(document).on('turbolinks:load', function(){
                     messages.forEach(function(v, k, messages) {
                         $('#' + v[0] + '_field').find('.error-msg').text(v[1][0]);
                         $('#' + v[0] + '_field').find('input').addClass('field-with-errors');
+                        $('#' + v[0] + '_field').find('button').addClass('field-with-errors');
+                        $('#' + v[0] + '_field').find('.select2-selection').addClass('field-with-errors');
                     });
                 }
             }

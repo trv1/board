@@ -32,25 +32,29 @@ class Advert < ApplicationRecord
       brand: {
           ru: 'Если Вы не нашли нужную марку в списке, Вы можете выбрать "Другая", а свою указать в поле "Модель"',
           en: ''
+      },
+      contacts: {
+          ru: 'Указывайте достоверный Email адрес, так как на него придет пароль для входа в личный кабинет',
+          en: ''
       }
   }
 
-  validates :location_id, presence: true
-  validates :country_id, presence: true
-  validates :name, presence: true
-  validates :phone, presence: true
-  validates :email, presence: true
-  validates :price, presence: {message: 'Цена не может быть пустой'}, length: { in: 500..1000000 , message: ->(object, data) {
-    mes = 'Цена должна быть в диапазоне '
-    if object.currency_id == 1
-      mes += 'от 500 до 1 500 000'
-    elsif object.currency_id == 2
-      mes += 'от 10 до 25 000'
-    elsif object.currency_id == 3
-      mes += 'от 10 до 20 000'
-    end
+  validates :location_id, presence: {message: 'Выберите город'}
+  validates :country_id, presence: {message: 'Выберите страну'}
+  validates :name, presence: {message: 'Заполните это поле'}
+  validates :phone, presence: {message: 'Телефон не может быть пустым'}
+  validates :email, presence: {message: 'Email не может быть пустым'}
+  validates :price, presence: {message: 'Цена не может быть пустой'}, numericality: { greater_than: 10, less_than: 1000000 , message: ->(object, data) {
+    mes = 'Цена должна быть в диапазоне от 10 до 1 000 000'
+    # if object.currency_id == 1
+    #   mes += 'от 500 до 1 500 000'
+    # elsif object.currency_id == 2
+    #   mes += 'от 10 до 25 000'
+    # elsif object.currency_id == 3
+    #   mes += 'от 10 до 20 000'
+    # end
     mes
   }}
-  validates :brand_id, presence: true
-  validates :model, presence: {message: ->(object, data) {"Hey #{object.name}!, #{data[:value]} is taken already! Try again #{Time.zone.tomorrow}"}}
+  validates :brand_id, presence: {message: 'Выберите марку'}
+  validates :model, presence: {message: 'Введите модель'}
 end

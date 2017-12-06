@@ -101,12 +101,15 @@
                 select class="js-data-example-ajax form-control" style='display: none;' data-location=''
                 .error-msg
               = f.hidden_field :location_id, style: 'display: none;'
-            .col-xs-12
+            .col-xs-12.mtop10
               = f.text_field :place, class: 'form-control', style: 'max-width: 360px;', placeholder: 'Введите адрес'
         .block
           .row
             .col-xs-12.med-font.font18
               | Контакты
+              - unless current_user
+                span.hint data-toggle="popover" data-trigger="focus" tabindex="0" data-content="#{Advert::HINTS[:contacts][I18n.locale.to_sym]}"
+                  .fa.fa-question-circle-o
             .col-xs-12.mtop10
               #name_field
                 = f.text_field :name, class: 'form-control', style: 'max-width: 220px;', placeholder: 'Как к Вам обращаться?'
