@@ -25,22 +25,33 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    # if verify_rucaptcha?(@user) && @user.save
-    #   redirect_to root_path, notice: 'Sign up successed.'
-    # else
-    #   render 'account/new'
-    # end
+    is_password_confirm = true
 
-    respond_to do |format|
-      if verify_rucaptcha?(@user) && @user.save
-        format.html { redirect_to root_path }
+    if params[:password].blank? && params[:password_confirmation]
+      password = Devise.friendly_token(10)
+      @user.password = password
+      @user.password_confirmation = password
+    else
+      is_password_confirm = false if @user.password != @user.password_confirmation
+    end
+
+    is_verify_captcha = verify_rucaptcha?(@user)
+    @user.save
+
+    # respond_to do |format|
+      if is_verify_captcha && !@advert.errors.present?
+        # format.html { redirect_to root_path }
         flash[:success] = t 'actions.user.create'
+        redirect_to root_path
         # format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        messages = {messages: @user.errors.messages.map{|k,v| [k,v]}.to_a}
+        messages[:messages].push ['captcha',['Неверный код с картинки']] unless is_verify_captcha
+        messages[:messages].push ['password',['Подтверждение пароля не совпадает с паролем']] unless is_password_confirm
+        render json: {status: :unprocessable_entity}.merge(messages)
       end
-    end
+    # end
   end
 
   # PATCH/PUT /users/1
