@@ -17,5 +17,7 @@ module Board
     config.i18n.default_locale = :ru
 
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{*/}')]
+
+    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache'
   end
 end

@@ -9,3 +9,6 @@ ru:
     sessions:
       user:
         signed_in: Добро пожаловать! Вы успешно вошли на сайт.
+    confirmations:
+      user:
+        confirmed: Аккаунт успешно подтвержден.

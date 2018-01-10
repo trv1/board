@@ -51,7 +51,7 @@ class AdvertsController < ApplicationController
     @advert.save
 
     # respond_to do |format|
-      if !@bicycle.errors.present? && !@advert.errors.present?
+      if @bicycle.errors.blank? && @advert.errors.blank?
         ActiveRecord::Base.establish_connection.connection.execute("update photos set advert_id=#{@advert.id} where id IN (#{params[:pictures]});") if params[:pictures].present?
         # format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
         # format.json { render :show, status: :created, location: @advert }

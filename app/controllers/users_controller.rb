@@ -27,31 +27,37 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     is_password_confirm = true
 
-    if params[:password].blank? && params[:password_confirmation]
+    if params[:password].blank? && params[:password_confirmation].blank?
       password = Devise.friendly_token(10)
       @user.password = password
       @user.password_confirmation = password
     else
-      is_password_confirm = false if @user.password != @user.password_confirmation
+      if @user.password != @user.password_confirmation
+        is_password_confirm = false
+      else
+        password = @user.password
+      end
     end
 
     is_verify_captcha = verify_rucaptcha?(@user)
-    @user.save
 
-    # respond_to do |format|
-      if is_verify_captcha && !@advert.errors.present?
-        # format.html { redirect_to root_path }
+    if is_verify_captcha
+      @user.locale = I18n.locale.to_s
+      @user.save
+      if @user.errors.blank?
         flash[:success] = t 'actions.user.create'
+        UserMailer.welcome_email(@user,password).deliver_now
         redirect_to root_path
-        # format.json { render :show, status: :created, location: @user }
       else
-        # format.html { render :new }
         messages = {messages: @user.errors.messages.map{|k,v| [k,v]}.to_a}
-        messages[:messages].push ['captcha',['Неверный код с картинки']] unless is_verify_captcha
         messages[:messages].push ['password',['Подтверждение пароля не совпадает с паролем']] unless is_password_confirm
         render json: {status: :unprocessable_entity}.merge(messages)
       end
-    # end
+    else
+      messages = {messages: @user.errors.messages.map{|k,v| [k,v]}.to_a}
+      messages[:messages].push ['captcha',['Неверный код с картинки']] unless is_verify_captcha
+      render json: {status: :unprocessable_entity}.merge(messages)
+    end
   end
 
   # PATCH/PUT /users/1
