@@ -23,5 +23,5 @@ nav.navbar.navbar-default
           li
             span.navbar-text=current_user.name
           li
-            = link_to destroy_user_session_path, data:{method: :patch} do
+            = link_to destroy_user_session_path, data:{method: :delete} do
               = t 'link.sign_out'

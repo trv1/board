@@ -7,6 +7,12 @@ ru:
     sign_out: Выйти
     back: Назад
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              already_confirmed: уже подтвержден
     attributes:
       advert:
         is_exchange: Возможен обмен

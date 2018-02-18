@@ -39,9 +39,14 @@ class UsersController < ApplicationController
       end
     end
 
-    is_verify_captcha = verify_rucaptcha?(@user)
+    # session_id = session.respond_to?(:id) ? session.id : session[:session_id]
+    # rucaptcha_sesion_key_key = ['rucaptcha-session', session_id].join(':')
+    # puts rucaptcha_sesion_key_key.to_json
+    # puts RuCaptcha.cache.read(rucaptcha_sesion_key_key, keep_session: true).to_json
+    is_verify_captcha = verify_rucaptcha?(@user, keep_session: true)
 
     if is_verify_captcha
+      @password = password
       @user.locale = I18n.locale.to_s
       @user.save
       if @user.errors.blank?

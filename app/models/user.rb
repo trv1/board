@@ -17,4 +17,8 @@ class User < ApplicationRecord
       errors.messages = errors.messages.merge({password: 'GOPA'})
     end
   end
+
+  def send_confirmation_notification?
+    false
+  end
 end

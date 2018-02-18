@@ -1,1 +1,23 @@
-= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+doctype html
+html
+  head
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+  body
+    h3 Добро пожаловать, Уважаемый пользователь.
+    p
+      | Это письмо пришло Вам потому, что Вы только что зарегистрировались на сайте&nbsp;
+      = link_to 'bicycle.com', 'http://bicycle.com'
+    p
+      | Для подтверждения аккаунта перейдите по ссылке:
+      = link_to 'Подтвердить', "#{@user.locale}.board.dev:3000#{confirmation_path(@resource, confirmation_token: @token)}"
+    p Данные для входа в Ваш аккаунт:
+    ul
+      li
+        | E-mail:&nbsp;
+        = @user.email
+      li
+        | Пароль:&nbsp;
+        = @password
+    /p
+      | Для авторизации перейдите, пожалуйста, по ссылке:&nbsp;
+      = link_to 'Войти', @url, class: 'btn btn-default'

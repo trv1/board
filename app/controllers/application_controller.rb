@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
+    Rails.application.routes.default_url_options[:host] = "#{I18n.locale}.board.dev"
+    Rails.application.routes.default_url_options[:port] = '3000'
   end
 
   def extract_locale_from_subdomain

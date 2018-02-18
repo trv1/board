@@ -12,8 +12,10 @@
             | Вход на сайт
 
           = form_tag user_session_path, method: :post do
-            - flash.each do |key, val|
-              .alert.alert-danger = val
+            - if flash[:danger].present?
+              .alert.alert-danger = flash[:danger]
+            - if flash[:notice].present?
+              .alert.alert-success = flash[:notice]
             .form-group
               =label_tag :email, User.human_attribute_name(:email)
               =text_field_tag 'user[email]', nil, class: 'form-control', required: true

@@ -7,6 +7,9 @@ html
     p
       | Это письмо пришло Вам потому, что Вы только что зарегистрировались на сайте&nbsp;
       = link_to 'bicycle.com', 'http://bicycle.com'
+    p
+      | Для подтверждения аккаунта перейдите по ссылке:
+      = link_to 'Подтвердить', "#{user_confirmation_url(confirmation_token: @user.confirmation_token)}", {_target: 'blank'}
     p Данные для входа в Ваш аккаунт:
     ul
       li
@@ -15,6 +18,6 @@ html
       li
         | Пароль:&nbsp;
         = @password
-    p
+    /p
       | Для авторизации перейдите, пожалуйста, по ссылке:&nbsp;
       = link_to 'Войти', @url, class: 'btn btn-default'
