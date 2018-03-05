@@ -9,12 +9,13 @@ class User < ApplicationRecord
 
   # validates :name, presence: true
   validates :email, presence: {message: 'Email не может быть пустым'}, format: {with: /\A\S+@\S+\z/, message: 'Неверный E-mail'}
+  # validates :password, confirmation: true, allow_blank: true
 
-  before_commit :validate_password
+  validate :validate_password
 
   def validate_password
-    if password != password_confirmation
-      errors.messages = errors.messages.merge({password: 'GOPA'})
+    if password.to_s != password_confirmation.to_s && (password.present? || password_confirmation.present?)
+      errors.add(:password_confirmation, :invalid, message: 'не совпадает с паролем')
     end
   end
 

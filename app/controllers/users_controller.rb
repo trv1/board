@@ -25,18 +25,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    is_password_confirm = true
 
-    if params[:password].blank? && params[:password_confirmation].blank?
+    if @user.password.blank? && @user.password_confirmation.blank?
       password = Devise.friendly_token(10)
       @user.password = password
       @user.password_confirmation = password
     else
-      if @user.password != @user.password_confirmation
-        is_password_confirm = false
-      else
-        password = @user.password
-      end
+      password = @user.password
     end
 
     # session_id = session.respond_to?(:id) ? session.id : session[:session_id]
@@ -55,7 +50,6 @@ class UsersController < ApplicationController
         redirect_to root_path
       else
         messages = {messages: @user.errors.messages.map{|k,v| [k,v]}.to_a}
-        messages[:messages].push ['password',['Подтверждение пароля не совпадает с паролем']] unless is_password_confirm
         render json: {status: :unprocessable_entity}.merge(messages)
       end
     else
