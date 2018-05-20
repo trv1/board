@@ -28,11 +28,11 @@ nav.navbar.navbar-default
         li
           = link_to 'Аксессуары', '#'
       ul.nav.navbar-nav.navbar-right
+        li
+          = link_to new_advert_path, class: '', style: '', id: 'new_advert'
+            .fa.fa-plus-circle style='margin-right: 4px;'
+            = t 'page.root.index.buttons.sell'
         -if current_user.blank?
-          li
-            = link_to new_advert_path, class: '', style: '', id: 'new_advert'
-              .fa.fa-plus-circle style='margin-right: 4px;'
-              = t 'page.root.index.buttons.sell'
           li
             = link_to new_user_session_path do
               = t 'link.sign_in'

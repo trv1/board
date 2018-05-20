@@ -11,11 +11,11 @@
           .page-header style='font-size: 30px; margin: 20px 0;'
             | Вход на сайт
 
-          = form_tag user_session_path, method: :post do
-            - if flash[:danger].present?
-              .alert.alert-danger = flash[:danger]
-            - if flash[:notice].present?
-              .alert.alert-success = flash[:notice]
+          = form_tag user_session_path, method: :post, novalidate: 'novalidate' do
+            - if flash[:alert].present?
+              .alert.alert-danger = flash[:alert]
+            - if flash[:success].present?
+              .alert.alert-success = flash[:success]
             .form-group
               =label_tag :email, User.human_attribute_name(:email)
               =text_field_tag 'user[email]', nil, class: 'form-control', required: true
@@ -23,7 +23,7 @@
               =label_tag :password, User.human_attribute_name(:password)
               =password_field_tag 'user[password]', nil, class: 'form-control', required: true
             .form-group
-              = check_box_tag 'user[remember_me]', '', false, id: 'user_remember_me', class: 'custom-checkbox'
+              = check_box_tag 'user[remember_me]', '', false, name: 'user[remember_me]', class: 'custom-checkbox'
               span.checkbox-desc
                 | Запомнить меня
 

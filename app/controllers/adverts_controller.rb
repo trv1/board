@@ -52,7 +52,9 @@ class AdvertsController < ApplicationController
 
     # respond_to do |format|
       if @bicycle.errors.blank? && @advert.errors.blank?
-        ActiveRecord::Base.establish_connection.connection.execute("update photos set advert_id=#{@advert.id} where id IN (#{params[:pictures]});") if params[:pictures].present?
+        if params[:pictures].present? && /\A\d*\z/ === params[:pictures].to_s
+          ActiveRecord::Base.establish_connection.connection.execute("update photos set advert_id=#{@advert.id} where id IN (#{params[:pictures]});")
+        end
         # format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
         # format.json { render :show, status: :created, location: @advert }
         render json: {status: 'ok'}
