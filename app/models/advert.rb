@@ -5,6 +5,7 @@ class Advert < ApplicationRecord
   has_many :photos
   belongs_to :brand, optional: true
   belongs_to :currency
+  # has_many_attached :photos
 
   STATES = {
       ru: %w(Отличное Хорошее Среднее Плохое Убитый),

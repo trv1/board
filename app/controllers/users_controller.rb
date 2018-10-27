@@ -46,7 +46,6 @@ class UsersController < ApplicationController
       @user.save
       if @user.errors.blank?
         flash[:success] = t 'actions.user.create'
-        UserMailer.welcome_email(@user,password).deliver_now
         redirect_to root_path
       else
         messages = {messages: @user.errors.messages.map{|k,v| [k,v]}.to_a}

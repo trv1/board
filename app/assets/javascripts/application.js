@@ -14,15 +14,15 @@
 //= require jquery_ujs
 // require popper.min
 // require bootstrap.min
-//= require bootstrap-sprockets
-//= require bootstrap-select.min
-//= require turbolinks
-//= require jquery.inputmask.bundle.js
-//= require dropzone
-//= require select2
-//= require select2_locale_ru
-//= require icheck
-//= require_tree .
+// = require bootstrap-sprockets
+// = require bootstrap-select.min
+// = require turbolinks
+// = require jquery.inputmask.bundle.js
+// = require dropzone
+// = require select2
+// = require select2_locale_ru
+// = require icheck
+// = require_tree .
 
 function locale() {
     return $('.language').data('i18n');
@@ -45,4 +45,13 @@ $(document).on('turbolinks:load', function(){
 
 $(document).on('turbolinks:before-cache', function(){
     $('.selectpicker').selectpicker('destroy').addClass('selectpicker');
+});
+
+$(document).on('turbolinks:load', function(){
+    if (parseInt($('.user').data('user-id')) > 0) {
+        $('#new_advert').on('click', function() {
+            $('#type_of_vehicle').modal();
+            return false;
+        });
+    }
 });

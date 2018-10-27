@@ -33,6 +33,8 @@ class AdvertsController < ApplicationController
   # GET /adverts/new
   def new
     @advert = Advert.new
+    flash[:info] = 'После регистрации Вы сможете создавать объявления.'
+    redirect_to new_user_registration_path
   end
 
   # GET /adverts/1/edit

@@ -9,5 +9,9 @@
         = t 'page.root.index.buttons.buy'
       = link_to new_advert_path, class: 'btn btn-default btn-custom', style: 'background: rgba(255,255,255,0.9);', id: 'new_advert'
         = t 'page.root.index.buttons.sell'
+- content_for :title, 'Объявления'
 
-/= render 'adverts/modal_type_of_vehicle'
+= render 'adverts/modal_type_of_vehicle'
+
+.container
+  h3 Объявления

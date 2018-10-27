@@ -9,10 +9,6 @@
 @import "./*";
 @import "blue.css";
 
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 @font-face {
   font-family: "Gotham Regular";
   src: url('GothaProLig.otf') format('opentype');
@@ -31,6 +27,22 @@ body {
 @font-face {
   font-family: "Helvetica Neue Medium";
   src: url('HelveticaNeueCyr-Medium.otf') format('opentype');
+}
+
+html, body {padding: 0; margin: 0;}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.wrapper {
+  min-height: calc(100vh - 150px);
+}
+
+.footer {
+  margin-top: 30px;
 }
 
 .btn-custom {
