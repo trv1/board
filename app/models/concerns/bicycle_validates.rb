@@ -122,42 +122,42 @@ module BicycleValidates
   }
 
   included do
-    validates :c1, inclusion: {in: 0...C1[:ru].size}
-    validates :c2, inclusion: {in: 0...C2[:ru].size}
-    validates :c3, inclusion: {in: 0...C3[:ru].size}
-    validates :c4, inclusion: {in: 0...C4[:ru].size}
-    validates :c5, inclusion: {in: 0...C5[:ru].size}
-    validates :c7, inclusion: {in: 0...C7[:ru].size}
-    validates :c14, inclusion: {in: 0...C14[:ru].size}
-    validates :c17, inclusion: {in: 0...C17[:ru].size}
-    validates :c18, inclusion: {in: 0...C18[:ru].size}
-    validates :c20, inclusion: {in: 0...C20[:ru].size}
-    validates :c33, inclusion: {in: 0...C33[:ru].size}
-    validates :c34, inclusion: {in: 0...C34[:ru].size}
-    validates :c41, inclusion: {in: 0...LEVELS[:ru].size}
-    validates :c42, inclusion: {in: 0...LEVELS[:ru].size}
-    validates :c43, inclusion: {in: 0...LEVELS[:ru].size}
-    validates :c44, inclusion: {in: 0...LEVELS[:ru].size}
-    validates :c46, inclusion: {in: 0...LEVELS[:ru].size}
-    validates :c56, inclusion: {in: 0...LEVELS[:ru].size}
-    validates :c58, inclusion: {in: 0...LEVELS[:ru].size}
-    validates :c45, inclusion: {in: 0...C45[:ru].size}
-    validates :c47, inclusion: {in: 0...C47[:ru].size}
-    validates :c48, inclusion: {in: 0...C48[:ru].size}
-    validates :c55, inclusion: {in: 0...C55[:ru].size}
-    validates :c57, inclusion: {in: 0...BREAKS[:ru].size}
-    validates :c59, inclusion: {in: 0...BREAKS[:ru].size}
-    validates :c60, inclusion: {in: 0...C60[:ru].size}
-    validates :c64, inclusion: {in: 0...C64[:ru].size}
-    validates :c65, inclusion: {in: 0...C65[:ru].size}
-    validates :c66, inclusion: {in: 0...C66[:ru].size}
-    validates :c69, inclusion: {in: 0...C69[:ru].size}
-    validates :c70, inclusion: {in: 0...C70[:ru].size}
-    validates :c71, inclusion: {in: 0...C71[:ru].size}
-    validates :c76, inclusion: {in: 0...POSITIONS[:ru].size}
-    validates :c80, inclusion: {in: 0...C80[:ru].size}
-    validates :c87, inclusion: {in: 0...POSITIONS[:ru].size}
-    validates :c100, inclusion: {in: 0...C100[:ru].size}
+    validates :c1, inclusion: {in: 0...C1[:ru].size}, allow_blank: true
+    validates :c2, inclusion: {in: 0...C2[:ru].size}, allow_blank: true
+    validates :c3, inclusion: {in: 0...C3[:ru].size}, allow_blank: true
+    validates :c4, inclusion: {in: 0...C4[:ru].size}, allow_blank: true
+    validates :c5, inclusion: {in: 0...C5[:ru].size}, allow_blank: true
+    validates :c7, inclusion: {in: 0...C7[:ru].size}, allow_blank: true
+    validates :c14, inclusion: {in: 0...C14[:ru].size}, allow_blank: true
+    validates :c17, inclusion: {in: 0...C17[:ru].size}, allow_blank: true
+    validates :c18, inclusion: {in: 0...C18[:ru].size}, allow_blank: true
+    validates :c20, inclusion: {in: 0...C20[:ru].size}, allow_blank: true
+    validates :c33, inclusion: {in: 0...C33[:ru].size}, allow_blank: true
+    validates :c34, inclusion: {in: 0...C34[:ru].size}, allow_blank: true
+    validates :c41, inclusion: {in: 0...LEVELS[:ru].size}, allow_blank: true
+    validates :c42, inclusion: {in: 0...LEVELS[:ru].size}, allow_blank: true
+    validates :c43, inclusion: {in: 0...LEVELS[:ru].size}, allow_blank: true
+    validates :c44, inclusion: {in: 0...LEVELS[:ru].size}, allow_blank: true
+    validates :c46, inclusion: {in: 0...LEVELS[:ru].size}, allow_blank: true
+    validates :c56, inclusion: {in: 0...LEVELS[:ru].size}, allow_blank: true
+    validates :c58, inclusion: {in: 0...LEVELS[:ru].size}, allow_blank: true
+    validates :c45, inclusion: {in: 0...C45[:ru].size}, allow_blank: true
+    validates :c47, inclusion: {in: 0...C47[:ru].size}, allow_blank: true
+    validates :c48, inclusion: {in: 0...C48[:ru].size}, allow_blank: true
+    validates :c55, inclusion: {in: 0...C55[:ru].size}, allow_blank: true
+    validates :c57, inclusion: {in: 0...BREAKS[:ru].size}, allow_blank: true
+    validates :c59, inclusion: {in: 0...BREAKS[:ru].size}, allow_blank: true
+    validates :c60, inclusion: {in: 0...C60[:ru].size}, allow_blank: true
+    validates :c64, inclusion: {in: 0...C64[:ru].size}, allow_blank: true
+    validates :c65, inclusion: {in: 0...C65[:ru].size}, allow_blank: true
+    validates :c66, inclusion: {in: 0...C66[:ru].size}, allow_blank: true
+    validates :c69, inclusion: {in: 0...C69[:ru].size}, allow_blank: true
+    validates :c70, inclusion: {in: 0...C70[:ru].size}, allow_blank: true
+    validates :c71, inclusion: {in: 0...C71[:ru].size}, allow_blank: true
+    validates :c76, inclusion: {in: 0...POSITIONS[:ru].size}, allow_blank: true
+    validates :c80, inclusion: {in: 0...C80[:ru].size}, allow_blank: true
+    validates :c87, inclusion: {in: 0...POSITIONS[:ru].size}, allow_blank: true
+    validates :c100, inclusion: {in: 0...C100[:ru].size}, allow_blank: true
   end
 
 end

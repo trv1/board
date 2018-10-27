@@ -63,10 +63,14 @@ class AdvertsController < ApplicationController
       else
         # format.html { render :new }
         # format.json { render json: @advert.errors, status: :unprocessable_entity }
-        # puts @bicycle.errors.to_json
         render json: {status: :unprocessable_entity}.merge({messages: @advert.errors.messages.map{|k,v| [k,v]}.to_a})
       end
     # end
+  end
+
+  def redirect_after_create
+    flash[:success] = 'Объявление успешно создано.'
+    render js: "window.location = '/'"
   end
 
   # PATCH/PUT /adverts/1
@@ -152,7 +156,7 @@ class AdvertsController < ApplicationController
         :phone,
         :email,
         :is_exchange,
-        # :time,
+        :time,
         # :description,
         :currency_id,
         :price,

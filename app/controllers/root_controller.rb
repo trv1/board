@@ -1,6 +1,10 @@
 class RootController < ApplicationController
   def index
-
+    if I18n.locale == :ru
+      @countries = Country.where(isolanguage: I18n.locale, code: %w(RU UA BY KZ GE)).sort_by{|obj| obj.name}
+    else
+      @countries = Country.where(isolanguage: I18n.locale).sort_by{|obj| obj.name}
+    end
   end
 
   def root

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # :omniauthable, :token_authenticatable, :encryptable, :validatable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :confirmable, :lockable, :registerable, :timeoutable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :confirmable, :lockable, :registerable
 
   has_many :adverts
 

@@ -15,3 +15,15 @@
 
 .container
   h3 Объявления
+
+  .panel.panel-default.search-block
+    .panel-body
+      = form_tag root_index_path, method: :get do
+        .row
+          .col-md-4
+            select class="selectpicker" title='Выберите страну' data-size='10' name='country_id' id='country_id'
+              - @countries.each do |country|
+                option value="#{country.id}"
+                  = country.name
+          .col-md-4
+            select class="js-data-example-ajax form-control" style='display: none;' data-location=''

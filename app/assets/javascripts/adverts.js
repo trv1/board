@@ -183,6 +183,14 @@ $(document).on('turbolinks:load', function(){
         }
     });
 
+    $('#time_start').on('change', function () {
+        $('#advert_time').val($('#time_start').val() + ',' + $('#time_end').val());
+    });
+
+    $('#time_end').on('change', function () {
+        $('#advert_time').val($('#time_start').val() + ',' + $('#time_end').val());
+    });
+
     $('#bicycle_c10').on('ifChanged', function () {
         if ($(this).prop('checked')) {
             $('#electro_fields').show(500);
@@ -237,6 +245,13 @@ $(document).on('turbolinks:load', function(){
                         $('#' + v[0] + '_field').find('input').addClass('field-with-errors');
                         $('#' + v[0] + '_field').find('button').addClass('field-with-errors');
                         $('#' + v[0] + '_field').find('.select2-selection').addClass('field-with-errors');
+                    });
+                }
+
+                if (data.status == 'ok') {
+                    $.ajax({
+                        url: '/redirect_after_create',
+                        method: 'get'
                     });
                 }
             }

@@ -128,23 +128,23 @@
                 = t 'activerecord.attributes.advert.is_around_the_clock'
             #time.col-xs-12.mtop10.font14 style='display: none;'
               span Звонить с&nbsp;
-              / input.form-control type='text' id='time_start' style='max-width: 65px; display: inline-block;'
-              select class="selectpicker" data-size='10' name='time_start' id='time_start_hour' data-width='100px'
+              = f.hidden_field :time
+              select class="selectpicker" data-size='10' id='time_start' data-width='80px'
                 - Advert::TIMES[:hours].each do |hour|
                   option value="#{hour}"
                     = hour
-              |&nbsp;:&nbsp;
-              select class="selectpicker" name='time_start' id='time_start_minute' data-width='100px'
+              / |&nbsp;:&nbsp;
+              / select class="selectpicker" name='time_start' id='time_start_minute' data-width='80px'
                 - Advert::TIMES[:minutes].each do |minute|
                   option value="#{minute}"
                     = minute
               span &nbsp;по&nbsp;
-              select class="selectpicker" data-size='10' name='time_start' id='time_end_hour' data-width='100px'
+              select class="selectpicker" data-size='10' id='time_end' data-width='80px'
                 - Advert::TIMES[:hours].each do |hour|
                   option value="#{hour}"
                     = hour
-              |&nbsp;:&nbsp;
-              select class="selectpicker" name='time_start' id='time_end_minute' data-width='100px'
+              / |&nbsp;:&nbsp;
+              / select class="selectpicker" name='time_start' id='time_end_minute' data-width='80px'
                 - Advert::TIMES[:minutes].each do |minute|
                   option value="#{minute}"
                     = minute
