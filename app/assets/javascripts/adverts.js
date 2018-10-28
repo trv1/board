@@ -1,5 +1,5 @@
 Dropzone.autoDiscover = false;
-$(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function() {
     var down = false;
     $('.rotate-icon').on('click', function() {
         if (down) {

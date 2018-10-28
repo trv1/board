@@ -40,6 +40,13 @@ class Advert < ApplicationRecord
       }
   }
 
+  DISTANCES = %w(25 50 100)
+
+  VEHICLE_TYPES = {
+      ru: %w(Велосипеды Электровелосипеды Веломобили Моноколеса Гироскутеры Гироциклы Электросамокаты Электроскутеры Электромотоциклы),
+      en: %w()
+  }
+
   validates :location_id, presence: {message: 'Выберите город'}
   validates :country_id, presence: {message: 'Выберите страну'}
   validates :name, presence: {message: 'Заполните это поле'}

@@ -55,3 +55,10 @@ li.lang {
     text-align: center;
   }
 }
+
+.not-active {opacity: 0.5;}
+
+.active {
+  opacity: 1;
+  cursor: pointer;
+}

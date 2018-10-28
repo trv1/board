@@ -23,6 +23,10 @@
   line-height: 1.42857143;
 }
 
+.advert .select2-selection--single {width: 360px;}
+
+.root .select2-selection--single {width: 340px;}
+
 .select2-selection--single {
   box-sizing: border-box;
   cursor: pointer;
@@ -35,7 +39,6 @@
   font-weight: normal;
   vertical-align: middle;
   font-size: 14px;
-  width: 360px;
 }
 
 .select2-search__field {
@@ -67,13 +70,16 @@
   z-index: 1051;
 }
 
+.advert .select2-container {width: 360px !important;}
+
+.root .select2-container {width: 340px !important;}
+
 .select2-container {
   box-sizing: border-box;
   display: inline-block;
   margin: 0;
   position: relative;
   vertical-align: middle;
-  width: 360px !important;
 }
 
 .select2-dropdown--below {
