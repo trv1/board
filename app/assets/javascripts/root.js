@@ -85,6 +85,9 @@ $(document).on('turbolinks:load', function () {
         }, 100);
     });
 
+    var isDown = true,
+        moreFiltersIcon = $('.more-filters').find('.rotate-icon');
+
     $('#vehicle_type_id').on('change', function () {
         if ($(this).val() == '') {
             $('.more-filters').addClass('not-active');
@@ -93,19 +96,20 @@ $(document).on('turbolinks:load', function () {
             $('.more-filters').removeClass('not-active');
             $('.more-filters').addClass('active');
         }
+        moreFiltersIcon.removeClass('up');
+        isDown = true;
+        $('.filters').hide(200);
     });
 
-    var is_down = true;
     $('body').on('click', '.more-filters.link.active', function () {
-        var icon = $(this).find('.rotate-icon');
-        if (is_down) {
-            icon.addClass('up');
-            is_down = false;
-            // $('.in-block').show(500);
+        if (isDown) {
+            moreFiltersIcon.addClass('up');
+            isDown = false;
+            $('.filters[data-vehicle-type-id="' + $('#vehicle_type_id').val() + '"]').show(200);
         } else {
-            icon.removeClass('up');
-            is_down = true;
-            // $('.in-block').hide(500);
+            moreFiltersIcon.removeClass('up');
+            isDown = true;
+            $('.filters').hide(200);
         }
     });
 });

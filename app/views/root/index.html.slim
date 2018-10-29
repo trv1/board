@@ -20,31 +20,68 @@
     .panel-body
       = form_tag root_index_path, method: :get do
         .row
-          .col-md-4
+          .col-xs-4
             select class="selectpicker" title='Выберите страну' data-size='10' name='country_id' id='country_id' data-width='340'
               - @countries.each do |country|
                 option value="#{country.id}"
                   = country.name
-          .col-md-4.root
+          .col-xs-4.root
             select class="js-data-example-ajax form-control" style='display: none;' data-location=''
             = hidden_field_tag :location_id, '', style: 'display: none;'
-          .col-md-4
+          .col-xs-4
             select class="selectpicker" title='Выберите радиус' data-size='10' name='distance' id='distance' data-width='340'
               - Advert::DISTANCES.each do |distance|
                 option value="#{distance}"
                   = "+#{distance} км"
         .row style='margin-top: 30px;'
-          .col-md-4
+          .col-xs-4
             select class="selectpicker" title='Выберите тип ТС' data-size='10' name='vehicle_type_id' id='vehicle_type_id' data-width='340'
               option selected='' value='' Выберите тип ТС
               - Advert::VEHICLE_TYPES[I18n.locale].each_with_index do |vehicle_type, index|
                 option value="#{index}"
                   = vehicle_type
-          .col-md-4
+          .col-xs-4
             .more-filters.link.not-active
               | Все характеристики&nbsp;
               .fa.fa-angle-down.rotate-icon
-          .col-md-4
+          .col-xs-4
             = submit_tag 'Показать', class: 'btn btn-primary'
         .row.filters style='margin-top: 30px; display: none;' data-vehicle-type-id='0'
-          
+          .col-xs-3.mtop10
+            .custom-label = t 'activerecord.attributes.bicycle.c1'
+            select class="selectpicker" name='bicycle[c1]' id='bicycle_c1' title='Не выбран' multiple='multiple'
+              option selected='' value='' Не выбран
+              - BicycleValidates::C1[I18n.locale].each do |value|
+                option value="#{value}"
+                  = value
+          .col-xs-3.mtop10
+            .custom-label = t 'activerecord.attributes.bicycle.c2'
+            select class="selectpicker" name='bicycle[c2]' id='bicycle_c2' title='Не выбран'
+              option selected='' value='' Не выбран
+              - BicycleValidates::C2[I18n.locale].each do |value|
+                option value="#{value}"
+                  = value
+          .col-xs-3.mtop10
+            .custom-label = t 'activerecord.attributes.bicycle.c17'
+            select class="selectpicker" name='bicycle[c17]' id='bicycle_c17' title='Не выбран'
+              option selected='' value='' Не выбран
+              - BicycleValidates::C17[I18n.locale].each do |value|
+                option value="#{value}"
+                  = value
+          .col-xs-3.mtop10
+            .custom-label = t 'activerecord.attributes.bicycle.c39'
+            = number_field_tag :bicycle_c39_from, 0, class: 'form-control', style: 'width: 100px'
+          .col-xs-3.mtop10
+            .custom-label = t 'activerecord.attributes.bicycle.c57'
+            select class="selectpicker" name='bicycle[c57]' id='bicycle_c57' title='Не выбран'
+              option selected='' value='' Не выбран
+              - BicycleValidates::BREAKS[I18n.locale].each do |value|
+                option value="#{value}"
+                  = value
+          .col-xs-3.mtop10
+            .custom-label = t 'activerecord.attributes.bicycle.c59'
+            select class="selectpicker" name='bicycle[c59]' id='bicycle_c59' title='Не выбран'
+              option selected='' value='' Не выбран
+              - BicycleValidates::BREAKS[I18n.locale].each do |value|
+                option value="#{value}"
+                  = value
