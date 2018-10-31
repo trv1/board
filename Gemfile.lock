@@ -258,7 +258,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 2)
   bcrypt (~> 3.1.7)
-  bootstrap-sass (~> 3.3.6)
+  bootstrap-sass (~> 3.3.7)
   bootstrap-select-rails
   byebug
   devise

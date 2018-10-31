@@ -27,7 +27,7 @@ gem 'rucaptcha'
 
 gem 'slim-rails'
 gem 'sass', '~> 3.5.3'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'font-awesome-rails'

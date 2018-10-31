@@ -5,6 +5,11 @@ class RootController < ApplicationController
     else
       @countries = Country.where(isolanguage: I18n.locale).sort_by{|obj| obj.name}
     end
+
+    @adverts = Advert.all
+    @adverts = @adverts.where(country_id: params[:country_id]) if params[:country_id].present?
+    @adverts = @adverts.where(location_id: params[:location_id]) if params[:location_id].present?
+    @adverts = @adverts.page params[:page] || 1
   end
 
   def root

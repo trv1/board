@@ -65,4 +65,13 @@ class Advert < ApplicationRecord
   }}
   validates :brand_id, presence: {message: 'Выберите марку'}
   validates :model, presence: {message: 'Введите модель'}
+
+  def self.vehicle_type_condition(adverts, type)
+    case type
+    when 0
+      Advert.joins('inner join bicycles b on adverts.vehicle_id = b.id')
+    when 1
+      Advert.joins('inner join bicycles b on adverts.vehicle_id = b.id').where('b.c10 is true')
+    end
+  end
 end
